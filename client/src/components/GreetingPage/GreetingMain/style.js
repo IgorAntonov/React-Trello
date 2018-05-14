@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-import NormalH1 from '../../shared/Typography/H1';
-import NormalP from '../../shared/Typography/P';
-import media from '../../shared/mediaTemplate';
+import { media, P, H1 } from '../../shared';
 
 import bg from '../../assets/bg.jpg';
 
@@ -28,11 +26,11 @@ export const Wrapper = styled.div`
     padding: 2rem 15rem;`}
 `;
 
-export const H1 = styled(NormalH1)`
+export const styledH1 = styled(H1)`
   margin-bottom: 2rem;
 `;
 
-export const P = styled(NormalP)`
+export const styledP = styled(P)`
   margin-bottom: 2rem;
 `;
 

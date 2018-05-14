@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Icon from '../../shared/Icons';
+import { Icon } from '../../shared';
 import { Wrapper, A } from './style';
 
 
-const SocialBlock = () => (
+export const SocialBlock = () => (
   <Wrapper>
     <div>
       <A href="https://github.com/IgorAntonov" >
@@ -19,5 +19,3 @@ const SocialBlock = () => (
     </div>
   </Wrapper>
 );
-
-export default SocialBlock;

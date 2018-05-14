@@ -9,9 +9,9 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
 
-import App from './components/App';
-import store from './store';
-import theme from './components/shared/theme';
+import { HotApp as App } from './components/App';
+import { store } from './store';
+import { theme } from './components/shared';
 
 
 ReactDOM.render(

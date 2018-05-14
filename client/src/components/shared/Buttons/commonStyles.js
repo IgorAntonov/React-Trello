@@ -1,8 +1,8 @@
 import { css } from 'styled-components';
 
-import media from '../mediaTemplate';
+import { media } from '../helpers';
 
-const styles = css`
+export const styles = css`
   display: block;
   padding: 0.25rem;
   margin: 0 0.1rem;
@@ -39,5 +39,3 @@ const styles = css`
     margin: 0 0.5rem;
   `}
 `;
-
-export default styles;

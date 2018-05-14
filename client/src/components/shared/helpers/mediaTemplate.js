@@ -6,7 +6,7 @@ const sizes = {
   desktop: 60
 };
 
-const media = Object.keys(sizes).reduce((acc, label) => {
+export const media = Object.keys(sizes).reduce((acc, label) => {
   acc[label] = (...args) => css`
     @media only screen and (min-width: ${sizes[label]}rem) {
       ${css(...args)}
@@ -15,4 +15,3 @@ const media = Object.keys(sizes).reduce((acc, label) => {
   return acc;
 }, {});
 
-export default media;

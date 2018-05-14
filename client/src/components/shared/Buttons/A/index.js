@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import css from '../commonStyles';
+import { styles } from '../commonStyles';
 
-const A = styled.a`
-  ${css}
+export const A = styled.a`
+  ${styles}
 `;
 
 A.propTypes = {
   href: PropTypes.string.isRequired
 };
-
-export default A;

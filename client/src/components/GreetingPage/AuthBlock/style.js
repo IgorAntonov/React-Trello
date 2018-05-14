@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import StyledLink from '../../shared/Buttons/StyledLink';
+import { StyledLink } from '../../shared';
 
 
 export const Wrapper = styled.div`

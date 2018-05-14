@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import NormalP from '../../shared/Typography/P';
+import { P } from '../../shared';
 
 export const Footer = styled.footer`
   display: flex;
@@ -12,7 +12,7 @@ export const Footer = styled.footer`
   background-color: #201e1c;
 `;
 
-export const P = NormalP.extend`
+export const styledP = styled(P)`
   margin: 0;
   font-weight: 400;
   color: #7b7a7a;
