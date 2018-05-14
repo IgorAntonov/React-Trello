@@ -26,7 +26,3 @@ export const Logo = styled(Link)`
     color: #7c7d7d;
   }
 `;
-
-// TODO
-// Export default and index for shared comps
-// color (and maybe other) props for comps

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import media from '../../mediaTemplate';
+import { media } from '../../helpers';
 
-const P = styled.p`
+export const P = styled.p`
   margin-top: 0;
   margin-bottom: 0.5rem;
 
@@ -19,5 +19,3 @@ const P = styled.p`
     font-size: 1rem;
   `}
 `;
-
-export default P;

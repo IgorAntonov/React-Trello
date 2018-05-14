@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Wrapper, H1, P } from './style';
-import Link from '../../shared/Buttons/StyledLink';
+import { Wrapper, styledH1 as H1, styledP as P } from './style';
+import { StyledLink as Link } from '../../shared';
 
-const GreetingMain = () => (
+export const GreetingMain = () => (
   <Wrapper>
     <H1>
       Reactive Trello lets you work more collaboratively and get more done.
@@ -18,6 +18,3 @@ const GreetingMain = () => (
     <Link to="/" >Create Account</Link>
   </Wrapper>
 );
-
-
-export default GreetingMain;

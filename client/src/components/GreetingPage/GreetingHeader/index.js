@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { HeaderWrapper, Logo } from './style';
-import AuthBlock from '../AuthBlock';
+import { AuthBlock } from '../AuthBlock';
 
-const Header = () => (
+export const GreetingHeader = () => (
   <HeaderWrapper>
     <Logo to="/">
       Reactive Trello
@@ -11,6 +11,3 @@ const Header = () => (
     <AuthBlock />
   </HeaderWrapper>
 );
-
-export default Header;
-

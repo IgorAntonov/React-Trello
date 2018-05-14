@@ -2,14 +2,12 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import css from '../commonStyles';
+import { styles } from '../commonStyles';
 
-const StyledLink = styled(Link)`
-  ${css}
+export const StyledLink = styled(Link)`
+  ${styles}
 `;
 
 Link.propTypes = {
   to: PropTypes.string.isRequired
 };
-
-export default StyledLink;

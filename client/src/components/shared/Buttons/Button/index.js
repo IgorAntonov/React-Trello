@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import css from '../commonStyles';
+import { styles } from '../commonStyles';
 
-const Button = styled.button`
-  ${css}
+export const Button = styled.button`
+  ${styles}
   
   ${props => props.raised &&
     'box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);'}
@@ -19,5 +19,3 @@ const Button = styled.button`
 Button.propTypes = {
   raised: PropTypes.bool
 };
-
-export default Button;

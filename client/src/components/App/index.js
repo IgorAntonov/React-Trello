@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader';
 import { Switch, Route } from 'react-router-dom';
 import { injectGlobal } from 'styled-components';
 
-import GreetingPage from '../GreetingPage';
+import { GreetingPage } from '../GreetingPage';
 
 const App = () => (
   <Switch>
@@ -11,7 +11,7 @@ const App = () => (
   </Switch>
 );
 
-export default hot(module)(App);
+export const HotApp = hot(module)(App);
 
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`

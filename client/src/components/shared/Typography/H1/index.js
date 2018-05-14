@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import media from '../../mediaTemplate';
+import { media } from '../../helpers';
 
-const H1 = styled.h1`
+export const H1 = styled.h1`
   margin-bottom: 0.5rem;
   margin-top: 0;
   
@@ -21,4 +21,3 @@ const H1 = styled.h1`
   `}
 `;
 
-export default H1;
