@@ -8,22 +8,30 @@ export const styles = css`
   margin: 0 0.1rem;
 
   border-width: 0;
-  border-radius: 2px;
+  border-radius: 4px;
 
-  background-color: ${props => props.theme.button};
+  background-color: ${props => props.color || props.theme.button || '#3f51b5'};
 
   color: #fff;
   font-weight: 300;
   
-  transition: 0.2s all;
+  transition: 0.1s ease-out;
   cursor: pointer;
   user-select: none;
 
+  ${props => props.raised &&
+    'box-shadow: 0 2px 2px rgba(0,0,0,0.24), 2px 2px 4px rgba(0,0,0,0.24);'}
+  
   :hover {
-    background-color: ${props => props.theme.buttonHover};
+    opacity: 0.8;
     color: fff;
   }
-  
+  :active {
+    transform: translate(-1px, -1px);
+    ${props => props.raised &&
+    'box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.24);'}
+  }
+
   ${media.mobile`
     padding: 0.5rem;
     margin: 0 0.2rem;
