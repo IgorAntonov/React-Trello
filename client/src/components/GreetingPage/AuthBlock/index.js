@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { Wrapper, Link } from './style';
+import { Wrapper } from './style';
+import { StyledLink as Link } from '../../shared';
 
 export const AuthBlock = () => (
   <Wrapper>
-    <Link to="/">LOGIN</Link>
-    <Link to="/" signup="true">SIGNUP</Link>
+    <Link raised color="#388e3c" to="/">LOGIN</Link>
+    <Link raised color="#e64a19" to="/signup" signup="true">SIGNUP</Link>
   </Wrapper>
 );

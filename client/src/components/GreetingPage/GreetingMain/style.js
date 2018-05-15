@@ -4,7 +4,7 @@ import { media, P, H1 } from '../../shared';
 
 import bg from '../../assets/bg.jpg';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;

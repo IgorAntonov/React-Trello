@@ -4,10 +4,12 @@ import { Switch, Route } from 'react-router-dom';
 import { injectGlobal } from 'styled-components';
 
 import { GreetingPage } from '../GreetingPage';
+import { SignupPage } from '../SignupPage';
 
 const App = () => (
   <Switch>
     <Route exact path="/" component={GreetingPage} />
+    <Route path="/signup" component={SignupPage} />
   </Switch>
 );
 

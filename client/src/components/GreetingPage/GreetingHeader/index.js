@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { HeaderWrapper, Logo } from './style';
+import { Wrapper, Logo } from './style';
 import { AuthBlock } from '../AuthBlock';
 
 export const GreetingHeader = () => (
-  <HeaderWrapper>
+  <Wrapper>
     <Logo to="/">
       Reactive Trello
     </Logo>
     <AuthBlock />
-  </HeaderWrapper>
+  </Wrapper>
 );

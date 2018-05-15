@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-export const HeaderWrapper = styled.header`
+export const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
