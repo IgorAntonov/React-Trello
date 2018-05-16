@@ -15,6 +15,6 @@ export const GreetingMain = () => (
     <P>
       What are you waiting for? Sign up for free:
     </P>
-    <Link to="/" >Create Account</Link>
+    <Link to="/signup" >Create Account</Link>
   </Wrapper>
 );

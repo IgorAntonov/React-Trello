@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { media, Button, StyledLink } from '../../shared';
+import { media, Button, StyledLink } from '../';
 
 export const Form = styled.form`
   display: flex;
@@ -97,4 +97,3 @@ export const Cancel = styled(StyledLink)`
     background-color: #f4511e;
   }
 `;
-
