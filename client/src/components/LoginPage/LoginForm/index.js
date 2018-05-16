@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 
 import { Form, Input, Field, Label, FormActions, Submit, Cancel } from '../../shared';
 
-export class SignupForm extends Component {
+export class LoginForm extends Component {
   state = {
-    validName: false,
     validEmail: false,
     validPass: false,
-    formErrors: { name: '', email: '', password: '' },
-    name: '',
+    formErrors: { email: '', password: '' },
     email: '',
     password: ''
   }
@@ -17,18 +15,13 @@ export class SignupForm extends Component {
     let isValid = false;
     const { formErrors } = this.state;
     switch (fieldName) {
-      case 'name':
-        isValid = /^[a-z ,.'-]+$/i.test(value);
-        formErrors.name = isValid ? '' : 'must have no special characters';
-        this.setState({ validName: isValid });
-        break;
       case 'email':
         isValid = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value);
         formErrors.email = isValid ? '' : 'is invalid';
         this.setState({ validEmail: isValid });
         break;
       case 'password':
-        isValid = value.length > 5;
+        isValid = value.length > 6;
         formErrors.password = isValid ? '' : 'must be larger than 6 characters';
         this.setState({ validPass: isValid });
         break;
@@ -45,25 +38,13 @@ export class SignupForm extends Component {
 
   render() {
     const {
-      validName, validEmail, validPass,
-      name, email, password, formErrors
+      validEmail, validPass,
+      email, password, formErrors
     } = this.state;
-    const isFormValid = validName && validEmail && validPass;
+    const isFormValid = validEmail && validPass;
 
     return (
       <Form>
-        <Field>
-          <Input
-            type="text"
-            name="name"
-            id="name"
-            valid={validName}
-            value={name}
-            onChange={this.handleChange}
-            onBlur={() => this.validateField('name', name)}
-          />
-          <Label htmlFor="name"> Name {formErrors.name} </Label>
-        </Field>
         <Field>
           <Input
             type="email"
@@ -90,7 +71,7 @@ export class SignupForm extends Component {
         </Field>
         <FormActions>
           <Cancel to="/">Cancel</Cancel>
-          <Submit disabled={!isFormValid}>Create</Submit>
+          <Submit disabled={!isFormValid}>LOGIN</Submit>
         </FormActions>
       </Form>
     );

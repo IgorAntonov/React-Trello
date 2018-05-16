@@ -5,11 +5,13 @@ import { injectGlobal } from 'styled-components';
 
 import { GreetingPage } from '../GreetingPage';
 import { SignupPage } from '../SignupPage';
+import { LoginPage } from '../LoginPage';
 
 const App = () => (
   <Switch>
     <Route exact path="/" component={GreetingPage} />
     <Route path="/signup" component={SignupPage} />
+    <Route path="/login" component={LoginPage} />
   </Switch>
 );
 
