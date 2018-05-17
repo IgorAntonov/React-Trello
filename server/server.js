@@ -1,11 +1,22 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const mongoose = require('mongoose');
 
+const authRoutes = require('./routes/auth');
 const helloRoute = require('./routes/hello');
 
+mongoose.Promise = global.Promise;
+mongoose
+  .connect(`mongodb://IgorAntonov:${process.env.MONGO_PW}@ds016128.mlab.com:16128/trello-dev`)
+  .catch(err => console.log(`Unable to connect to the mongodb instance. Error: ${err}`));
+
+
 const app = express();
+
+app.use(bodyParser.json());
 
 app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000,
@@ -15,6 +26,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/api', helloRoute);
+app.use('/api/auth', authRoutes);
 
 
 if (process.env.NODE_ENV === 'production') {
