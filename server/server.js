@@ -6,7 +6,6 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 
 const authRoutes = require('./routes/auth');
-const helloRoute = require('./routes/hello');
 
 mongoose.Promise = global.Promise;
 mongoose
@@ -25,7 +24,6 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/api', helloRoute);
 app.use('/api/auth', authRoutes);
 
 

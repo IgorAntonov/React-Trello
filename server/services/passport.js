@@ -20,7 +20,7 @@ passport.use(new LocalStrategy({
   if (!user) {
     return done(null, false);
   }
-  if (!(user.password === password)) {
+  if (!user.validatePassword(password)) {
     return done(null, false);
   }
   return done(null, user);
