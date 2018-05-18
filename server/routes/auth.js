@@ -3,43 +3,16 @@ const passport = require('passport');
 
 const router = express.Router();
 
-const User = require('../models/User');
+const auth = require('../controllers/auth');
 
 require('../services/passport');
 
-router.post('/login', passport.authenticate('local'), (req, res) => {
-  res.send(req.body);
-});
+router.post('/login', passport.authenticate('local'));
 
-router.post('/signup', async (req, res, next) => {
-  const { name, email, password } = req.body;
+router.post('/signup', auth.localSignup, passport.authenticate('local'));
 
-  try {
-    const existingUser = await User.findOne({ email }).exec();
-    if (existingUser) {
-      return res.status(422).json({
-        error: 'This email already exists'
-      });
-    }
+router.get('/logout', auth.logout);
 
-    const user = await new User({
-      name,
-      email,
-      password
-    }).save();
-    next();
-  } catch (err) {
-    return res.status(500).json({ err });
-  }
-}, passport.authenticate('local'));
-
-router.get('/logout', (req, res) => {
-  req.logout();
-  res.end();
-});
-
-router.get('/currentUser', (req, res) => {
-  res.send(req.user);
-});
+router.get('/currentUser', auth.currentUser);
 
 module.exports = router;
