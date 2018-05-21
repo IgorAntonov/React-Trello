@@ -3,5 +3,4 @@ require('dotenv').config();
 
 require('./server/server');
 
-// Google strategy
 // Back to client

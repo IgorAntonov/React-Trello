@@ -20,6 +20,16 @@ router.post(
   auth.currentUser
 );
 
+router.get('/google', passport.authenticate('google', {
+  scope: ['profile']
+}));
+
+router.get(
+  '/google/callback',
+  passport.authenticate('google'),
+  (req, res) => res.redirect('/')
+);
+
 router.get('/logout', auth.logout);
 
 router.get('/currentUser', auth.currentUser);
