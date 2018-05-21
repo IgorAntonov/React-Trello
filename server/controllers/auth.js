@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const LocalUser = require('../models/LocalUser');
 
 exports.localSignup = async (req, res, next) => {
   const { name, email, password } = req.body;
@@ -8,14 +8,14 @@ exports.localSignup = async (req, res, next) => {
     });
   }
   try {
-    const existingUser = await User.findOne({ email }).exec();
+    const existingUser = await LocalUser.findOne({ email }).exec();
     if (existingUser) {
       return res.status(422).json({
         error: 'This email already exists'
       });
     }
 
-    const user = await new User({
+    const user = await new LocalUser({
       name,
       email
     });
