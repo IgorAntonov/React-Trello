@@ -2,6 +2,11 @@ const User = require('../models/User');
 
 exports.localSignup = async (req, res, next) => {
   const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    return res.status(400).json({
+      message: 'Client must provide name, email and password for successful auth'
+    });
+  }
   try {
     const existingUser = await User.findOne({ email }).exec();
     if (existingUser) {
@@ -18,15 +23,33 @@ exports.localSignup = async (req, res, next) => {
     await user.save();
     return next();
   } catch (err) {
-    return res.status(500).send(err);
+    return res.status(500).json({
+      message: 'Something broke',
+      err
+    });
   }
 };
 
 exports.logout = (req, res) => {
+  const { user } = req;
+  if (!user) {
+    res.status(401).json({
+      message: 'No logged-in user currently'
+    });
+  }
   req.logout();
-  res.end();
+  res.status(200).json({
+    message: 'User is logged out successfully',
+    user
+  });
 };
 
 exports.currentUser = (req, res) => {
-  res.send(req.user);
+  const { user } = req;
+  if (!user) {
+    res.status(401).json({
+      message: 'No logged-in user currently'
+    });
+  }
+  res.status(200).send(user);
 };
