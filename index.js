@@ -2,5 +2,3 @@
 require('dotenv').config();
 
 require('./server/server');
-
-// Back to client

@@ -4,8 +4,8 @@
 
 import { combineReducers } from 'redux';
 
-import main from './main';
+import { reducer as auth } from './auth';
 
 export const rootReducer = combineReducers({
-  main
+  auth
 });

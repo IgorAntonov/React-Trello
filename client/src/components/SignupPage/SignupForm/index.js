@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { Form, Input, Field, Label, FormActions, Submit, Cancel } from '../../shared';
 
@@ -43,6 +44,14 @@ export class SignupForm extends Component {
     this.setState({ [name]: value });
   }
 
+  handleSubmit = e => {
+    const { signup, redirect, error } = this.props;
+    e.preventDefault();
+    const { name, email, password } = this.state;
+    signup({ name, email, password });
+    if (error.length === 0) redirect('/');
+  }
+
   render() {
     const {
       validName, validEmail, validPass,
@@ -51,7 +60,7 @@ export class SignupForm extends Component {
     const isFormValid = validName && validEmail && validPass;
 
     return (
-      <Form>
+      <Form onSubmit={this.handleSubmit}>
         <Field>
           <Input
             type="text"
@@ -60,7 +69,7 @@ export class SignupForm extends Component {
             valid={validName}
             value={name}
             onChange={this.handleChange}
-            onBlur={() => this.validateField('name', name)}
+            onInput={() => this.validateField('name', name)}
           />
           <Label htmlFor="name"> Name {formErrors.name} </Label>
         </Field>
@@ -72,7 +81,7 @@ export class SignupForm extends Component {
             valid={validEmail}
             value={email}
             onChange={this.handleChange}
-            onBlur={() => this.validateField('email', email)}
+            onInput={() => this.validateField('email', email)}
           />
           <Label htmlFor="email"> Email {formErrors.email} </Label>
         </Field>
@@ -84,15 +93,22 @@ export class SignupForm extends Component {
             valid={validPass}
             value={password}
             onChange={this.handleChange}
-            onBlur={() => this.validateField('password', password)}
+            onInput={() => this.validateField('password', password)}
           />
           <Label htmlFor="password"> Password {formErrors.password} </Label>
         </Field>
         <FormActions>
           <Cancel to="/">Cancel</Cancel>
-          <Submit disabled={!isFormValid}>Create</Submit>
+          <Submit disabled={!isFormValid} >Create</Submit>
         </FormActions>
       </Form>
     );
   }
 }
+
+SignupForm.propTypes = {
+  signup: PropTypes.func.isRequired,
+  redirect: PropTypes.func.isRequired,
+  error: PropTypes.string.isRequired
+};
+
