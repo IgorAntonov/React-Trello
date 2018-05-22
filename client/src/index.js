@@ -20,5 +20,3 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-
-// THEME IN REDUX STORE
