@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 import {
   Form, Input, Field, Label, FormActions,
@@ -15,18 +16,6 @@ export class SignupForm extends Component {
     name: '',
     email: '',
     password: ''
-  }
-  componentDidMount = () => {
-    const { user, redirect } = this.props;
-    if (user.email) {
-      redirect('/');
-    }
-  }
-  componentDidUpdate = () => {
-    const { user, redirect } = this.props;
-    if (user.email) {
-      redirect('/');
-    }
   }
 
   handleChange = e => {
@@ -70,7 +59,9 @@ export class SignupForm extends Component {
       name, email, password, formErrors
     } = this.state;
     const isFormValid = validName && validEmail && validPass;
-    const { isLoading, error } = this.props;
+    const { isLoading, error, user } = this.props;
+
+    if (user.email) return <Redirect to="/" />;
     return (
       isLoading ? <LoadingSpinner /> :
       <Form onSubmit={this.handleSubmit}>
@@ -129,6 +120,5 @@ SignupForm.propTypes = {
   signup: PropTypes.func.isRequired,
   error: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  user: PropTypes.shape({}).isRequired,
-  redirect: PropTypes.func.isRequired
+  user: PropTypes.shape({}).isRequired
 };

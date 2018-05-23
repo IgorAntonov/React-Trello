@@ -4,17 +4,19 @@ export const types = {
   SIGNUP_FAILURE: 'AUTH/SIGNUP_FAILURE'
 };
 
-export const requestSignup = () => ({
-  type: types.SIGNUP_REQUEST
-});
-export const successSignup = payload => ({
-  type: types.SIGNUP_SUCCESS,
-  payload
-});
-export const failureSignup = error => ({
-  type: types.SIGNUP_FAILURE,
-  error
-});
+export const actions = {
+  requestSignup: () => ({
+    type: types.SIGNUP_REQUEST
+  }),
+  successSignup: payload => ({
+    type: types.SIGNUP_SUCCESS,
+    payload
+  }),
+  failureSignup: error => ({
+    type: types.SIGNUP_FAILURE,
+    error
+  })
+};
 
 const initialState = {
   user: {},
