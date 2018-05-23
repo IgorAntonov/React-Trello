@@ -5,7 +5,7 @@ import { Footer, H2 } from '../shared';
 import { SignupForm } from './SignupForm';
 import { Wrapper, Header, H1, Main, Link } from './style';
 
-export const SignupPage = ({ auth, signup, history }) => (
+export const SignupPage = ({ auth, signup }) => (
   <Wrapper>
     <Header>
       <H1>Welcome to Reactive Trello!</H1>
@@ -19,7 +19,6 @@ export const SignupPage = ({ auth, signup, history }) => (
         signup={signup}
         isLoading={auth.isLoading}
         user={auth.user}
-        redirect={history.push}
       />
     </Main>
 
@@ -34,7 +33,6 @@ SignupPage.propTypes = {
     error: PropTypes.string.isRequired,
     isLoading: PropTypes.bool.isRequired,
     user: PropTypes.object.isRequired
-  }).isRequired,
-  history: PropTypes.shape({}).isRequired
+  }).isRequired
 };
 

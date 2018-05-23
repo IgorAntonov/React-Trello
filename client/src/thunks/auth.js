@@ -1,25 +1,14 @@
-import axios from 'axios';
-
-import { requestSignup, successSignup, failureSignup } from '../reducers/auth';
-
-const signupApi = (email, password, name) => axios({
-  method: 'post',
-  url: '/api/auth/signup',
-  data: {
-    email,
-    password,
-    name
-  }
-});
+import { actions } from '../reducers/auth';
+import { signupUser } from './api';
 
 export const signup = payload => async dispatch => {
-  dispatch(requestSignup());
+  dispatch(actions.requestSignup());
   try {
     const { email, password, name } = payload;
-    const { data } = await signupApi(email, password, name);
-    dispatch(successSignup(data));
+    const { data } = await signupUser(email, password, name);
+    dispatch(actions.successSignup(data));
   } catch (err) {
     const { error } = err.response.data;
-    dispatch(failureSignup(error));
+    dispatch(actions.failureSignup(error));
   }
 };
