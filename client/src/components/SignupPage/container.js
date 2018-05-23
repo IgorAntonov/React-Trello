@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
 import { SignupPage } from './SignupPage';
-import { signup } from '../../reducers/auth';
+import { signup } from '../../thunks/auth';
 
 const mapStateToProps = state => ({
-  error: state.auth.error
+  auth: state.auth
 });
 
 export const SignupPageContainer = connect(mapStateToProps, { signup })(SignupPage);
