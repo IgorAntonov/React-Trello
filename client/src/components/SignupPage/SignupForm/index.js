@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, Input, Field, Label, FormActions, Submit, Cancel } from '../../shared';
+import {
+  Form, Input, Field, Label, FormActions,
+  Submit, Cancel, LoadingSpinner, SubmitError
+} from '../../shared';
 
 export class SignupForm extends Component {
   state = {
@@ -13,7 +16,29 @@ export class SignupForm extends Component {
     email: '',
     password: ''
   }
+  componentDidMount = () => {
+    const { user, redirect } = this.props;
+    if (user.email) {
+      redirect('/');
+    }
+  }
+  componentDidUpdate = () => {
+    const { user, redirect } = this.props;
+    if (user.email) {
+      redirect('/');
+    }
+  }
 
+  handleChange = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  }
+  handleSubmit = e => {
+    e.preventDefault();
+    const { signup } = this.props;
+    const { name, email, password } = this.state;
+    signup({ name, email, password });
+  }
   validateField = (fieldName, value) => {
     let isValid = false;
     const { formErrors } = this.state;
@@ -39,27 +64,15 @@ export class SignupForm extends Component {
     this.setState({ formErrors });
   };
 
-  handleChange = e => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  }
-
-  handleSubmit = e => {
-    const { signup, redirect, error } = this.props;
-    e.preventDefault();
-    const { name, email, password } = this.state;
-    signup({ name, email, password });
-    if (error.length === 0) redirect('/');
-  }
-
   render() {
     const {
       validName, validEmail, validPass,
       name, email, password, formErrors
     } = this.state;
     const isFormValid = validName && validEmail && validPass;
-
+    const { isLoading, error } = this.props;
     return (
+      isLoading ? <LoadingSpinner /> :
       <Form onSubmit={this.handleSubmit}>
         <Field>
           <Input
@@ -70,6 +83,7 @@ export class SignupForm extends Component {
             value={name}
             onChange={this.handleChange}
             onInput={() => this.validateField('name', name)}
+            onBlur={() => this.validateField('name', name)}
           />
           <Label htmlFor="name"> Name {formErrors.name} </Label>
         </Field>
@@ -82,6 +96,7 @@ export class SignupForm extends Component {
             value={email}
             onChange={this.handleChange}
             onInput={() => this.validateField('email', email)}
+            onBlur={() => this.validateField('email', email)}
           />
           <Label htmlFor="email"> Email {formErrors.email} </Label>
         </Field>
@@ -94,6 +109,7 @@ export class SignupForm extends Component {
             value={password}
             onChange={this.handleChange}
             onInput={() => this.validateField('password', password)}
+            onBlur={() => this.validateField('password', password)}
           />
           <Label htmlFor="password"> Password {formErrors.password} </Label>
         </Field>
@@ -101,6 +117,9 @@ export class SignupForm extends Component {
           <Cancel to="/">Cancel</Cancel>
           <Submit disabled={!isFormValid} >Create</Submit>
         </FormActions>
+        <SubmitError>
+          {error}
+        </SubmitError>
       </Form>
     );
   }
@@ -108,7 +127,8 @@ export class SignupForm extends Component {
 
 SignupForm.propTypes = {
   signup: PropTypes.func.isRequired,
-  redirect: PropTypes.func.isRequired,
-  error: PropTypes.string.isRequired
+  error: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  user: PropTypes.shape({}).isRequired,
+  redirect: PropTypes.func.isRequired
 };
-

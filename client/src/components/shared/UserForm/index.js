@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { media, Button, StyledLink } from '../';
+import { media, Button, StyledLink, P } from '../';
 
 export const Form = styled.form`
   display: flex;
@@ -96,4 +96,10 @@ export const Cancel = styled(StyledLink)`
     color: #fff;
     background-color: #f4511e;
   }
+`;
+
+export const SubmitError = styled(P)`
+  color: red;
+  text-align: center;
+  padding-top: 1rem;
 `;
