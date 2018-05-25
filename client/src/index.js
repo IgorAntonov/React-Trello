@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-import { HotApp as App } from './components/App';
+import { AppContainer as App } from './components/App';
 import { store } from './store';
 
 ReactDOM.render(
