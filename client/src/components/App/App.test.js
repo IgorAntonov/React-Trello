@@ -1,10 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import App from './index';
+import { HotApp } from './App';
 
-test('<App/> snapshot', () => {
-  const wrapper = shallow(<App />);
-  expect(wrapper).toMatchSnapshot();
+test('<App />', () => {
+  const fetchUser = jest.fn();
+
+  const wrapper = shallow(<HotApp fetchUser={fetchUser} />);
+  expect(wrapper.exists()).toBe(true);
 });
 
