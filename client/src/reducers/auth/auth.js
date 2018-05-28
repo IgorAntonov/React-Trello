@@ -22,7 +22,7 @@ export const actions = {
   })
 };
 
-const initialState = {
+export const initialState = {
   user: {},
   error: '',
   isLoading: false
