@@ -9,8 +9,10 @@
     "client": "webpack-dev-server --open --config ./client/config/webpack.config.dev.js",
     "dev": "concurrently -k \"npm run server\" \"npm run client\" ",
     "build": "webpack --config ./client/config/webpack.config.prod.js --progress",
-    "test": "jest --watch",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "engines": {
     "node": "8.10.0"
@@ -94,7 +96,11 @@
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
-    ]
+    ],
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "\\.(jpg|jpeg|png|gif)$": "<rootDir>/client/config/fileMock.js"
+    }
   },
   "babel": {
     "presets": [
