@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import {
   Form, Input, Field, Label, FormActions,
   Submit, Cancel, LoadingSpinner, SubmitError
-} from '../../shared';
+} from 'Shared';
 
 export class SignupForm extends Component {
   static propTypes = {

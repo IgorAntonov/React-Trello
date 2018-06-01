@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { Footer, StyledLink as Link } from 'Shared';
 import { GreetingPage } from './GreetingPage';
 import { Header, Logo } from './style';
-import { Footer, StyledLink as Link } from '../shared';
 
 describe('<GreetingPage />', () => {
   let wrapper;

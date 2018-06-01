@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Footer, H2 } from '../shared';
+import { Footer, H2 } from 'Shared';
 import { SignupFormContainer as SignupForm } from './SignupForm';
 import { Wrapper, Header, H1, Main, Link } from './style';
 

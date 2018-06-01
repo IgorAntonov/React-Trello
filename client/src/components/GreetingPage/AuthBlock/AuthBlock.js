@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { StyledLink as Link } from 'Shared';
 import { Wrapper } from './style';
-import { StyledLink as Link } from '../../shared';
 
 export const AuthBlock = () => (
   <Wrapper>

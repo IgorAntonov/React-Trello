@@ -45,6 +45,7 @@
     "enzyme-to-json": "^3.3.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
+    "eslint-import-resolver-webpack": "^0.10.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
@@ -102,6 +103,12 @@
     "transform": {
       "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
       "\\.(jpg|jpeg|png|gif)$": "<rootDir>/client/config/fileMock.js"
+    },
+    "moduleNameMapper": {
+      "^Config(.*)$": "<rootDir>/client/config$1",
+      "^Shared(.*)$": "<rootDir>/client/src/components/shared$1",
+      "^Thunks(.*)$": "<rootDir>/client/src/thunks$1",
+      "^Assets(.*)$": "<rootDir>/client/src/assets$1"
     }
   },
   "babel": {
@@ -122,6 +129,13 @@
     "plugins": [
       "react"
     ],
+    "settings": {
+      "import/resolver": {
+        "webpack": {
+          "config": "./client/config/webpack.config.dev.js"
+        }
+      }
+    },
     "rules": {
       "import/prefer-default-export": "off",
       "react/jsx-filename-extension": [
