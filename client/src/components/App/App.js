@@ -6,6 +6,7 @@ import { injectGlobal } from 'styled-components';
 import { GreetingPage } from '../GreetingPage';
 import { SignupPage } from '../SignupPage';
 import { LoginPage } from '../LoginPage';
+import { BoardsPage } from '../BoardsPage/index';
 
 class App extends Component {
   static propTypes = {
@@ -22,6 +23,7 @@ class App extends Component {
         <Route exact path="/" component={GreetingPage} />
         <Route path="/signup" component={SignupPage} />
         <Route path="/login" component={LoginPage} />
+        <Route path="/boards" component={BoardsPage} />
       </Switch>
     );
   }
