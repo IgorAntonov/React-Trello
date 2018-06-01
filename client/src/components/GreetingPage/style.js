@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { media, P as defaultP, H1 as defaultH1 } from '../shared';
+import { media, P as defaultP, H1 as defaultH1 } from 'Shared';
 
-import bg from '../../assets/bg.jpg';
+import bg from 'Assets/bg.jpg';
 
 export const Wrapper = styled.div`
   display: flex;

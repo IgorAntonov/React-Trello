@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { Footer, StyledLink as Link } from 'Shared';
 import { AuthBlock } from './AuthBlock';
-import { Footer, StyledLink as Link } from '../shared';
 import { Wrapper, Main, H1, P, Logo, Header } from './style';
 
 export const GreetingPage = () => (

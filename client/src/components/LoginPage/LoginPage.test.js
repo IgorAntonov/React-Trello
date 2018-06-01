@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { Footer } from 'Shared';
 import { LoginPage } from './LoginPage';
 import { LoginFormContainer as LoginForm } from './LoginForm';
 import { Header, Link } from './style';
-import { Footer } from '../shared';
 
 describe('<LoginPage />', () => {
   let wrapper;

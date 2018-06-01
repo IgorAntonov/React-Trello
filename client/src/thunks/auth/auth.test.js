@@ -1,6 +1,6 @@
 import moxios from 'moxios';
 
-import { mockStore } from '../../../config/storeMock';
+import { mockStore } from 'Config/storeMock';
 import { actions as expectedActions } from '../../reducers/auth';
 import { signup, login, fetchUser } from './auth';
 
