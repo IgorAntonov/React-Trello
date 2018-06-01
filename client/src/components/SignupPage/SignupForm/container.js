@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
+import { signup } from 'Thunks/auth';
 import { SignupForm } from './SignupForm';
-import { signup } from '../../../thunks/auth';
 
 const mapStateToProps = state => ({
   auth: state.auth
