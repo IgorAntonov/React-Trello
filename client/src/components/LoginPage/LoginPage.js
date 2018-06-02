@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Footer, H2 } from 'Shared';
+import { Footer, H2 } from 'Components/shared';
 import { LoginFormContainer as LoginForm } from './LoginForm';
 import { Wrapper, Header, H1, Main, Link } from './style';
 

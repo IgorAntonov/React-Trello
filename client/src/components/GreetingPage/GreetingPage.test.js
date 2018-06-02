@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Footer, StyledLink as Link } from 'Shared';
+import { Footer, StyledLink as Link } from 'Components/shared';
 import { GreetingPage } from './GreetingPage';
 import { Header, Logo } from './style';
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { H1 as defaultH1, StyledLink } from 'Shared';
+import { H1 as defaultH1, StyledLink } from 'Components/shared';
 
 export const Wrapper = styled.div`
   display: flex;

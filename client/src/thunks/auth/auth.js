@@ -1,4 +1,4 @@
-import { actions } from '../../reducers/auth';
+import { actions } from 'Src/reducers/auth';
 import { signupUser, fetchCurrentUser, loginUser } from '../api';
 
 export const signup = ({ email, password, name }) => async dispatch => {

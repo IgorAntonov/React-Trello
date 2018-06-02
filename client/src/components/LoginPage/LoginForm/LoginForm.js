@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import {
   Form, Input, Field, Label, FormActions,
   Submit, Cancel, LoadingSpinner, SubmitError
-} from 'Shared';
+} from 'Components/shared';
 
 export class LoginForm extends Component {
   static propTypes = {
@@ -62,7 +62,7 @@ export class LoginForm extends Component {
     } = this.state;
     const isFormValid = validEmail && validPass;
     const { isLoading, error, user } = this.props.auth;
-    if (user.email) return <Redirect to="/" />;
+    if (user.email) return <Redirect to="/boards" />;
     return (
       isLoading ? <LoadingSpinner /> :
       <Form onSubmit={this.handleSubmit}>

@@ -5,7 +5,7 @@ import thunkMiddleware from 'redux-thunk';
 // eslint-disable-next-line
 import 'regenerator-runtime/runtime';
 
-import { rootReducer } from '../reducers';
+import { rootReducer } from 'Src/reducers';
 
 const logger = createLogger();
 

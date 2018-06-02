@@ -18,9 +18,8 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
       Config: path.resolve(ROOT_DIR, 'config/'),
-      Shared: path.resolve(ROOT_DIR, 'src/components/shared'),
-      Thunks: path.resolve(ROOT_DIR, 'src/thunks'),
-      Assets: path.resolve(ROOT_DIR, 'src/assets')
+      Components: path.resolve(ROOT_DIR, 'src/components'),
+      Src: path.resolve(ROOT_DIR, 'src')
     }
   },
   devtool: 'cheap-module-source-map',
