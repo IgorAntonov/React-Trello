@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader';
 import { Switch, Route } from 'react-router-dom';
 import { injectGlobal } from 'styled-components';
-import { GreetingPage } from '../GreetingPage';
-import { SignupPage } from '../SignupPage';
-import { LoginPage } from '../LoginPage';
-import { BoardsPage } from '../BoardsPage/index';
+
+import { GreetingPage } from 'Components/GreetingPage';
+import { SignupPage } from 'Components/SignupPage';
+import { LoginPage } from 'Components/LoginPage';
+import { BoardsPage } from 'Components/BoardsPage';
+import { PrivateRoute } from './PrivateRoute';
 
 class App extends Component {
   static propTypes = {
@@ -23,7 +25,7 @@ class App extends Component {
         <Route exact path="/" component={GreetingPage} />
         <Route path="/signup" component={SignupPage} />
         <Route path="/login" component={LoginPage} />
-        <Route path="/boards" component={BoardsPage} />
+        <PrivateRoute path="/boards" component={BoardsPage} />
       </Switch>
     );
   }

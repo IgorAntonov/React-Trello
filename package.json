@@ -106,9 +106,8 @@
     },
     "moduleNameMapper": {
       "^Config(.*)$": "<rootDir>/client/config$1",
-      "^Shared(.*)$": "<rootDir>/client/src/components/shared$1",
-      "^Thunks(.*)$": "<rootDir>/client/src/thunks$1",
-      "^Assets(.*)$": "<rootDir>/client/src/assets$1"
+      "^Components(.*)$": "<rootDir>/client/src/components$1",
+      "^Src(.*)$": "<rootDir>/client/src$1"
     }
   },
   "babel": {

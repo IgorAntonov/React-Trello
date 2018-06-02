@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { H2 } from 'Shared';
+import { H2 } from 'Components/shared';
 
 export const Wrapper = styled.header`
   display: flex;

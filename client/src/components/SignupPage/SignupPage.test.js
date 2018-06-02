@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Footer } from 'Shared';
+import { Footer } from 'Components/shared';
 import { SignupPage } from './SignupPage';
 import { SignupFormContainer as SignupForm } from './SignupForm';
 import { Header, Link } from './style';

@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "allowSyntheticDefaultImports": false,
-    "baseUrl": "./",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
     "paths": {
-      "Shared": ["src/components/shared"],
       "Config/*": ["config/*"],
-      "Thunks/*": ["src/thunks/*"],
-      "Assets/*": ["src/assets/*"]
+      "Components/*": ["src/components/*"],
+      "Src/*": ["src/*"]
     }
   },
   "exclude": ["node_modules"]

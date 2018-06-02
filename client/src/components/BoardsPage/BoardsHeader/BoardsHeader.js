@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from 'Shared';
+import { Button } from 'Components/shared';
 import { Wrapper, FlexWrapper, Title } from './style';
 
 export const BoardsHeader = () => (
