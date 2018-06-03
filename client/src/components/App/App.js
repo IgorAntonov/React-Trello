@@ -8,11 +8,12 @@ import { GreetingPage } from 'Components/GreetingPage';
 import { SignupPage } from 'Components/SignupPage';
 import { LoginPage } from 'Components/LoginPage';
 import { BoardsPage } from 'Components/BoardsPage';
-import { PrivateRoute } from './PrivateRoute';
+import { PrivateRoute } from 'Components/shared';
 
 class App extends Component {
   static propTypes = {
-    fetchUser: PropTypes.func.isRequired
+    fetchUser: PropTypes.func.isRequired,
+    isAuth: PropTypes.bool.isRequired
   }
 
   componentDidMount = () => {
@@ -20,12 +21,13 @@ class App extends Component {
   }
 
   render() {
+    const { isAuth } = this.props;
     return (
       <Switch>
         <Route exact path="/" component={GreetingPage} />
         <Route path="/signup" component={SignupPage} />
         <Route path="/login" component={LoginPage} />
-        <PrivateRoute path="/boards" component={BoardsPage} />
+        <PrivateRoute path="/boards" component={BoardsPage} isAuth={isAuth} />
       </Switch>
     );
   }

@@ -10,3 +10,4 @@ export const Button = styled.button`
 Button.propTypes = {
   raised: PropTypes.bool
 };
+

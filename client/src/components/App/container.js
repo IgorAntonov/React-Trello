@@ -4,4 +4,8 @@ import { withRouter } from 'react-router-dom';
 import { fetchUser } from 'Src/thunks/auth';
 import { HotApp } from './App';
 
-export const AppContainer = withRouter(connect(null, { fetchUser })(HotApp));
+const mapStateToProps = state => ({
+  isAuth: state.auth.isAuthenticated
+});
+
+export const AppContainer = withRouter(connect(mapStateToProps, { fetchUser })(HotApp));

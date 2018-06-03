@@ -25,26 +25,42 @@ export const actions = {
 export const initialState = {
   user: {},
   error: '',
-  isLoading: false
+  isLoading: false,
+  isAuthenticated: false
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.API_REQUEST:
       return {
-        ...state, isLoading: true, user: {}, error: ''
+        ...state,
+        user: {},
+        error: '',
+        isLoading: true
       };
     case types.CURRENTUSER_SUCCESS:
       return {
-        ...state, isLoading: false, user: action.payload, error: ''
+        ...state,
+        user: action.payload,
+        error: '',
+        isLoading: false,
+        isAuthenticated: true
       };
     case types.AUTH_FAILURE:
       return {
-        ...state, isLoading: false, user: {}, error: action.error
+        ...state,
+        user: {},
+        error: action.error,
+        isLoading: false,
+        isAuthenticated: false
       };
     case types.CURRENTUSER_FAILURE:
       return {
-        ...state, isLoading: false, user: {}, error: ''
+        ...state,
+        user: {},
+        error: '',
+        isLoading: false,
+        isAuthenticated: false
       };
     default:
       return state;
