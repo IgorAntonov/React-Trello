@@ -1,1 +1,1 @@
-export { GreetingPage } from './GreetingPage';
+export { GreetingPageContainer as GreetingPage } from './container';

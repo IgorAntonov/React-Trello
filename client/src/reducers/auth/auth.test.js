@@ -55,7 +55,7 @@ describe('auth reducer', () => {
       name: 'bar'
     };
     expect(reducer(initialState, { type: types.CURRENTUSER_SUCCESS, payload }))
-      .toEqual({ ...initialState, user: payload });
+      .toEqual({ ...initialState, user: payload, isAuthenticated: true });
   });
 
   test('should handle CURRENTUSER_FAILURE', () => {

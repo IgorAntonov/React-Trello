@@ -1,6 +1,5 @@
 // Add polyfills here or to the entry point in webpack config, if they will be too much
 import 'core-js/fn/promise';
-
 import 'normalize.css';
 
 import React from 'react';

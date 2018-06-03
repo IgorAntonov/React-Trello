@@ -62,7 +62,7 @@ export class LoginForm extends Component {
     } = this.state;
     const isFormValid = validEmail && validPass;
     const { isLoading, error, user } = this.props.auth;
-    if (user.email) return <Redirect to="/boards" />;
+    if (user.email) return <Redirect to="/" />;
     return (
       isLoading ? <LoadingSpinner /> :
       <Form onSubmit={this.handleSubmit}>
