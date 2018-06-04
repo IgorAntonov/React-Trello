@@ -15,6 +15,8 @@ export const Wrapper = styled.header`
 export const FlexWrapper = styled.div`
   display: flex;
   align-items: center;
+
+  position: relative;
 `;
 
 export const Title = styled(H2)`
