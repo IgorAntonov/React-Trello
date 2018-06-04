@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Button } from 'Components/shared';
 import { Wrapper, FlexWrapper, Title } from './style';
+import { DropdownMenu } from '../DropdownMenu';
 
 export const BoardsHeader = ({ logout }) => (
   <Wrapper>
@@ -13,8 +14,10 @@ export const BoardsHeader = ({ logout }) => (
     <Title>Reactive Trello</Title>
     <FlexWrapper>
       <Button>Create</Button>
-      <Button>Profile</Button>
-      <Button onClick={logout} >Logout</Button>
+      <DropdownMenu>
+        <Button>Change Background</Button>
+        <Button onClick={logout} >Logout</Button>
+      </DropdownMenu>
     </FlexWrapper>
   </Wrapper>
 );
