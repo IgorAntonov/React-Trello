@@ -39,7 +39,7 @@ exports.logout = (req, res) => {
   }
   req.logout();
   res.status(200).json({
-    message: 'User is logged out successfully',
+    message: 'ok',
     user
   });
 };

@@ -1,6 +1,8 @@
 export const types = {
   API_REQUEST: 'AUTH/API_REQUEST',
   CURRENTUSER_SUCCESS: 'AUTH/CURRENTUSER_SUCCESS',
+  LOGOUT_SUCCESS: 'AUTH/LOGOUT_SUCCESS',
+  LOGOUT_FAILURE: 'AUTH/LOGOUT_FAILURE',
   AUTH_FAILURE: 'AUTH/AUTH_FAILURE',
   CURRENTUSER_FAILURE: 'AUTH/CURRENTUSER_FAILURE'
 };
@@ -12,6 +14,12 @@ export const actions = {
   successCurrentUser: payload => ({
     type: types.CURRENTUSER_SUCCESS,
     payload
+  }),
+  successLogout: () => ({
+    type: types.LOGOUT_SUCCESS
+  }),
+  failureLogout: () => ({
+    type: types.LOGOUT_FAILURE
   }),
   failureAuth: error => ({
     type: types.AUTH_FAILURE,
@@ -34,7 +42,6 @@ export const reducer = (state = initialState, action) => {
     case types.API_REQUEST:
       return {
         ...state,
-        user: {},
         error: '',
         isLoading: true
       };
@@ -45,6 +52,19 @@ export const reducer = (state = initialState, action) => {
         error: '',
         isLoading: false,
         isAuthenticated: true
+      };
+    case types.LOGOUT_SUCCESS:
+      return {
+        ...state,
+        user: {},
+        error: '',
+        isLoading: false,
+        isAuthenticated: false
+      };
+    case types.LOGOUT_FAILURE:
+      return {
+        ...state,
+        isLoading: false
       };
     case types.AUTH_FAILURE:
       return {

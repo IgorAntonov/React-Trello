@@ -1,13 +1,16 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledLink as Link } from 'Components/shared';
+import { StyledLink as Link, Button } from 'Components/shared';
 import { Wrapper } from './style';
 
-export const AuthBlock = ({ isAuth }) => (
+export const AuthBlock = ({ isAuth, logout }) => (
   <Wrapper>
-    {isAuth
-      ? <Link to="/boards">Boards</Link> :
+    {isAuth ?
+      <Fragment>
+        <Link to="/boards">Boards</Link>
+        <Button onClick={logout} >Logout</Button>
+      </Fragment> :
       <Fragment>
         <Link color="#388e3c" to="/login">LOGIN</Link>
         <Link color="#e64a19" to="/signup">SIGNUP</Link>
@@ -16,6 +19,7 @@ export const AuthBlock = ({ isAuth }) => (
 );
 
 AuthBlock.propTypes = {
-  isAuth: PropTypes.bool.isRequired
+  isAuth: PropTypes.bool.isRequired,
+  logout: PropTypes.func.isRequired
 };
 

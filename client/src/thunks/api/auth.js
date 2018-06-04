@@ -19,4 +19,6 @@ export const loginUser = (email, password) => axios({
   }
 });
 
+export const logoutUser = () => axios.get('/api/auth/logout');
+
 export const fetchCurrentUser = () => axios.get('/api/auth/currentUser');

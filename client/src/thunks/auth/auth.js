@@ -1,5 +1,5 @@
 import { actions } from 'Src/reducers/auth';
-import { signupUser, fetchCurrentUser, loginUser } from '../api';
+import { signupUser, fetchCurrentUser, loginUser, logoutUser } from '../api';
 
 export const signup = ({ email, password, name }) => async dispatch => {
   dispatch(actions.requestApi());
@@ -32,3 +32,14 @@ export const login = ({ email, password }) => async dispatch => {
     dispatch(actions.failureAuth(data));
   }
 };
+
+export const logout = () => async dispatch => {
+  dispatch(actions.requestApi());
+  try {
+    const { data } = await logoutUser();
+    if (data.message === 'ok') dispatch(actions.successLogout());
+  } catch (err) {
+    dispatch(actions.failureLogout());
+  }
+};
+
