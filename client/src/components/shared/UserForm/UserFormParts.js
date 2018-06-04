@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { media, Button, StyledLink, P } from '../';
+import { media } from 'Src/helpers';
+import { Button, StyledLink, P } from '../';
 
 export const Form = styled.form`
   display: flex;

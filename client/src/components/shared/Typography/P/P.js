@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { media } from '../../helpers';
+import { media } from 'Src/helpers';
 
 export const P = styled.p`
   margin-top: 0;

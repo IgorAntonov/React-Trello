@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { media } from '../helpers';
+import { media } from 'Src/helpers';
 
 export const styles = css`
   display: block;
