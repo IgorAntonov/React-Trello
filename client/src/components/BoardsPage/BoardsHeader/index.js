@@ -1,1 +1,1 @@
-export { BoardsHeader } from './BoardsHeader';
+export { BoardsHeaderContainer as BoardsHeader } from './container';
