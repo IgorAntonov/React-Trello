@@ -13,7 +13,6 @@ export const GreetingPage = ({ isAuth }) => (
       </Logo>
       <AuthBlock isAuth={isAuth} />
     </Header>
-
     <Main>
       <H1>
         Reactive Trello lets you work more collaboratively and get more done.
@@ -31,7 +30,6 @@ export const GreetingPage = ({ isAuth }) => (
         : <Link to="/signup" >Create Account</Link>
       }
     </Main>
-
     <Footer />
   </Wrapper>
 );

@@ -8,27 +8,36 @@ import { GreetingPage } from 'Components/GreetingPage';
 import { SignupPage } from 'Components/SignupPage';
 import { LoginPage } from 'Components/LoginPage';
 import { BoardsPage } from 'Components/BoardsPage';
-import { PrivateRoute } from 'Components/shared';
+import { PrivateRoute, WithLoading } from 'Components/shared';
 
 class App extends Component {
   static propTypes = {
     fetchUser: PropTypes.func.isRequired,
-    isAuth: PropTypes.bool.isRequired
+    isAuth: PropTypes.bool.isRequired,
+    isLoading: PropTypes.bool.isRequired
   }
 
   componentDidMount = () => {
     this.props.fetchUser();
   }
 
+  renderSwitch = isAuth => (
+    <Switch>
+      <Route exact path="/" component={GreetingPage} />
+      <Route path="/signup" component={SignupPage} />
+      <Route path="/login" component={LoginPage} />
+      <PrivateRoute path="/boards" component={BoardsPage} isAuth={isAuth} />
+    </Switch>
+  );
+
   render() {
-    const { isAuth } = this.props;
+    const { isAuth, isLoading } = this.props;
     return (
-      <Switch>
-        <Route exact path="/" component={GreetingPage} />
-        <Route path="/signup" component={SignupPage} />
-        <Route path="/login" component={LoginPage} />
-        <PrivateRoute path="/boards" component={BoardsPage} isAuth={isAuth} />
-      </Switch>
+      <WithLoading
+        type="page"
+        isLoading={isLoading}
+        render={() => this.renderSwitch(isAuth)}
+      />
     );
   }
 }
