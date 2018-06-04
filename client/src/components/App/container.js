@@ -6,7 +6,8 @@ import { HotApp } from './App';
 
 const mapStateToProps = state => ({
   isAuth: state.auth.isAuthenticated,
-  isLoading: state.auth.isLoading
+  isLoading: state.auth.isLoading,
+  theme: state.theme
 });
 
 export const AppContainer = withRouter(connect(mapStateToProps, { fetchUser })(HotApp));

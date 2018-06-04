@@ -4,5 +4,5 @@ export const Wrapper = styled.section`
   display: flex;
   flex: 1;
 
-  background-color: green;
+  background-color: ${p => p.theme.main};
 `;
