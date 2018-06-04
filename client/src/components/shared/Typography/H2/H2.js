@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { media } from '../../helpers';
+import { media } from 'Src/helpers';
 
 export const H2 = styled.h2`
   margin-bottom: 0.5rem;
