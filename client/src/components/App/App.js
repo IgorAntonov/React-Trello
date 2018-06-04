@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader';
 import { Switch, Route } from 'react-router-dom';
-import { injectGlobal } from 'styled-components';
+import { injectGlobal, ThemeProvider } from 'styled-components';
 
 import { GreetingPage } from 'Components/GreetingPage';
 import { SignupPage } from 'Components/SignupPage';
@@ -14,7 +14,8 @@ class App extends Component {
   static propTypes = {
     fetchUser: PropTypes.func.isRequired,
     isAuth: PropTypes.bool.isRequired,
-    isLoading: PropTypes.bool.isRequired
+    isLoading: PropTypes.bool.isRequired,
+    theme: PropTypes.shape({}).isRequired
   }
 
   componentDidMount = () => {
@@ -31,13 +32,15 @@ class App extends Component {
   );
 
   render() {
-    const { isAuth, isLoading } = this.props;
+    const { isAuth, isLoading, theme } = this.props;
     return (
-      <WithLoading
-        type="page"
-        isLoading={isLoading}
-        render={() => this.renderSwitch(isAuth)}
-      />
+      <ThemeProvider theme={theme}>
+        <WithLoading
+          type="page"
+          isLoading={isLoading}
+          render={() => this.renderSwitch(isAuth)}
+        />
+      </ThemeProvider>
     );
   }
 }

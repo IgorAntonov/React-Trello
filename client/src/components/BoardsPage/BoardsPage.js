@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Wrapper } from './style';
 import { BoardsHeader } from './BoardsHeader';
 import { Board } from './Board';

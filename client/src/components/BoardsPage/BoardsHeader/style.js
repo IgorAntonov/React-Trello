@@ -9,7 +9,7 @@ export const Wrapper = styled.header`
 
   padding: 0.5rem 0;
 
-  background-color: #aaa;
+  background-color: ${p => p.theme.darker};
 `;
 
 export const FlexWrapper = styled.div`
@@ -21,4 +21,6 @@ export const FlexWrapper = styled.div`
 
 export const Title = styled(H2)`
   margin: 0;
+
+  color: #fff;
 `;
