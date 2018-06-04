@@ -34,7 +34,7 @@ export class LoginForm extends Component {
         this.setState({ validEmail: isValid });
         break;
       case 'password':
-        isValid = value.length > 6;
+        isValid = value.length > 5;
         formErrors.password = isValid ? '' : 'must be larger than 6 characters';
         this.setState({ validPass: isValid });
         break;
