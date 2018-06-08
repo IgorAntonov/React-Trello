@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 
 import { mockStore } from 'Config/storeMock';
-import { actions as expectedActions } from 'Src/reducers/auth';
+import { actions as expectedActions } from 'Src/ducks/auth';
 import { signup, login, fetchUser } from './auth';
 
 const setup = (status, data) => {
