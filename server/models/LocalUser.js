@@ -4,7 +4,8 @@ const bcrypt = require('bcryptjs');
 const userLocalSchema = mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  theme: { type: String, required: true, default: 'default' }
 });
 
 userLocalSchema.methods.generateHash = function generateHash(password) {
