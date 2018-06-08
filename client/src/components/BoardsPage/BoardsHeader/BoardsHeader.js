@@ -5,7 +5,7 @@ import { Button } from 'Components/shared';
 import { Wrapper, FlexWrapper, Title } from './style';
 import { DropdownMenu } from '../DropdownMenu';
 
-export const BoardsHeader = ({ logout }) => (
+export const BoardsHeader = ({ logout, openModal }) => (
   <Wrapper>
     <FlexWrapper>
       <Button>Boards</Button>
@@ -15,7 +15,7 @@ export const BoardsHeader = ({ logout }) => (
     <FlexWrapper>
       <Button>Create</Button>
       <DropdownMenu>
-        <Button>Change Background</Button>
+        <Button onClick={openModal} >Change Background</Button>
         <Button onClick={logout} >Logout</Button>
       </DropdownMenu>
     </FlexWrapper>
@@ -23,6 +23,7 @@ export const BoardsHeader = ({ logout }) => (
 );
 
 BoardsHeader.propTypes = {
-  logout: PropTypes.func.isRequired
+  logout: PropTypes.func.isRequired,
+  openModal: PropTypes.func.isRequired
 };
 
