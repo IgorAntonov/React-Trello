@@ -11,11 +11,11 @@ export const MenuWrapper = styled.div`
   
   right: 0;
   top: 150%;
+`;
 
-  > div {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
+export const FlexWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 `;
 

@@ -1,8 +1,8 @@
-import React, { Component, createRef } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Button } from 'Components/shared';
-import { Wrapper, MenuWrapper } from './style';
+import { Wrapper, MenuWrapper, FlexWrapper } from './style';
 
 export class DropdownMenu extends Component {
   static propTypes = {
@@ -13,7 +13,6 @@ export class DropdownMenu extends Component {
   }
   constructor(props) {
     super(props);
-    this.menuRef = createRef();
     this.state = {
       showMenu: false
     };
@@ -25,9 +24,7 @@ export class DropdownMenu extends Component {
     });
   }
   closeMenu = event => {
-    console.log(this.menuRef);
-    console.log(event.target);
-    if (!this.menuRef.current.contains(event.target)) {
+    if (!this.menuRef.contains(event.target)) {
       this.setState({ showMenu: false }, () => {
         document.removeEventListener('click', this.closeMenu);
       });
@@ -42,10 +39,10 @@ export class DropdownMenu extends Component {
           Menu
         </Button>
         {showMenu &&
-          <MenuWrapper>
-            <div ref={this.menuRef}>
+          <MenuWrapper innerRef={node => { this.menuRef = node; }}>
+            <FlexWrapper>
               {children}
-            </div>
+            </FlexWrapper>
           </MenuWrapper>
         }
       </Wrapper>
