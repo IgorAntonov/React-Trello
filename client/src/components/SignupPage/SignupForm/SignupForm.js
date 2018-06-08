@@ -10,11 +10,9 @@ import {
 export class SignupForm extends Component {
   static propTypes = {
     signup: PropTypes.func.isRequired,
-    auth: PropTypes.shape({
-      error: PropTypes.string.isRequired,
-      isLoading: PropTypes.bool.isRequired,
-      user: PropTypes.shape({}).isRequired
-    }).isRequired
+    error: PropTypes.string.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    isAuth: PropTypes.bool.isRequired
   }
   state = {
     validName: false,
@@ -67,9 +65,9 @@ export class SignupForm extends Component {
       name, email, password, formErrors
     } = this.state;
     const isFormValid = validName && validEmail && validPass;
-    const { isLoading, error, user } = this.props.auth;
+    const { isLoading, isAuth, error } = this.props;
 
-    if (user.email) return <Redirect to="/boards" />;
+    if (isAuth) return <Redirect to="/boards" />;
     return (
       isLoading ? <LoadingSpinner /> :
       <Form onSubmit={this.handleSubmit}>

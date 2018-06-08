@@ -1,3 +1,5 @@
+import { createSelector } from 'reselect';
+
 export const types = {
   API_REQUEST: 'AUTH/API_REQUEST',
   CURRENTUSER_SUCCESS: 'AUTH/CURRENTUSER_SUCCESS',
@@ -86,3 +88,13 @@ export const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+const userSelector = state => state.auth.user;
+const errorSelector = state => state.auth.error;
+const isLoadingSelector = state => state.auth.isLoading;
+const isAuthenticatedSelector = state => state.auth.isAuthenticated;
+
+export const getUser = createSelector(userSelector, user => user);
+export const getError = createSelector(errorSelector, error => error);
+export const getIsLoading = createSelector(isLoadingSelector, flag => flag);
+export const getIsAuth = createSelector(isAuthenticatedSelector, flag => flag);

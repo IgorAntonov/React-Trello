@@ -1,3 +1,5 @@
+import { createSelector } from 'reselect';
+
 import { themes } from 'Src/helpers';
 
 export const types = {
@@ -23,3 +25,6 @@ export const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+const themeSelector = state => state.theme;
+export const getTheme = createSelector(themeSelector, theme => theme);
