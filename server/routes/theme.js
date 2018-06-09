@@ -6,4 +6,6 @@ const router = express.Router();
 
 router.put('/set', theme.setTheme);
 
+router.get('/get', theme.getTheme);
+
 module.exports = router;

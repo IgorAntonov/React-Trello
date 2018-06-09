@@ -45,3 +45,35 @@ exports.setTheme = async (req, res) => {
     });
   }
 };
+
+exports.getTheme = async (req, res) => {
+  try {
+    const { user } = req;
+
+    if (user.googleId) {
+      const existingUser = await GoogleUser.findOne({ googleId: user.googleId }).exec();
+      const { theme } = existingUser;
+      return res.status(200).json({
+        status: 'ok',
+        theme
+      });
+    }
+    if (user.email) {
+      const existingUser = await LocalUser.findOne({ email: user.email }).exec();
+      const { theme } = existingUser;
+      return res.status(200).json({
+        status: 'ok',
+        theme
+      });
+    }
+    return res.status(500).json({
+      status: 'error',
+      message: 'Something went wrong'
+    });
+  } catch (err) {
+    return res.status(500).json({
+      status: 'error',
+      error: err
+    });
+  }
+};
