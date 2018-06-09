@@ -6,6 +6,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 
 const authRoutes = require('./routes/auth');
+const themeRoutes = require('./routes/theme');
 
 mongoose.Promise = global.Promise;
 mongoose
@@ -25,6 +26,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/api/auth', authRoutes);
+app.use('/api/theme', themeRoutes);
 
 
 if (process.env.NODE_ENV === 'production') {
