@@ -45,3 +45,5 @@ export const themes = {
     button: '#9ba0a3'
   }
 };
+
+export const themesKeys = Object.keys(themes);
