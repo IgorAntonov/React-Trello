@@ -3,28 +3,58 @@ import { createSelector } from 'reselect';
 import { themes } from 'Src/helpers';
 
 export const types = {
-  THEME_SET: 'THEME/THEME_SET'
+  THEME_REQUEST: 'THEME/THEME_REQUEST',
+  THEME_SUCCESS: 'THEME/THEME_SUCCESS',
+  THEME_FAILURE: 'THEME/THEME_FAILURE'
 };
 
 export const actions = {
-  setTheme: theme => ({
-    type: types.THEME_SET,
+  requestTheme: () => ({
+    type: types.THEME_REQUEST
+  }),
+  successTheme: theme => ({
+    type: types.THEME_SUCCESS,
     theme
+  }),
+  failureTheme: error => ({
+    type: types.THEME_FAILURE,
+    error
   })
 };
 
 export const initialState = {
-  ...themes.default
+  theme: 'default',
+  colors: { ...themes.default },
+  isLoading: false,
+  error: ''
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.THEME_SET:
-      return { ...state, ...themes[action.theme] };
+    case types.THEME_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        error: ''
+      };
+    case types.THEME_SUCCESS:
+      return {
+        ...state,
+        colors: { ...themes[action.theme] },
+        isLoading: false
+      };
+    case types.THEME_FAILURE:
+      return {
+        ...state,
+        theme: 'default',
+        colors: { ...themes.default },
+        isLoading: false,
+        error: action.error
+      };
     default:
       return state;
   }
 };
 
-const themeSelector = state => state.theme;
-export const getTheme = createSelector(themeSelector, theme => theme);
+const themeSelector = state => state.theme.colors;
+export const getColors = createSelector(themeSelector, theme => theme);
