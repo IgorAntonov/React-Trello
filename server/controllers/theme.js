@@ -19,7 +19,7 @@ exports.setTheme = async (req, res) => {
       );
       return res.status(200).json({
         status: 'ok',
-        message: 'Update is successful'
+        theme
       });
     }
 
@@ -30,7 +30,7 @@ exports.setTheme = async (req, res) => {
       );
       return res.status(200).json({
         status: 'ok',
-        message: 'Update is successful'
+        theme
       });
     }
 
