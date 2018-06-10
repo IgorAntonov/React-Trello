@@ -60,7 +60,7 @@ export class LoginForm extends Component {
     } = this.state;
     const isFormValid = validEmail && validPass;
     const { isLoading, isAuth, error } = this.props;
-    if (isAuth) return <Redirect to="/" />;
+    if (isAuth) return <Redirect to="/boards" />;
     return (
       isLoading ? <LoadingSpinner /> :
       <Form onSubmit={this.handleSubmit}>
