@@ -12,6 +12,7 @@ import { PrivateRoute, WithLoading } from 'Components/shared';
 
 class App extends Component {
   static propTypes = {
+    fetchTheme: PropTypes.func.isRequired,
     fetchUser: PropTypes.func.isRequired,
     isAuth: PropTypes.bool.isRequired,
     isLoading: PropTypes.bool.isRequired,
@@ -20,6 +21,7 @@ class App extends Component {
 
   componentDidMount = () => {
     this.props.fetchUser();
+    this.props.fetchTheme();
   }
 
   renderSwitch = isAuth => (

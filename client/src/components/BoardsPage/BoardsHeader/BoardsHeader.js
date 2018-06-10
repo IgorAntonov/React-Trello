@@ -5,7 +5,7 @@ import { Button } from 'Components/shared';
 import { Wrapper, FlexWrapper, Title } from './style';
 import { DropdownMenu } from '../DropdownMenu';
 
-export const BoardsHeader = ({ logout, openModal }) => (
+export const BoardsHeader = ({ logout, openModal, user }) => (
   <Wrapper>
     <FlexWrapper>
       <Button>Boards</Button>
@@ -13,6 +13,7 @@ export const BoardsHeader = ({ logout, openModal }) => (
     </FlexWrapper>
     <Title>Reactive Trello</Title>
     <FlexWrapper>
+      <Title>{user.username}</Title>
       <Button>Create</Button>
       <DropdownMenu>
         <Button onClick={openModal} >Change Background</Button>
@@ -24,6 +25,7 @@ export const BoardsHeader = ({ logout, openModal }) => (
 
 BoardsHeader.propTypes = {
   logout: PropTypes.func.isRequired,
-  openModal: PropTypes.func.isRequired
+  openModal: PropTypes.func.isRequired,
+  user: PropTypes.shape({}).isRequired
 };
 
