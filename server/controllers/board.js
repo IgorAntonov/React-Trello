@@ -51,7 +51,55 @@ exports.createBoard = async (req, res) => {
   } catch (err) {
     return res.status(500).json({
       status: 'error',
-      error: err
+      message: err.message
+    });
+  }
+};
+
+exports.deleteBoard = async (req, res) => {
+  try {
+    const { user } = req;
+    const { boardId } = req.body;
+
+    if (!boardId) {
+      return res.status(400).json({
+        status: 'error',
+        message: 'No board id is provided'
+      });
+    }
+
+    if (user.email) {
+      await LocalUser.findOneAndUpdate(
+        { _id: user.id },
+        { $pull: { boards: boardId } }
+      );
+      await Board.deleteOne({ _id: boardId });
+
+      return res.status(200).json({
+        status: 'ok'
+      });
+    }
+
+    if (user.googlId) {
+      await GoogleUser.findOneAndUpdate(
+        { _id: user.id },
+        { $pull: { boards: boardId } }
+      );
+      await Board.deleteOne({ _id: boardId });
+
+      return res.status(200).json({
+        status: 'ok'
+      });
+    }
+
+    return res.status(500).json({
+      status: 'error',
+      message: 'Something went wrong'
+    });
+  } catch (err) {
+    return res.status(500).json({
+      status: 'error',
+      message: err.message
     });
   }
 };
