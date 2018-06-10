@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-const userLocalSchema = mongoose.Schema({
+const { Schema } = mongoose;
+
+const userLocalSchema = Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
-  theme: { type: String, required: true, default: 'default' }
+  theme: { type: String, required: true, default: 'default' },
+  boards: [{ type: Schema.Types.ObjectId, ref: 'Board' }]
 });
 
 userLocalSchema.methods.generateHash = function generateHash(password) {
