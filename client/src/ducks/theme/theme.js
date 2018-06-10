@@ -23,7 +23,7 @@ export const actions = {
 };
 
 export const initialState = {
-  theme: 'default',
+  name: 'default',
   colors: { ...themes.default },
   isLoading: false,
   error: ''
@@ -40,13 +40,14 @@ export const reducer = (state = initialState, action) => {
     case types.THEME_SUCCESS:
       return {
         ...state,
+        name: action.theme,
         colors: { ...themes[action.theme] },
         isLoading: false
       };
     case types.THEME_FAILURE:
       return {
         ...state,
-        theme: 'default',
+        name: 'default',
         colors: { ...themes.default },
         isLoading: false,
         error: action.error

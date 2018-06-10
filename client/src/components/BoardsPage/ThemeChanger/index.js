@@ -1,1 +1,1 @@
-export { ThemeChanger } from './ThemeChanger';
+export { ThemeChangerContainer as ThemeChanger } from './container';

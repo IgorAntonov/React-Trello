@@ -6,7 +6,7 @@ import { Icon } from 'Components/shared';
 import { themes, themesKeys } from 'Src/helpers';
 import { Container, ThemeButton, Title, Wrapper, CloseBtn, TitleWrapper } from './style';
 
-export const ThemeChanger = ({ closeModal }) => (
+export const ThemeChanger = ({ closeModal, setTheme }) => (
   <Portal>
     <Container>
       <TitleWrapper>
@@ -21,7 +21,12 @@ export const ThemeChanger = ({ closeModal }) => (
         {
           themesKeys.map(theme => {
             const color = themes[theme].main;
-            return <ThemeButton theme={theme} color={color} key={theme} />;
+            return (<ThemeButton
+              theme={theme}
+              color={color}
+              key={theme}
+              onClick={() => setTheme(theme)}
+            />);
           })
         }
       </Wrapper>
@@ -30,6 +35,7 @@ export const ThemeChanger = ({ closeModal }) => (
 );
 
 ThemeChanger.propTypes = {
-  closeModal: PropTypes.func.isRequired
+  closeModal: PropTypes.func.isRequired,
+  setTheme: PropTypes.func.isRequired
 };
 

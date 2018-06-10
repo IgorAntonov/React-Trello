@@ -6,16 +6,15 @@ import { BoardsHeader } from './BoardsHeader';
 import { Board } from './Board';
 import { ThemeChanger } from './ThemeChanger';
 
-export const BoardsPage = ({ isModalOpen, closeModal }) => (
+export const BoardsPage = ({ isModalOpen }) => (
   <Wrapper>
     <BoardsHeader />
     <Board>Board</Board>
-    {isModalOpen && <ThemeChanger closeModal={closeModal} />}
+    {isModalOpen && <ThemeChanger />}
   </Wrapper>
 );
 
 BoardsPage.propTypes = {
-  isModalOpen: PropTypes.bool.isRequired,
-  closeModal: PropTypes.func.isRequired
+  isModalOpen: PropTypes.bool.isRequired
 };
 
