@@ -103,3 +103,31 @@ exports.deleteBoard = async (req, res) => {
     });
   }
 };
+
+exports.renameBoard = async (req, res) => {
+  try {
+    const { boardId, newName } = req.body;
+
+    if (!boardId || !newName) {
+      return res.status(400).json({
+        status: 'error',
+        message: 'No boards id or new name is provided'
+      });
+    }
+
+    await Board.findOneAndUpdate(
+      { _id: boardId },
+      { name: newName }
+    );
+
+    return res.status(200).json({
+      status: 'ok'
+    });
+  } catch (err) {
+    return res.status(500).json({
+      status: 'error',
+      message: err.message
+    });
+  }
+};
+
