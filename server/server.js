@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 
 const authRoutes = require('./routes/auth');
 const themeRoutes = require('./routes/theme');
+const boardRoutes = require('./routes/board');
 
 mongoose.Promise = global.Promise;
 mongoose
@@ -27,7 +28,7 @@ app.use(passport.session());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/theme', themeRoutes);
-
+app.use('/api/board', boardRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
