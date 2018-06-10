@@ -7,3 +7,8 @@ export const updateTheme = theme => axios({
     theme
   }
 });
+
+export const fetchTheme = () => axios({
+  method: 'get',
+  url: '/api/theme/get'
+});
