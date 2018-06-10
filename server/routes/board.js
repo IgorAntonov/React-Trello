@@ -6,4 +6,6 @@ const router = express.Router();
 
 router.post('/create', board.createBoard);
 
+router.post('/delete', board.deleteBoard);
+
 module.exports = router;
