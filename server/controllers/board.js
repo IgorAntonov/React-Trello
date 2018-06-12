@@ -33,7 +33,7 @@ exports.createBoard = async (req, res) => {
       });
     }
 
-    if (user.googlId) {
+    if (user.googleId) {
       await newBoard.save();
       await GoogleUser.findOneAndUpdate(
         { _id: user.id },
@@ -80,7 +80,7 @@ exports.deleteBoard = async (req, res) => {
       });
     }
 
-    if (user.googlId) {
+    if (user.googleId) {
       await GoogleUser.findOneAndUpdate(
         { _id: user.id },
         { $pull: { boards: boardId } }

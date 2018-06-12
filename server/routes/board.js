@@ -6,8 +6,8 @@ const router = express.Router();
 
 router.post('/create', board.createBoard);
 
-router.post('/delete', board.deleteBoard);
+router.put('/rename', board.renameBoard);
 
-router.post('/rename', board.renameBoard);
+router.delete('/delete', board.deleteBoard);
 
 module.exports = router;
