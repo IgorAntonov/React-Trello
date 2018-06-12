@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import { Wrapper } from './style';
 import { BoardsHeader } from './BoardsHeader';
-import { Board } from './Board';
+import { AllBoards } from './AllBoards';
 import { ThemeChanger } from './ThemeChanger';
 
 export const BoardsPage = ({ isModalOpen }) => (
   <Wrapper>
     <BoardsHeader />
-    <Board>Board</Board>
+    <AllBoards />
     {isModalOpen && <ThemeChanger />}
   </Wrapper>
 );
