@@ -131,3 +131,35 @@ exports.renameBoard = async (req, res) => {
   }
 };
 
+exports.getUserBoards = async (req, res) => {
+  try {
+    const { user } = req;
+
+    if (user.email) {
+      const { boards } = await LocalUser.findById(user.id).populate('boards').exec();
+
+      return res.status(200).json({
+        status: 'ok',
+        boards
+      });
+    }
+    if (user.googleId) {
+      const { boards } = await GoogleUser.findById(user.id).exec();
+
+      return res.status(200).json({
+        status: 'ok',
+        boards
+      });
+    }
+
+    return res.status(500).json({
+      status: 'error',
+      message: 'Something went wrong'
+    });
+  } catch (err) {
+    return res.status(500).json({
+      status: 'error',
+      message: err.message
+    });
+  }
+};
