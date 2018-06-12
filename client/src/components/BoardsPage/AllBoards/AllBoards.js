@@ -1,7 +1,7 @@
 import React from 'react';
 import { Wrapper } from './style';
 
-export const Board = () => (
+export const AllBoards = () => (
   <Wrapper>
     Hello
   </Wrapper>
