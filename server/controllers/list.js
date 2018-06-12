@@ -42,7 +42,7 @@ exports.deleteList = async (req, res) => {
     if (!boardId || !listId) {
       return res.status(400).json({
         status: 'error',
-        message: 'No board id or list id title is provided'
+        message: 'No board id or list id is provided'
       });
     }
 
