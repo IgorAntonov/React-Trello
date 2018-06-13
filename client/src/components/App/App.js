@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader';
 import { Switch, Route } from 'react-router-dom';
@@ -10,42 +10,32 @@ import { LoginPage } from 'Components/LoginPage';
 import { BoardsPage } from 'Components/BoardsPage';
 import { PrivateRoute, WithLoading } from 'Components/shared';
 
-class App extends Component {
-  static propTypes = {
-    fetchTheme: PropTypes.func.isRequired,
-    fetchUser: PropTypes.func.isRequired,
-    isAuth: PropTypes.bool.isRequired,
-    isLoading: PropTypes.bool.isRequired,
-    theme: PropTypes.shape({}).isRequired
-  }
+const App = ({
+  isAuth, isLoading, theme, fetchUser
+}) => (
+  <ThemeProvider theme={theme}>
+    <WithLoading
+      apiCall={fetchUser}
+      isLoading={isLoading}
+      type="page"
+      render={() => (
+        <Switch>
+          <Route exact path="/" component={GreetingPage} />
+          <Route path="/signup" component={SignupPage} />
+          <Route path="/login" component={LoginPage} />
+          <PrivateRoute path="/boards" component={BoardsPage} isAuth={isAuth} />
+        </Switch>
+      )}
+    />
+  </ThemeProvider>
+);
 
-  componentDidMount = () => {
-    this.props.fetchUser();
-    this.props.fetchTheme();
-  }
-
-  renderSwitch = isAuth => (
-    <Switch>
-      <Route exact path="/" component={GreetingPage} />
-      <Route path="/signup" component={SignupPage} />
-      <Route path="/login" component={LoginPage} />
-      <PrivateRoute path="/boards" component={BoardsPage} isAuth={isAuth} />
-    </Switch>
-  );
-
-  render() {
-    const { isAuth, isLoading, theme } = this.props;
-    return (
-      <ThemeProvider theme={theme}>
-        <WithLoading
-          type="page"
-          isLoading={isLoading}
-          render={() => this.renderSwitch(isAuth)}
-        />
-      </ThemeProvider>
-    );
-  }
-}
+App.propTypes = {
+  fetchUser: PropTypes.func.isRequired,
+  isAuth: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  theme: PropTypes.shape({}).isRequired
+};
 
 export const HotApp = hot(module)(App);
 

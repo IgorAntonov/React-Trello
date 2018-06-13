@@ -1,3 +1,5 @@
+import { createSelector } from 'reselect';
+
 export const types = {
   BOARDS_REQUEST: 'BOARDS/BOARDS_REQUEST',
   BOARDS_SUCCESS: 'BOARDS/BOARDS_SUCCESS',
@@ -48,4 +50,8 @@ export const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+const isLoadingSelector = state => state.boards.isLoading;
+
+export const getIsLoading = createSelector(isLoadingSelector, flag => flag);
 
