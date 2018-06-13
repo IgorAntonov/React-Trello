@@ -1,1 +1,1 @@
-export { AllBoards } from './AllBoards';
+export { AllBoardsContainer as AllBoards } from './container';

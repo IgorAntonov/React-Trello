@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${p => p.type === 'page' && 'min-height: 100vh;'}
+  min-height: 100vh;
 `;
 
 export class WithLoading extends Component {
@@ -18,11 +18,7 @@ export class WithLoading extends Component {
       PropTypes.array
     ]).isRequired,
     render: PropTypes.func.isRequired,
-    isLoading: PropTypes.bool.isRequired,
-    type: PropTypes.string
-  };
-  static defaultProps = {
-    type: ''
+    isLoading: PropTypes.bool.isRequired
   };
 
   componentDidMount() {
@@ -36,9 +32,9 @@ export class WithLoading extends Component {
   }
 
   render() {
-    const { render, isLoading, type } = this.props;
+    const { render, isLoading } = this.props;
     return isLoading ?
-      <Wrapper type={type}>
+      <Wrapper>
         <LoadingSpinner />
       </Wrapper> :
       render();

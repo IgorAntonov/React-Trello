@@ -52,6 +52,8 @@ export const reducer = (state = initialState, action) => {
 };
 
 const isLoadingSelector = state => state.boards.isLoading;
+const allBoardsSelector = state => state.boards.boards;
 
 export const getIsLoading = createSelector(isLoadingSelector, flag => flag);
 
+export const getAllBoards = createSelector(allBoardsSelector, boards => Object.values(boards));
