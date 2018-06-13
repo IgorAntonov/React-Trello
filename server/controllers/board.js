@@ -136,7 +136,10 @@ exports.getUserBoards = async (req, res) => {
     const { user } = req;
 
     if (user.email) {
-      const { boards } = await LocalUser.findById(user.id).populate('boards').exec();
+      const { boards } = await LocalUser
+        .findById(user.id)
+        .populate('boards')
+        .exec();
 
       return res.status(200).json({
         status: 'ok',
