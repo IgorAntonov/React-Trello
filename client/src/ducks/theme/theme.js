@@ -58,4 +58,7 @@ export const reducer = (state = initialState, action) => {
 };
 
 const themeSelector = state => state.theme.colors;
+const isLoadingSelector = state => state.theme.isLoading;
+
 export const getColors = createSelector(themeSelector, theme => theme);
+export const getIsLoading = createSelector(isLoadingSelector, flag => flag);

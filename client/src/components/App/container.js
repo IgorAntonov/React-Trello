@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import { getIsAuth, getIsLoading } from 'Src/ducks/auth';
 import { getColors } from 'Src/ducks/theme';
 import { fetchUser } from 'Src/thunks/auth';
-import { fetchTheme } from 'Src/thunks/theme';
 import { HotApp } from './App';
 
 const mapStateToProps = state => ({
@@ -13,4 +12,4 @@ const mapStateToProps = state => ({
   theme: getColors(state)
 });
 
-export const AppContainer = withRouter(connect(mapStateToProps, { fetchUser, fetchTheme })(HotApp));
+export const AppContainer = withRouter(connect(mapStateToProps, { fetchUser })(HotApp));
