@@ -17,7 +17,6 @@ const App = ({
     <WithLoading
       apiCall={fetchUser}
       isLoading={isLoading}
-      type="page"
       render={() => (
         <Switch>
           <Route exact path="/" component={GreetingPage} />

@@ -13,7 +13,6 @@ export const BoardsPage = ({
   <WithLoading
     apiCall={[fetchTheme, fetchUserBoards]}
     isLoading={isLoadingTheme && isLoadingBoards}
-    type="page"
     render={() => (
       <Wrapper>
         <BoardsHeader />
