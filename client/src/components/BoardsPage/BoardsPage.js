@@ -6,6 +6,7 @@ import { WithLoading } from 'Components/shared';
 import { Wrapper } from './style';
 import { BoardsHeader } from './BoardsHeader';
 import { AllBoards } from './AllBoards';
+import { Board } from './Board';
 import { BoardsMenu } from './BoardsMenu';
 import { ThemeChanger } from './ThemeChanger';
 
@@ -21,7 +22,7 @@ export const BoardsPage = ({
         <BoardsHeader />
         <Switch>
           <Route exact path={`${match.path}`} component={AllBoards} />
-          <Route path={`${match.path}/:id`} component={BoardsHeader} />
+          <Route path={`${match.path}/:id`} component={Board} />
         </Switch>
         {isThemeModalOpen && <ThemeChanger />}
         {isBoardsModalOpen && <BoardsMenu />}
