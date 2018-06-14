@@ -8,7 +8,7 @@ import { DropdownMenu } from '../DropdownMenu';
 export const BoardsHeader = ({ logout, openModal, user }) => (
   <Wrapper>
     <FlexWrapper>
-      <Button>Boards</Button>
+      <Button onClick={() => openModal('boardsMenu')} >Boards</Button>
       <Title>Boards Name</Title>
     </FlexWrapper>
     <Title>Reactive Trello</Title>
@@ -16,7 +16,7 @@ export const BoardsHeader = ({ logout, openModal, user }) => (
       <Title>{user.username}</Title>
       <Button>Create</Button>
       <DropdownMenu>
-        <Button onClick={openModal} >Change Background</Button>
+        <Button onClick={() => openModal('themeChanger')} >Change Background</Button>
         <Button onClick={logout} >Logout</Button>
       </DropdownMenu>
     </FlexWrapper>

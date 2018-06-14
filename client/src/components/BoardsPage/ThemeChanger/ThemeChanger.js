@@ -13,7 +13,7 @@ export const ThemeChanger = ({ closeModal, setTheme }) => (
         <Title>
           Colors
         </Title>
-        <CloseBtn onClick={closeModal} >
+        <CloseBtn onClick={() => closeModal('themeChanger')} >
           <Icon icon="close" width="24px" height="24px" viewBox="48" />
         </CloseBtn>
       </TitleWrapper>
