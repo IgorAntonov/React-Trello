@@ -6,6 +6,7 @@ import { Wrapper, MenuWrapper, FlexWrapper } from './style';
 
 export class DropdownMenu extends Component {
   static propTypes = {
+    username: PropTypes.string.isRequired,
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
@@ -31,12 +32,12 @@ export class DropdownMenu extends Component {
     }
   }
   render() {
-    const { children } = this.props;
+    const { children, username } = this.props;
     const { showMenu } = this.state;
     return (
       <Wrapper>
         <Button onClick={this.showMenu}>
-          Menu
+          {username}
         </Button>
         {showMenu &&
           <MenuWrapper innerRef={node => { this.menuRef = node; }}>
