@@ -6,32 +6,42 @@ export const types = {
 };
 
 export const actions = {
-  openModal: () => ({
-    type: types.MODAL_OPEN
+  openModal: modalName => ({
+    type: types.MODAL_OPEN,
+    modalName
   }),
-  closeModal: () => ({
-    type: types.MODAL_CLOSE
+  closeModal: modalName => ({
+    type: types.MODAL_CLOSE,
+    modalName
   })
 };
 
 export const initialState = {
-  isOpen: false
+  themeChanger: false,
+  boardsMenu: false
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.MODAL_OPEN:
-      return { ...state, isOpen: true };
+      return { ...state, [action.modalName]: true };
     case types.MODAL_CLOSE:
-      return { ...state, isOpen: false };
+      return { ...state, [action.modalName]: false };
     default:
       return state;
   }
 };
 
-const modalSelector = state => state.modal.isOpen;
-export const getIsModalOpen = createSelector(
-  modalSelector,
+const modalThemeSelector = state => state.modal.themeChanger;
+const modalBoardsSelector = state => state.modal.boardsMenu;
+
+export const getIsThemeModalOpen = createSelector(
+  modalThemeSelector,
+  isOpen => isOpen
+);
+
+export const getIsBoardsModalOpen = createSelector(
+  modalBoardsSelector,
   isOpen => isOpen
 );
 
