@@ -26,6 +26,10 @@ export const styles = css`
     opacity: 0.8;
     color: fff;
   }
+  :focus {
+    outline: none;
+    opacity: 0.8;
+  }
   :active {
     transform: translate(-1px, -1px);
     ${props => props.raised &&
