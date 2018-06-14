@@ -89,3 +89,33 @@ exports.renameList = async (req, res) => {
     });
   }
 };
+
+exports.getBoardLists = async (req, res) => {
+  try {
+    const { boardId } = req.body;
+
+    if (!boardId) {
+      return res.status(400).json({
+        status: 'error',
+        message: 'No board id title is provided'
+      });
+    }
+
+    const { lists } = await Board.findById(boardId)
+      .populate({
+        path: 'lists',
+        populate: { path: 'cards' }
+      });
+
+    return res.status(200).json({
+      status: 'ok',
+      lists
+    });
+  } catch (err) {
+    return res.status(500).json({
+      status: 'error',
+      message: err.message
+    });
+  }
+};
+

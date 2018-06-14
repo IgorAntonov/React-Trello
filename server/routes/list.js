@@ -10,4 +10,6 @@ router.put('/rename', list.renameList);
 
 router.delete('/delete', list.deleteList);
 
+router.post('/get_lists', list.getBoardLists);
+
 module.exports = router;
