@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Icon, withLoading } from 'Components/shared';
+import { Icon } from 'Components/shared';
 import { Wrapper, FlexTitle, Title, FlexBoards, BoardLink } from './style';
 
-const AllBoards = ({ boards }) => (
+export const AllBoards = ({ boards }) => (
   <Wrapper>
     <FlexTitle>
       <Icon icon="portrait" width="30px" height="30px" viewBox="48" />
@@ -23,8 +23,6 @@ const AllBoards = ({ boards }) => (
     </FlexBoards>
   </Wrapper>
 );
-
-export const AllBoardsWithLoading = withLoading(AllBoards);
 
 AllBoards.propTypes = {
   boards: PropTypes.arrayOf(PropTypes.object).isRequired

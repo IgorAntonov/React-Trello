@@ -11,13 +11,10 @@ export const MenuWrapper = styled.div`
   right: 0;
   top: 150%;
   
-`;
-
-export const FlexWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-
+  
   background-color: ${p => p.theme.darker};
 `;
 

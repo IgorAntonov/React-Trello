@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Button } from 'Components/shared';
-import { Wrapper, MenuWrapper, FlexWrapper } from './style';
+import { Wrapper, MenuWrapper } from './style';
 
 export class DropdownMenu extends Component {
   static propTypes = {
@@ -24,12 +24,10 @@ export class DropdownMenu extends Component {
       document.addEventListener('click', this.closeMenu);
     });
   }
-  closeMenu = event => {
-    if (!this.menuRef.contains(event.target)) {
-      this.setState({ showMenu: false }, () => {
-        document.removeEventListener('click', this.closeMenu);
-      });
-    }
+  closeMenu = () => {
+    this.setState({ showMenu: false }, () => {
+      document.removeEventListener('click', this.closeMenu);
+    });
   }
   render() {
     const { children, username } = this.props;
@@ -40,10 +38,8 @@ export class DropdownMenu extends Component {
           {username}
         </Button>
         {showMenu &&
-          <MenuWrapper innerRef={node => { this.menuRef = node; }}>
-            <FlexWrapper>
-              {children}
-            </FlexWrapper>
+          <MenuWrapper>
+            {children}
           </MenuWrapper>
         }
       </Wrapper>
