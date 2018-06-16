@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Icon } from 'Components/shared';
+import { Icon, withLoading } from 'Components/shared';
 import { Wrapper, FlexTitle, Title, FlexBoards, BoardLink } from './style';
 
-export const AllBoards = ({ boards, fetchBoardLists }) => (
+const AllBoards = ({ boards }) => (
   <Wrapper>
     <FlexTitle>
       <Icon icon="portrait" width="30px" height="30px" viewBox="48" />
@@ -16,7 +16,6 @@ export const AllBoards = ({ boards, fetchBoardLists }) => (
         <BoardLink
           to={`/boards/${board._id}`}
           key={board._id}
-          onClick={() => fetchBoardLists(board._id)}
         >
           {board.name}
         </BoardLink>
@@ -25,8 +24,9 @@ export const AllBoards = ({ boards, fetchBoardLists }) => (
   </Wrapper>
 );
 
+export const AllBoardsWithLoading = withLoading(AllBoards);
+
 AllBoards.propTypes = {
-  boards: PropTypes.arrayOf(PropTypes.object).isRequired,
-  fetchBoardLists: PropTypes.func.isRequired
+  boards: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 

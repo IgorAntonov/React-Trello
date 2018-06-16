@@ -7,6 +7,19 @@ export const LoadingSpinner = () => (
   </Svg>
 );
 
+export const PageSpinner = () => (
+  <Wrapper>
+    <LoadingSpinner />
+  </Wrapper>
+);
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+`;
+
 const rotator = keyframes`
   0% { transform: rotate(0deg); }
   100% { transform: rotate(270deg); }

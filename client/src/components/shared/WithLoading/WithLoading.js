@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -11,32 +11,12 @@ const Wrapper = styled.div`
   min-height: 100vh;
 `;
 
-export class WithLoading extends Component {
-  static propTypes = {
-    apiCall: PropTypes.oneOfType([
-      PropTypes.func,
-      PropTypes.array
-    ]).isRequired,
-    render: PropTypes.func.isRequired,
-    isLoading: PropTypes.bool.isRequired
-  };
-
-  componentDidMount() {
-    const { apiCall } = this.props;
-    if (typeof apiCall === 'function') {
-      apiCall();
-    }
-    if (Array.isArray(apiCall)) {
-      apiCall.forEach(func => func());
-    }
-  }
-
-  render() {
-    const { render, isLoading } = this.props;
-    return isLoading ?
+export const withLoading = Component => ({ isLoading, ...props }) => {
+  return isLoading
+    ? (
       <Wrapper>
         <LoadingSpinner />
-      </Wrapper> :
-      render();
-  }
-}
+      </Wrapper>
+    )
+    : <Component {...props} />;
+};

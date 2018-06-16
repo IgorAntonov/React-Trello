@@ -23,7 +23,11 @@ export const actions = {
 export const initialState = {
   isLoading: false,
   error: '',
-  boards: {}
+  entities: {
+    boards: {},
+    lists: {},
+    cards: {}
+  }
 };
 
 export const reducer = (state = initialState, action) => {
@@ -38,7 +42,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        boards: { ...state.boards, ...action.payload }
+        entities: { ...state.entities, ...action.payload }
       };
     case types.BOARDS_FAILURE:
       return {
@@ -52,8 +56,11 @@ export const reducer = (state = initialState, action) => {
 };
 
 const isLoadingSelector = state => state.boards.isLoading;
-const allBoardsSelector = state => state.boards.boards;
+const allBoardsSelector = state => {
+  const { boards } = state.boards.entities;
+  return Object.values(boards);
+};
 
 export const getIsLoading = createSelector(isLoadingSelector, flag => flag);
 
-export const getAllBoards = createSelector(allBoardsSelector, boards => Object.values(boards));
+export const getAllBoards = createSelector(allBoardsSelector, boards => boards);

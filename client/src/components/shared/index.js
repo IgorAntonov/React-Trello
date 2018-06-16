@@ -3,7 +3,7 @@ export * from './Buttons';
 export * from './UserForm';
 export { Icon } from './Icons';
 export { Footer } from './Footer';
-export { LoadingSpinner } from './LoadingSpinner';
-export { WithLoading } from './WithLoading';
+export { LoadingSpinner, PageSpinner } from './LoadingSpinner';
+export { withLoading } from './withLoading';
 export { PrivateRoute } from './PrivateRoute';
 
