@@ -23,11 +23,9 @@ export const actions = {
 export const initialState = {
   isLoading: false,
   error: '',
-  entities: {
-    boards: {},
-    lists: {},
-    cards: {}
-  }
+  boards: {},
+  lists: {},
+  cards: {}
 };
 
 export const reducer = (state = initialState, action) => {
@@ -42,7 +40,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        entities: { ...state.entities, ...action.payload }
+        ...action.payload
       };
     case types.BOARDS_FAILURE:
       return {
@@ -55,9 +53,9 @@ export const reducer = (state = initialState, action) => {
   }
 };
 
-const isLoadingSelector = state => state.boards.isLoading;
+const isLoadingSelector = state => state.entities.isLoading;
 const allBoardsSelector = state => {
-  const { boards } = state.boards.entities;
+  const { boards } = state.entities;
   return Object.values(boards);
 };
 
