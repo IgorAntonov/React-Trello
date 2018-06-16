@@ -1,1 +1,0 @@
-export { fetchBoardLists } from './lists';

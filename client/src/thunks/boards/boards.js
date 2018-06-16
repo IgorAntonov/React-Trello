@@ -1,4 +1,6 @@
-import { arrayToObj } from 'Src/helpers';
+import { normalize } from 'normalizr';
+
+import { boardSchema } from 'Src/helpers';
 import { actions } from 'Src/ducks/boards';
 import { getUserBoards } from '../api';
 
@@ -8,13 +10,9 @@ export const fetchUserBoards = () => async dispatch => {
   try {
     const { data: { boards } } = await getUserBoards();
 
-    const omitted = boards.map(board => {
-      const { __v, ...rest } = board;
-      return rest;
-    });
-    const result = arrayToObj(omitted, '_id');
+    const { entities } = normalize(boards, boardSchema);
 
-    dispatch(actions.successBoards(result));
+    dispatch(actions.successBoards(entities));
   } catch (err) {
     const { error } = err.response.data;
     dispatch(actions.failureBoards(error));

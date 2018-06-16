@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader';
 import { Switch, Route } from 'react-router-dom';
@@ -8,26 +8,29 @@ import { GreetingPage } from 'Components/GreetingPage';
 import { SignupPage } from 'Components/SignupPage';
 import { LoginPage } from 'Components/LoginPage';
 import { BoardsPage } from 'Components/BoardsPage';
-import { PrivateRoute, WithLoading } from 'Components/shared';
+import { PrivateRoute, PageSpinner } from 'Components/shared';
 
-const App = ({
-  isAuth, isLoading, theme, fetchUser
-}) => (
-  <ThemeProvider theme={theme}>
-    <WithLoading
-      apiCall={fetchUser}
-      isLoading={isLoading}
-      render={() => (
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+
+  render() {
+    const { isAuth, theme, isLoading } = this.props;
+
+    return (
+      isLoading ? <PageSpinner /> :
+      <ThemeProvider theme={theme}>
         <Switch>
           <Route exact path="/" component={GreetingPage} />
           <Route path="/signup" component={SignupPage} />
           <Route path="/login" component={LoginPage} />
           <PrivateRoute path="/boards" component={BoardsPage} isAuth={isAuth} />
         </Switch>
-      )}
-    />
-  </ThemeProvider>
-);
+      </ThemeProvider>
+    );
+  }
+}
 
 App.propTypes = {
   fetchUser: PropTypes.func.isRequired,
