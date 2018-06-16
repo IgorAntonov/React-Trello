@@ -54,11 +54,24 @@ export const reducer = (state = initialState, action) => {
 };
 
 const isLoadingSelector = state => state.entities.isLoading;
-const allBoardsSelector = state => {
-  const { boards } = state.entities;
-  return Object.values(boards);
-};
+const listIdsByBoardId = (state, boardId) => state.entities.boards[boardId].lists;
+const boardNameSelector = (state, boardId) => state.entities.boards[boardId].name;
+const allBoardsSelector = state => state.entities.boards;
+const allListsSelector = state => state.entities.lists;
+const cardByIdSelector = (state, cardId) => state.entities.cards[cardId];
 
 export const getIsLoading = createSelector(isLoadingSelector, flag => flag);
 
-export const getAllBoards = createSelector(allBoardsSelector, boards => boards);
+export const getAllBoards = createSelector(allBoardsSelector, boards => Object.values(boards));
+
+export const getAllLists = createSelector(allListsSelector, lists => lists);
+
+export const getBoardName = createSelector(boardNameSelector, name => name);
+
+export const getListsByBoardId = createSelector(
+  [listIdsByBoardId, allListsSelector],
+  (listIds, allLists) => listIds.map(id => allLists[id])
+);
+
+export const getCardById = createSelector(cardByIdSelector, card => card);
+
