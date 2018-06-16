@@ -1,10 +1,15 @@
 import { connect } from 'react-redux';
 
-import { getUser } from 'Src/ducks/auth';
+import { getListsByBoardId, getBoardName } from 'Src/ducks/entities';
 import { Board } from './Board';
 
-const mapStateToProps = state => ({
-  user: getUser(state)
-});
+const mapStateToProps = (state, ownProps) => {
+  const { id } = ownProps.match.params;
+
+  return {
+    lists: getListsByBoardId(state, id),
+    boardName: getBoardName(state, id)
+  };
+};
 
 export const BoardContainer = connect(mapStateToProps)(Board);

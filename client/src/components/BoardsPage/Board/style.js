@@ -16,6 +16,8 @@ export const FlexTitle = styled.div`
   display: flex;
   align-items: center;
 
+  margin-bottom: 0.8rem;
+
 `;
 
 export const Title = styled(H2)`
@@ -24,3 +26,10 @@ export const Title = styled(H2)`
   color: #fff;
   cursor: default;
 `;
+
+export const FlexBoard = styled.div`
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+`;
+
