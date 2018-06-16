@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ import { Board } from './Board';
 import { BoardsMenu } from './BoardsMenu';
 import { ThemeChanger } from './ThemeChanger';
 
-export class BoardsPage extends Component {
+export class BoardsPage extends PureComponent {
   componentDidMount() {
     this.props.fetchUserBoards();
     this.props.fetchTheme();

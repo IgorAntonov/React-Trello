@@ -1,14 +1,11 @@
 import { connect } from 'react-redux';
 
-import { getIsLoading as getIsLoadingTheme } from 'Src/ducks/theme';
-import { getAllBoards, getIsLoading as getIsLoadingBoards } from 'Src/ducks/entities';
-import { AllBoardsWithLoading } from './AllBoards';
+import { getAllBoards } from 'Src/ducks/entities';
+import { AllBoards } from './AllBoards';
 
 const mapStateToProps = state => ({
-  boards: getAllBoards(state),
-  isLoadingTheme: getIsLoadingTheme(state),
-  isLoading: getIsLoadingBoards(state)
+  boards: getAllBoards(state)
 });
 
-export const AllBoardsContainer = connect(mapStateToProps)(AllBoardsWithLoading);
+export const AllBoardsContainer = connect(mapStateToProps)(AllBoards);
 
