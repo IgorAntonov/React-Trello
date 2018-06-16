@@ -8,6 +8,7 @@ const userLocalSchema = Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   theme: { type: String, required: true, default: 'default' },
+  __v: { type: Number, select: false },
   boards: [{ type: Schema.Types.ObjectId, ref: 'Board' }]
 });
 

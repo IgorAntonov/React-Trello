@@ -138,8 +138,16 @@ exports.getUserBoards = async (req, res) => {
     if (user.email) {
       const { boards } = await LocalUser
         .findById(user.id)
-        .populate('boards')
-        .exec();
+        .populate({
+          path: 'boards',
+          populate: {
+            path: 'lists',
+            populate: {
+              path: 'cards',
+              populate: { path: 'comments' }
+            }
+          }
+        });
 
       return res.status(200).json({
         status: 'ok',
