@@ -17,8 +17,8 @@ export const List = ({ list }) => (
           key={card}
         />))
       }
-      <AddCard />
-    </CardsWrapper> 
+      <AddCard listId={list._id} />
+    </CardsWrapper>
   </Wrapper>
 );
 

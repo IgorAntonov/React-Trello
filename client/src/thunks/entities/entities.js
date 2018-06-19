@@ -18,3 +18,18 @@ export const fetchUserBoards = () => async dispatch => {
     dispatch(actions.failureBoards(error));
   }
 };
+
+export const refreshUserBoards = () => async dispatch => {
+  dispatch(actions.refreshBoards());
+  try {
+    const { data: { boards } } = await getUserBoards();
+
+    const { entities } = normalize(boards, boardSchema);
+
+    dispatch(actions.successBoards(entities));
+  } catch (err) {
+    const { error } = err.response.data;
+    dispatch(actions.failureBoards(error));
+  }
+};
+

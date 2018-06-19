@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import ClickOutside from 'react-click-outside';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -27,7 +28,7 @@ export const AddButton = styled.button`
   }
 `;
 
-export const NewCardField = styled.div`
+export const NewCardField = styled(ClickOutside)`
   display: flex;
   flex-direction: column;
   flex: 1;
