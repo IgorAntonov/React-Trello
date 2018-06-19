@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Card } from 'Components/BoardsPage/Card';
+import { AddCard } from 'Components/BoardsPage/AddCard';
 import { Wrapper, TitleWrapper, Title, CardsWrapper } from './style';
 
 export const List = ({ list }) => (
@@ -16,7 +17,8 @@ export const List = ({ list }) => (
           key={card}
         />))
       }
-    </CardsWrapper>
+      <AddCard />
+    </CardsWrapper> 
   </Wrapper>
 );
 
