@@ -31,12 +31,15 @@ export class AddCard extends Component {
   }
   handleClick = () => {
     const { cardName } = this.state;
-    const { listId, createCard } = this.props;
-    createCard(cardName, listId);
+    const {
+      listId, createCard, showStubCard, hideStubCard
+    } = this.props;
+    showStubCard(cardName);
     this.setState({
       showInput: false,
       cardName: ''
     });
+    createCard(cardName, listId, hideStubCard);
   }
 
   render() {
