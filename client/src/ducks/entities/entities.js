@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 
 export const types = {
   BOARDS_REQUEST: 'BOARDS/BOARDS_REQUEST',
+  BOARDS_REFRESH: 'BOARDS/BOARDS_REFRESH',
   BOARDS_SUCCESS: 'BOARDS/BOARDS_SUCCESS',
   BOARDS_FAILURE: 'BOARDS/BOARDS_FAILURE',
 };
@@ -9,6 +10,9 @@ export const types = {
 export const actions = {
   requestBoards: () => ({
     type: types.BOARDS_REQUEST
+  }),
+  refreshBoards: () => ({
+    type: types.BOARDS_REFRESH
   }),
   successBoards: payload => ({
     type: types.BOARDS_SUCCESS,

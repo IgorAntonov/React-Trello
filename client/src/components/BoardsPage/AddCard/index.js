@@ -1,1 +1,1 @@
-export { AddCard } from './AddCard';
+export { AddCardContainer as AddCard } from './container';
