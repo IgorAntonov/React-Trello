@@ -2,12 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { List } from 'Components/BoardsPage/List';
-import { Wrapper, FlexTitle, Title, FlexBoard } from './style';
+import { BoardTitle } from 'Components/BoardsPage/BoardTitle';
+import { Wrapper, FlexTitle, FlexBoard } from './style';
 
-export const Board = ({ lists, renameList, boardName }) => (
+export const Board = ({
+  lists, renameList, boardName, match
+}) => (
   <Wrapper>
     <FlexTitle>
-      <Title>{boardName}</Title>
+      <BoardTitle
+        title={boardName}
+        key={match.params.id}
+        boardId={match.params.id}
+      />
     </FlexTitle>
     <FlexBoard>
       {lists.map(list => (
@@ -24,6 +31,7 @@ export const Board = ({ lists, renameList, boardName }) => (
 Board.propTypes = {
   lists: PropTypes.arrayOf(PropTypes.object).isRequired,
   renameList: PropTypes.func.isRequired,
-  boardName: PropTypes.string.isRequired
+  boardName: PropTypes.string.isRequired,
+  match: PropTypes.shape({}).isRequired
 };
 
