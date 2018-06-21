@@ -7,7 +7,9 @@ import { Wrapper, AddButton, NewCardField, Field, FieldActions, CancelButton } f
 export class AddCard extends Component {
   static propTypes = {
     listId: PropTypes.string.isRequired,
-    createCard: PropTypes.func.isRequired
+    createCard: PropTypes.func.isRequired,
+    showStubCard: PropTypes.func.isRequired,
+    hideStubCard: PropTypes.func.isRequired
   }
   state = {
     showInput: false,

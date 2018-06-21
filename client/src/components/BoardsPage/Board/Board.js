@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { List } from 'Components/BoardsPage/List';
 import { Wrapper, FlexTitle, Title, FlexBoard } from './style';
 
-export const Board = ({ lists, boardName }) => (
+export const Board = ({ lists, renameList, boardName }) => (
   <Wrapper>
     <FlexTitle>
       <Title>{boardName}</Title>
@@ -13,6 +13,7 @@ export const Board = ({ lists, boardName }) => (
       {lists.map(list => (
         <List
           list={list}
+          renameList={renameList}
           key={list._id}
         />))
       }
@@ -22,6 +23,7 @@ export const Board = ({ lists, boardName }) => (
 
 Board.propTypes = {
   lists: PropTypes.arrayOf(PropTypes.object).isRequired,
+  renameList: PropTypes.func.isRequired,
   boardName: PropTypes.string.isRequired
 };
 
