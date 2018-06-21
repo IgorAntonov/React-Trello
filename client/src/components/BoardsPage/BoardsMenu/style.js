@@ -46,11 +46,15 @@ export const FlexWrapper = styled.div`
 
 export const BoardLink = styled(StyledLink)`
   margin-bottom: 0.5rem;
-  
-  border-radius: 2px;
-  
+  border-radius: 4px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   background-color: rgba(222, 225, 227, 0.6);
   color: #4c4e50;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   :hover {
     background-color: rgba(222, 225, 227, 1);
