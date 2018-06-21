@@ -35,7 +35,6 @@ export const FlexBoards = styled.div`
 `;
 
 export const BoardLink = styled(Link)`
-  display: flex;
   flex-basis: 23%;
   
   padding: 1rem;
@@ -43,7 +42,9 @@ export const BoardLink = styled(Link)`
   
   border: none;
   border-radius: 4px;
-
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   background-color: rgba(222, 225, 227, 0.7);
   color: #4c4e50;
   cursor: pointer;
