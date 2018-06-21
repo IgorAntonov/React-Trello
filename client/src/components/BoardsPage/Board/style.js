@@ -20,13 +20,6 @@ export const FlexTitle = styled.div`
 
 `;
 
-export const Title = styled(H2)`
-  margin: 0;
-
-  color: #fff;
-  cursor: default;
-`;
-
 export const FlexBoard = styled.div`
   display: flex;
   align-items: flex-start;
