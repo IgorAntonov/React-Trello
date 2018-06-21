@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 
+import { renameList } from 'Src/thunks/lists';
 import { getListsByBoardId, getBoardName } from 'Src/ducks/entities';
 import { Board } from './Board';
 
@@ -12,4 +13,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export const BoardContainer = connect(mapStateToProps)(Board);
+export const BoardContainer = connect(mapStateToProps, { renameList })(Board);
