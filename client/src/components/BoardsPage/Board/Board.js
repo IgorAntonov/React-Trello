@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { List } from 'Components/BoardsPage/List';
 import { BoardTitle } from 'Components/BoardsPage/BoardTitle';
+import { AddList } from 'Components/BoardsPage/AddList';
 import { Wrapper, FlexTitle, FlexBoard } from './style';
 
 export const Board = ({
@@ -24,6 +25,7 @@ export const Board = ({
           key={list._id}
         />))
       }
+      <AddList boardId={match.params.id} />
     </FlexBoard>
   </Wrapper>
 );
