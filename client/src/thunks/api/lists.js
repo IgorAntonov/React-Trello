@@ -16,3 +16,12 @@ export const putNewCardName = (newTitle, listId) => axios({
     listId
   }
 });
+
+export const postNewList = (boardId, title) => axios({
+  method: 'post',
+  url: '/api/list/create',
+  data: {
+    boardId,
+    title
+  }
+});
