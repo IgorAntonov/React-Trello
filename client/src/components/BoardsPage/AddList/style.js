@@ -4,7 +4,7 @@ import ClickOutside from 'react-click-outside';
 export const Wrapper = styled.div`
   display: flex;
 
-  width: 16rem;
+  min-width: 16rem;
 `;
 
 export const AddButton = styled.button`

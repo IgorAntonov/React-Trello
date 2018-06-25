@@ -3,19 +3,20 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 16rem;
+  min-width: 16rem;
+  max-height: 500px;
   margin-right: 1rem;
  
   border-radius: 4px;
   overflow: hidden;
 
-  background-color: #d6dadc;
+  background-color: #e2e4e6;
   color: #333;
 `;
 
 export const TitleWrapper = styled.div`
   display: flex;
-
+  min-height: 36px;
   padding: 0.5rem;
   padding-bottom: 0;
 `;
@@ -46,6 +47,23 @@ export const Title = styled.textarea.attrs({
 
 export const CardsWrapper = styled.div`
   display: flex;
+
   flex-direction: column;
+  
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #c4c9cc;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #d6dadc;
+    border-radius: 4px;
+  }
 `;
 
