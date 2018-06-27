@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Droppable } from 'react-beautiful-dnd';
 
 import { List } from 'Components/BoardsPage/List';
 import { BoardTitle } from 'Components/BoardsPage/BoardTitle';
@@ -19,11 +20,17 @@ export const Board = ({
     </FlexTitle>
     <FlexBoard>
       {lists.map(list => (
-        <List
-          list={list}
-          renameList={renameList}
-          key={list._id}
-        />))
+        <Droppable droppableId={list._id} key={list._id} type="LIST" >
+          {(provided, snapshot) => (
+            <div ref={provided.innerRef} {...provided.droppableProps} >
+              <List
+                list={list}
+                renameList={renameList}
+              />
+            </div>
+          )}
+        </Droppable>
+        ))
       }
       <AddList boardId={match.params.id} />
     </FlexBoard>
