@@ -24,7 +24,6 @@ export const FlexBoard = styled.div`
   flex: 1;
 
   overflow-x: auto;
-  
 
   ::-webkit-scrollbar {
     height: 0.8rem;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Draggable } from 'react-beautiful-dnd';
 
 import { Card, StubCard } from 'Components/BoardsPage/Card';
 import { AddCard } from 'Components/BoardsPage/AddCard';
@@ -52,11 +53,21 @@ export class List extends Component {
           />
         </TitleWrapper>
         <CardsWrapper>
-          {list.cards.map(card => (
-            <Card
-              cardId={card}
-              key={card}
-            />))
+          {list.cards.map((card, index) => (
+            <Draggable draggableId={card} key={card} index={index} type="LIST" >
+              {(provided, snapshot) => (
+                <div
+                  ref={provided.innerRef}
+                  {...provided.draggableProps}
+                  {...provided.dragHandleProps}
+                >
+                  <Card
+                    cardId={card}
+                  />
+                </div>
+              )}
+            </Draggable>
+            ))
           }
           {
             isStubCardShow ? <StubCard name={stubCardName} /> : null

@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
   margin-right: 1rem;
  
   border-radius: 4px;
-  overflow: hidden;
 
   background-color: #e2e4e6;
   color: #333;
