@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button, Icon } from 'Components/shared';
-import { Wrapper, FlexWrapper, Title, MenuButton, CreateButton } from './style';
+import { Button } from 'Components/shared';
+import { Wrapper, FlexWrapper, Title, MenuButton } from './style';
 import { DropdownMenu } from '../DropdownMenu';
+import { CreateBoard } from '../CreateBoard';
 
 export const BoardsHeader = ({ logout, openModal, user }) => (
   <Wrapper>
@@ -12,14 +13,7 @@ export const BoardsHeader = ({ logout, openModal, user }) => (
     </FlexWrapper>
     <Title>Reactive Trello</Title>
     <FlexWrapper justify="flex-end" >
-      <CreateButton>
-        <Icon
-          icon="plus"
-          width="24px"
-          height="24px"
-          viewBox="48"
-        />
-      </CreateButton>
+      <CreateBoard />
       <DropdownMenu username={user.username}>
         <MenuButton onClick={() => openModal('themeChanger')} >Change Background</MenuButton>
         <MenuButton onClick={logout} >Logout</MenuButton>

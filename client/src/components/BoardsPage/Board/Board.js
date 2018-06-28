@@ -20,18 +20,12 @@ export const Board = ({
     </FlexTitle>
     <FlexBoard>
       {lists.map(list => (
-        <Droppable droppableId={list._id} key={list._id} type="LIST" >
-          {(provided, snapshot) => (
-            <div ref={provided.innerRef} {...provided.droppableProps} >
-              <List
-                list={list}
-                renameList={renameList}
-              />
-            </div>
-          )}
-        </Droppable>
-        ))
-      }
+        <List
+          list={list}
+          renameList={renameList}
+          key={list._id}
+        />
+      ))}
       <AddList boardId={match.params.id} />
     </FlexBoard>
   </Wrapper>
