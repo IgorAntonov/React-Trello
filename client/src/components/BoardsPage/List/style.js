@@ -46,9 +46,8 @@ export const Title = styled.textarea.attrs({
 
 export const CardsWrapper = styled.div`
   display: flex;
-
   flex-direction: column;
-  
+
   overflow-y: auto;
   overflow-x: hidden;
 
