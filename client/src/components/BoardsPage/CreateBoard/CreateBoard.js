@@ -26,7 +26,9 @@ export class CreateBoard extends Component {
     });
   }
   submitBoard = () => {
-    this.props.createBoard(this.state.name);
+    const { name } = this.state;
+    const { createBoard } = this.props;
+    if (name.length !== 0) createBoard(name);
   }
 
   handleClick = () => {

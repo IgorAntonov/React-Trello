@@ -31,7 +31,10 @@ export const AddButton = styled.button`
 
   border: none;
   outline: none;
-
+  
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   background-color: transparent;
   color: #eaecef;
   cursor: pointer;
