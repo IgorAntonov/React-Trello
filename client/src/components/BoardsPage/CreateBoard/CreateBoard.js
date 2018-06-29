@@ -35,7 +35,12 @@ export class CreateBoard extends Component {
       showCreateInput: !prevState.showCreateInput
     }), cb);
   }
-
+  handleKeyPress = e => {
+    if (e.which === 13) {
+      this.submitBoard();
+      this.hideInput();
+    }
+  }
   render() {
     const { showCreateInput, name } = this.state;
     return (
@@ -46,6 +51,7 @@ export class CreateBoard extends Component {
               onChange={this.handleChange}
               value={name}
               innerRef={x => { this.input = x; }}
+              onKeyPress={this.handleKeyPress}
             />
           }
           <CreateButton onClick={this.handleClick} >
