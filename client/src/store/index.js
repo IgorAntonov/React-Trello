@@ -7,7 +7,7 @@ import 'regenerator-runtime/runtime';
 
 import { rootReducer } from 'Src/ducks';
 
-const logger = createLogger();
+const logger = createLogger({ collapsed: true });
 
 export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger));
 
