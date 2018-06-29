@@ -7,29 +7,47 @@ import { Wrapper, CreateButton, CreateInput } from './style';
 
 export class CreateBoard extends Component {
   static propTypes = {
-
+    createBoard: PropTypes.func.isRequired
   }
   state = {
-    showCreateInput: false
+    showCreateInput: false,
+    name: ''
   }
 
-  handleClick = () => {
-    this.setState(prevState => ({
-      showCreateInput: !prevState.showCreateInput
-    }), () => this.state.showCreateInput && this.input.focus());
+  handleChange = e => {
+    this.setState({
+      name: e.target.value
+    });
   }
   hideInput = () => {
     this.setState({
-      showCreateInput: false
+      showCreateInput: false,
+      name: ''
     });
+  }
+  submitBoard = () => {
+    this.props.createBoard(this.state.name);
+  }
+
+  handleClick = () => {
+    const cb = () => (this.state.showCreateInput ? this.input.focus() : this.submitBoard());
+    this.setState(prevState => ({
+      showCreateInput: !prevState.showCreateInput
+    }), cb);
   }
 
   render() {
-    const { showCreateInput } = this.state;
+    const { showCreateInput, name } = this.state;
     return (
       <ClickOutside onClickOutside={this.hideInput} >
         <Wrapper >
-          { showCreateInput && <CreateInput innerRef={x => { this.input = x; }} /> }
+          {showCreateInput &&
+            <CreateInput
+              onChange={this.handleChange}
+              value={name}
+              innerRef={x => { this.input = x; }}
+            />
+          }
           <CreateButton onClick={this.handleClick} >
             <Icon
               icon={showCreateInput ? 'ok' : 'plus'}
