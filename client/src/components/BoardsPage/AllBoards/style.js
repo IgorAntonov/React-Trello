@@ -31,7 +31,9 @@ export const Title = styled(H2)`
 export const FlexBoards = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
+
+  padding: 0.5rem;
 `;
 
 export const BoardLink = styled(Link)`
@@ -39,6 +41,9 @@ export const BoardLink = styled(Link)`
   
   padding: 1rem;
   margin-bottom: 1rem;
+  margin-right: 1%;
+  margin-left: 1%;
+
   
   border: none;
   border-radius: 4px;

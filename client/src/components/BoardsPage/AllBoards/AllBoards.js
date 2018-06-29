@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Icon } from 'Components/shared';
+import { AddBoard } from 'Components/BoardsPage/AddBoard';
 import { Wrapper, FlexTitle, Title, FlexBoards, BoardLink } from './style';
 
 export const AllBoards = ({ boards }) => (
@@ -20,6 +21,7 @@ export const AllBoards = ({ boards }) => (
           {board.name}
         </BoardLink>
       ))}
+      <AddBoard />
     </FlexBoards>
   </Wrapper>
 );
