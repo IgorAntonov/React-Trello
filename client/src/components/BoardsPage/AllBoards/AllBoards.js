@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 import { Icon } from 'Components/shared';
 import { AddBoard } from 'Components/BoardsPage/AddBoard';
-import { Wrapper, FlexTitle, Title, FlexBoards, BoardLink } from './style';
+import { BoardLink } from 'Components/BoardsPage/BoardLink';
+import { Wrapper, FlexTitle, Title, FlexBoards } from './style';
 
 export const AllBoards = ({ boards }) => (
   <Wrapper>
@@ -16,10 +17,9 @@ export const AllBoards = ({ boards }) => (
       {boards.map(board => (
         <BoardLink
           to={`/boards/${board._id}`}
+          name={board.name}
           key={board._id}
-        >
-          {board.name}
-        </BoardLink>
+        />
       ))}
       <AddBoard />
     </FlexBoards>
