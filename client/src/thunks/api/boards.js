@@ -21,3 +21,11 @@ export const putNewBoardName = (newName, boardId) => axios({
     boardId
   }
 });
+
+export const deleteBoardOnServer = boardId => axios({
+  method: 'delete',
+  url: '/api/board/delete',
+  data: {
+    boardId
+  }
+});

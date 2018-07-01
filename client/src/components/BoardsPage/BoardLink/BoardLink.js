@@ -9,7 +9,8 @@ import {
 
 export class BoardLink extends Component {
   static propTypes = {
-    to: PropTypes.string.isRequired,
+    boardId: PropTypes.string.isRequired,
+    deleteBoard: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired
   }
   state = {
@@ -39,7 +40,7 @@ export class BoardLink extends Component {
   });
 
   render() {
-    const { to, name } = this.props;
+    const { boardId, name, deleteBoard } = this.props;
     const { showDeleteBtn, showDeleteConfirm, isConfirm } = this.state;
     return (
       <Wrapper
@@ -48,7 +49,7 @@ export class BoardLink extends Component {
         onMouseLeave={this.hideDelete}
         onBlur={this.hideDelete}
       >
-        <StyledLink to={to} >
+        <StyledLink to={`/boards/${boardId}`} >
           {name}
         </StyledLink>
         {showDeleteBtn &&
@@ -64,10 +65,11 @@ export class BoardLink extends Component {
         {showDeleteConfirm &&
           <DeleteConfirm
             onClickOutside={this.hideConfirm}
+            onClick={() => deleteBoard(boardId)}
             onMouseEnter={this.confirmDelete}
             onMouseLeave={this.cancelDelete}
           >
-            <ConfirmBtn>
+            <ConfirmBtn isConfirm={isConfirm}>
               Delete this board?
             </ConfirmBtn>
             <IconContainer isConfirm={isConfirm}>
@@ -79,4 +81,3 @@ export class BoardLink extends Component {
     );
   }
 }
-

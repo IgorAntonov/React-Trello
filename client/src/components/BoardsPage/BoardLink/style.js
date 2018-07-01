@@ -96,6 +96,9 @@ export const ConfirmBtn = styled.button`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  
+  transition: 0.3s color;
+  color: ${p => (p.isConfirm ? 'green' : 'inherit')}
 `;
 
 export const IconContainer = styled.div`
@@ -105,7 +108,7 @@ export const IconContainer = styled.div`
 
   height: 1.5rem;
   
-  transition: 0.5s fill;
+  transition: 0.3s fill;
   fill: ${p => (p.isConfirm ? 'green' : 'red')}
 `;
 
