@@ -5,13 +5,13 @@ import { Footer, StyledLink as Link } from 'Components/shared';
 import { AuthBlock } from './AuthBlock';
 import { Wrapper, Main, H1, P, Logo, Header } from './style';
 
-export const GreetingPage = ({ isAuth, logout }) => (
+export const GreetingPage = ({ isAuth, logoutUser }) => (
   <Wrapper>
     <Header>
       <Logo to="/">
         Reactive Trello
       </Logo>
-      <AuthBlock isAuth={isAuth} logout={logout} />
+      <AuthBlock isAuth={isAuth} logoutUser={logoutUser} />
     </Header>
     <Main>
       <H1>
@@ -36,5 +36,5 @@ export const GreetingPage = ({ isAuth, logout }) => (
 
 GreetingPage.propTypes = {
   isAuth: PropTypes.bool.isRequired,
-  logout: PropTypes.func.isRequired
+  logoutUser: PropTypes.func.isRequired
 };

@@ -2,7 +2,7 @@ import moxios from 'moxios';
 
 import { mockStore } from 'Config/storeMock';
 import { actions as expectedActions } from 'Src/ducks/auth';
-import { signup, login, fetchUser } from './auth';
+import { signupUser, loginUser, fetchUser } from './auth';
 
 const setup = (status, data) => {
   moxios.wait(() => {
@@ -31,7 +31,7 @@ describe('thunk auth/signup should create all expected actions', () => {
     setup(200, data);
     const store = mockStore({});
 
-    await store.dispatch(signup(data));
+    await store.dispatch(signupUser(data));
     const actions = store.getActions();
     expect(actions).toHaveLength(2);
     expect(actions[0]).toEqual(expectedActions.requestApi());
@@ -45,7 +45,7 @@ describe('thunk auth/signup should create all expected actions', () => {
     setup(400, data);
     const store = mockStore({});
 
-    await store.dispatch(signup(data));
+    await store.dispatch(signupUser(data));
     const actions = store.getActions();
     expect(actions).toHaveLength(2);
     expect(actions[0]).toEqual(expectedActions.requestApi());
@@ -70,7 +70,7 @@ describe('thunk auth/login should create all expected actions', () => {
     setup(200, data);
     const store = mockStore({});
 
-    await store.dispatch(login(data.email, data.password));
+    await store.dispatch(loginUser(data.email, data.password));
     const actions = store.getActions();
     expect(actions).toHaveLength(2);
     expect(actions[0]).toEqual(expectedActions.requestApi());
@@ -84,7 +84,7 @@ describe('thunk auth/login should create all expected actions', () => {
     setup(400, data);
     const store = mockStore({});
 
-    await store.dispatch(signup(data));
+    await store.dispatch(signupUser(data));
     const actions = store.getActions();
     expect(actions).toHaveLength(2);
     expect(actions[0]).toEqual(expectedActions.requestApi());

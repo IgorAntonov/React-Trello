@@ -1,10 +1,10 @@
 import { actions } from 'Src/ducks/theme';
-import { updateTheme, getTheme } from '../api';
+import { themeAPI } from '../api';
 
 export const setTheme = theme => async dispatch => {
   dispatch(actions.requestTheme());
   try {
-    const { data } = await updateTheme(theme);
+    const { data } = await themeAPI.put(theme);
     dispatch(actions.successTheme(data.theme));
   } catch (err) {
     const { error } = err.response.data;
@@ -15,7 +15,7 @@ export const setTheme = theme => async dispatch => {
 export const fetchTheme = () => async dispatch => {
   dispatch(actions.requestTheme());
   try {
-    const { data } = await getTheme();
+    const { data } = await themeAPI.get();
     dispatch(actions.successTheme(data.theme));
   } catch (err) {
     const { error } = err.response.data;

@@ -6,7 +6,7 @@ import { Wrapper, FlexWrapper, Title, MenuButton } from './style';
 import { DropdownMenu } from '../DropdownMenu';
 import { CreateBoard } from '../CreateBoard';
 
-export const BoardsHeader = ({ logout, openModal, user }) => (
+export const BoardsHeader = ({ logoutUser, openModal, user }) => (
   <Wrapper>
     <FlexWrapper justify="flex-start" >
       <Button onClick={() => openModal('boardsMenu')} >Boards</Button>
@@ -16,14 +16,14 @@ export const BoardsHeader = ({ logout, openModal, user }) => (
       <CreateBoard />
       <DropdownMenu username={user.username}>
         <MenuButton onClick={() => openModal('themeChanger')} >Change Background</MenuButton>
-        <MenuButton onClick={logout} >Logout</MenuButton>
+        <MenuButton onClick={logoutUser} >Logout</MenuButton>
       </DropdownMenu>
     </FlexWrapper>
   </Wrapper>
 );
 
 BoardsHeader.propTypes = {
-  logout: PropTypes.func.isRequired,
+  logoutUser: PropTypes.func.isRequired,
   openModal: PropTypes.func.isRequired,
   user: PropTypes.shape({}).isRequired
 };

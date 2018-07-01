@@ -1,5 +1,5 @@
-export * from './auth';
-export * from './theme';
-export * from './boards';
-export * from './lists';
-export * from './cards';
+export { authAPI } from './auth';
+export { themeAPI } from './theme';
+export { boardAPI } from './boards';
+export { listAPI } from './lists';
+export { cardAPI } from './cards';

@@ -1,11 +1,9 @@
 import axios from 'axios';
 
-export const addCard = (name, listId) => axios({
-  method: 'post',
-  url: '/api/card/create',
-  data: {
+export const cardAPI = {
+  postNew: (name, listId) => axios.post('/api/card/create', {
     name,
     listId
-  }
-});
+  })
+};
 

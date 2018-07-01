@@ -1,14 +1,7 @@
 import axios from 'axios';
 
-export const updateTheme = theme => axios({
-  method: 'put',
-  url: '/api/theme/set',
-  data: {
-    theme
-  }
-});
+export const themeAPI = {
+  put: theme => axios.put('/api/theme/set', { theme }),
+  get: () => axios.get('/api/theme/get')
+};
 
-export const getTheme = () => axios({
-  method: 'get',
-  url: '/api/theme/get'
-});
