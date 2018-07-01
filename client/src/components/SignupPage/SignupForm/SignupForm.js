@@ -9,7 +9,7 @@ import {
 
 export class SignupForm extends Component {
   static propTypes = {
-    signup: PropTypes.func.isRequired,
+    signupUser: PropTypes.func.isRequired,
     error: PropTypes.string.isRequired,
     isLoading: PropTypes.bool.isRequired,
     isAuth: PropTypes.bool.isRequired
@@ -30,9 +30,9 @@ export class SignupForm extends Component {
   }
   handleSubmit = e => {
     e.preventDefault();
-    const { signup } = this.props;
+    const { signupUser } = this.props;
     const { name, email, password } = this.state;
-    signup({ name, email, password });
+    signupUser({ name, email, password });
   }
   validateField = (fieldName, value) => {
     let isValid = false;

@@ -1,27 +1,13 @@
 import axios from 'axios';
 
-export const getBoardLists = boardId => axios({
-  method: 'post',
-  url: '/api/list/get_lists',
-  data: {
-    boardId
-  }
-});
-
-export const putNewCardName = (newTitle, listId) => axios({
-  method: 'put',
-  url: '/api/list/rename',
-  data: {
+export const listAPI = {
+  putName: (newTitle, listId) => axios.put('/api/list/rename', {
     newTitle,
     listId
-  }
-});
-
-export const postNewList = (boardId, title) => axios({
-  method: 'post',
-  url: '/api/list/create',
-  data: {
+  }),
+  postNew: (boardId, title) => axios.post('/api/list/create', {
     boardId,
     title
-  }
-});
+  })
+};
+

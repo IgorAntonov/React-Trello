@@ -1,13 +1,13 @@
 import { refreshUserBoards } from 'Src/thunks/entities';
-import { putNewCardName, postNewList } from '../api';
+import { listAPI } from '../api';
 
 export const renameList = (newTitle, listId) => async dispatch => {
-  await putNewCardName(newTitle, listId);
+  await listAPI.putName(newTitle, listId);
   await dispatch(refreshUserBoards());
 };
 
 export const createList = (boardId, title) => async dispatch => {
-  await postNewList(boardId, title);
+  await listAPI.postNew(boardId, title);
   await dispatch(refreshUserBoards());
 };
 

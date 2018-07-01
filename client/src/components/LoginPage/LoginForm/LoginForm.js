@@ -9,7 +9,7 @@ import {
 
 export class LoginForm extends Component {
   static propTypes = {
-    login: PropTypes.func.isRequired,
+    loginUser: PropTypes.func.isRequired,
     error: PropTypes.string.isRequired,
     isAuth: PropTypes.bool.isRequired,
     isLoading: PropTypes.bool.isRequired
@@ -48,9 +48,9 @@ export class LoginForm extends Component {
   }
   handleSubmit = e => {
     e.preventDefault();
-    const { login } = this.props;
+    const { loginUser } = this.props;
     const { email, password } = this.state;
-    login({ email, password });
+    loginUser({ email, password });
   }
 
   render() {

@@ -1,24 +1,15 @@
 import axios from 'axios';
 
-export const signupUser = (email, password, name) => axios({
-  method: 'post',
-  url: '/api/auth/signup',
-  data: {
+export const authAPI = {
+  signup: (email, password, name) => axios.post('/api/auth/signup', {
     email,
     password,
     name
-  }
-});
-
-export const loginUser = (email, password) => axios({
-  method: 'post',
-  url: '/api/auth/login',
-  data: {
+  }),
+  login: (email, password) => axios.post('/api/auth/login', {
     email,
     password
-  }
-});
-
-export const logoutUser = () => axios.get('/api/auth/logout');
-
-export const fetchCurrentUser = () => axios.get('/api/auth/currentUser');
+  }),
+  logout: () => axios.get('/api/auth/logout'),
+  getUser: () => axios.get('/api/auth/currentUser')
+};

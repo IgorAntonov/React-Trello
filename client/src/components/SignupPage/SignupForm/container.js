@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { getIsAuth, getIsLoading, getError } from 'Src/ducks/auth';
-import { signup } from 'Src/thunks/auth';
+import { signupUser } from 'Src/thunks/auth';
 import { SignupForm } from './SignupForm';
 
 const mapStateToProps = state => ({
@@ -10,4 +10,4 @@ const mapStateToProps = state => ({
   error: getError(state)
 });
 
-export const SignupFormContainer = connect(mapStateToProps, { signup })(SignupForm);
+export const SignupFormContainer = connect(mapStateToProps, { signupUser })(SignupForm);

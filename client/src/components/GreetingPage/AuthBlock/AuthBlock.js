@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import { StyledLink as Link, Button, A } from 'Components/shared';
 import { Wrapper } from './style';
 
-export const AuthBlock = ({ isAuth, logout }) => (
+export const AuthBlock = ({ isAuth, logoutUser }) => (
   <Wrapper>
     {isAuth ?
       <Fragment>
         <Link to="/boards">Boards</Link>
-        <Button onClick={logout} >Logout</Button>
+        <Button onClick={logoutUser} >Logout</Button>
       </Fragment> :
       <Fragment>
         <A href="/api/auth/google" >Login with Google</A>
@@ -21,6 +21,6 @@ export const AuthBlock = ({ isAuth, logout }) => (
 
 AuthBlock.propTypes = {
   isAuth: PropTypes.bool.isRequired,
-  logout: PropTypes.func.isRequired
+  logoutUser: PropTypes.func.isRequired
 };
 

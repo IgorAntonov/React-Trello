@@ -1,12 +1,12 @@
 import { actions } from 'Src/ducks/auth';
-import { signupUser, fetchCurrentUser, loginUser, logoutUser } from '../api';
+import { authAPI } from '../api';
 
-export const signup = ({ email, password, name }) => async dispatch => {
+export const signupUser = ({ email, password, name }) => async dispatch => {
   dispatch(actions.requestApi());
   try {
     const {
       data: { _id: userId, name: username }
-    } = await signupUser(email, password, name);
+    } = await authAPI.signup(email, password, name);
 
     dispatch(actions.successCurrentUser({ userId, username }));
   } catch (err) {
@@ -20,7 +20,7 @@ export const fetchUser = () => async dispatch => {
   try {
     const {
       data: { _id: userId, name: username }
-    } = await fetchCurrentUser();
+    } = await authAPI.getUser();
 
     dispatch(actions.successCurrentUser({ userId, username }));
   } catch (err) {
@@ -28,12 +28,12 @@ export const fetchUser = () => async dispatch => {
   }
 };
 
-export const login = ({ email, password }) => async dispatch => {
+export const loginUser = ({ email, password }) => async dispatch => {
   dispatch(actions.requestApi());
   try {
     const {
       data: { _id: userId, name: username }
-    } = await loginUser(email, password);
+    } = await authAPI.login(email, password);
     dispatch(actions.successCurrentUser({ userId, username }));
   } catch (err) {
     const { data } = err.response;
@@ -41,10 +41,10 @@ export const login = ({ email, password }) => async dispatch => {
   }
 };
 
-export const logout = () => async dispatch => {
+export const logoutUser = () => async dispatch => {
   dispatch(actions.requestApi());
   try {
-    const { data } = await logoutUser();
+    const { data } = await authAPI.logout();
     if (data.message === 'ok') dispatch(actions.successLogout());
   } catch (err) {
     dispatch(actions.failureLogout());
