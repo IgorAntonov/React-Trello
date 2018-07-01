@@ -6,7 +6,7 @@ import { AddBoard } from 'Components/BoardsPage/AddBoard';
 import { BoardLink } from 'Components/BoardsPage/BoardLink';
 import { Wrapper, FlexTitle, Title, FlexBoards } from './style';
 
-export const AllBoards = ({ boards }) => (
+export const AllBoards = ({ boards, deleteBoard }) => (
   <Wrapper>
     <FlexTitle>
       <Icon icon="portrait" width="30px" height="30px" viewBox="48" />
@@ -16,7 +16,8 @@ export const AllBoards = ({ boards }) => (
     <FlexBoards>
       {boards.map(board => (
         <BoardLink
-          to={`/boards/${board._id}`}
+          boardId={board._id}
+          deleteBoard={deleteBoard}
           name={board.name}
           key={board._id}
         />
@@ -27,6 +28,7 @@ export const AllBoards = ({ boards }) => (
 );
 
 AllBoards.propTypes = {
-  boards: PropTypes.arrayOf(PropTypes.object).isRequired
+  boards: PropTypes.arrayOf(PropTypes.object).isRequired,
+  deleteBoard: PropTypes.func.isRequired
 };
 

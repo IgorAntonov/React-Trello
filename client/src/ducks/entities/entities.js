@@ -5,6 +5,7 @@ export const types = {
   BOARDS_REFRESH: 'BOARDS/BOARDS_REFRESH',
   BOARDS_SUCCESS: 'BOARDS/BOARDS_SUCCESS',
   BOARDS_FAILURE: 'BOARDS/BOARDS_FAILURE',
+  BOARD_DELETE: 'BOARDS/BOARD_DELETE'
 };
 
 export const actions = {
@@ -21,6 +22,10 @@ export const actions = {
   failureBoards: error => ({
     type: types.BOARDS_FAILURE,
     error
+  }),
+  deleteBoard: payload => ({
+    type: types.BOARD_DELETE,
+    payload
   })
 };
 
@@ -51,6 +56,11 @@ export const reducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: action.error
+      };
+    case types.BOARD_DELETE:
+      return {
+        ...state,
+        boards: action.payload
       };
     default:
       return state;
