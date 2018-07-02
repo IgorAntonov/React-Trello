@@ -12,7 +12,7 @@ export const Container = styled(ClickOutside)`
   flex-direction: column;
 
   width: 18rem;
-  min-height: 90vh;
+  height: 90vh;
   padding: 0.2rem;
   border-radius: 4px;
 
@@ -31,8 +31,6 @@ export const Title = styled(P)`
 `;
 
 export const TitleWrapper = styled.div`
-  display: flex;
-
   padding: 0.5rem;
   margin-bottom: 0.5rem;
   margin-left: 1rem;
@@ -43,10 +41,26 @@ export const TitleWrapper = styled.div`
 
 export const FlexWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #c4c9cc;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #d6dadc;
+    border-radius: 4px;
+  }
 `;
 
 export const BoardLink = styled(StyledLink)`
+  flex-basis: 100%;
+
   margin-bottom: 0.5rem;
   border-radius: 4px;
   padding-left: 0.5rem;
