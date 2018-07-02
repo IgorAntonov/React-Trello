@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Title, TitleWrapper, DeleteButton, DeleteIcon, DeleteConfirm, ConfirmBtn } from './style';
 
 export const ListHeader = ({
-  title, handleRenameList, isConfirmShow, showConfirm, hideConfirm, listId, boardId
+  title, handleRenameList, isConfirmShow, showConfirm, hideConfirm, listId, boardId, deleteList
 }) => (
   <TitleWrapper>
     <Title
@@ -17,7 +17,7 @@ export const ListHeader = ({
     </DeleteButton>
     {isConfirmShow &&
       <DeleteConfirm onClickOutside={hideConfirm} >
-        <ConfirmBtn onClick={() => console.log(listId, boardId)}>
+        <ConfirmBtn onClick={() => deleteList(boardId, listId)}>
           Delete this list?
         </ConfirmBtn>
       </DeleteConfirm>

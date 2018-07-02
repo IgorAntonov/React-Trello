@@ -5,7 +5,8 @@ export const types = {
   BOARDS_REFRESH: 'BOARDS/BOARDS_REFRESH',
   BOARDS_SUCCESS: 'BOARDS/BOARDS_SUCCESS',
   BOARDS_FAILURE: 'BOARDS/BOARDS_FAILURE',
-  BOARD_DELETE: 'BOARDS/BOARD_DELETE'
+  BOARD_DELETE: 'BOARDS/BOARD_DELETE',
+  LIST_DELETE: 'LISTS/LIST_DELETE'
 };
 
 export const actions = {
@@ -26,6 +27,10 @@ export const actions = {
   deleteBoard: payload => ({
     type: types.BOARD_DELETE,
     payload
+  }),
+  deleteList: payload => ({
+    type: types.LIST_DELETE,
+    payload
   })
 };
 
@@ -35,6 +40,21 @@ export const initialState = {
   boards: {},
   lists: {},
   cards: {}
+};
+
+const boards = (state = {}, action) => {
+  switch (action.type) {
+    case types.LIST_DELETE:
+      return {
+        ...state,
+        [action.payload.boardId]: {
+          ...state[action.payload.boardId],
+          lists: action.payload.filtered
+        }
+      };
+    default:
+      return state;
+  }
 };
 
 export const reducer = (state = initialState, action) => {
@@ -61,6 +81,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         boards: action.payload
+      };
+    case types.LIST_DELETE:
+      return {
+        ...state,
+        boards: boards(state.boards, action)
       };
     default:
       return state;
