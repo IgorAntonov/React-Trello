@@ -7,7 +7,8 @@ import { Wrapper, CreateButton, CreateInput } from './style';
 
 export class CreateBoard extends Component {
   static propTypes = {
-    createBoard: PropTypes.func.isRequired
+    createBoard: PropTypes.func.isRequired,
+    history: PropTypes.shape({}).isRequired
   }
   state = {
     showCreateInput: false,
@@ -27,8 +28,11 @@ export class CreateBoard extends Component {
   }
   submitBoard = () => {
     const { name } = this.state;
-    const { createBoard } = this.props;
-    if (name.length !== 0) createBoard(name);
+    const { createBoard, history } = this.props;
+    if (name.length !== 0) {
+      const cb = id => history.push(`/boards/${id}`);
+      createBoard(name, cb);
+    }
   }
 
   handleClick = () => {
