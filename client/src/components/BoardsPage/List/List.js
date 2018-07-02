@@ -2,19 +2,29 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
+import { ListHeader } from 'Components/BoardsPage/ListHeader';
 import { Card, StubCard } from 'Components/BoardsPage/Card';
 import { AddCard } from 'Components/BoardsPage/AddCard';
-import { Wrapper, TitleWrapper, Title, CardsWrapper } from './style';
+import { Wrapper, CardsWrapper } from './style';
 
 export class List extends Component {
   static propTypes = {
     list: PropTypes.shape({}).isRequired,
-    renameList: PropTypes.func.isRequired
+    renameList: PropTypes.func.isRequired,
+    boardId: PropTypes.string.isRequired
   }
   state = {
     isStubCardShow: false,
-    stubCardName: null
+    stubCardName: null,
+    isConfirmShow: false
   }
+  showConfirm = () => this.setState({
+    isConfirmShow: true
+  });
+  hideConfirm = () => this.setState({
+    isConfirmShow: false
+  });
+
   // While an api update is in progress, show a card stub
   showStubCard = cardName => {
     this.setState({
@@ -41,17 +51,19 @@ export class List extends Component {
   }
 
   render() {
-    const { list } = this.props;
-    const { isStubCardShow, stubCardName } = this.state;
+    const { list, boardId } = this.props;
+    const { isStubCardShow, stubCardName, isConfirmShow } = this.state;
     return (
       <Wrapper>
-        <TitleWrapper>
-          <Title
-            defaultValue={list.title}
-            onBlur={this.handleRenameList}
-            onKeyPress={this.handleRenameList}
-          />
-        </TitleWrapper>
+        <ListHeader
+          title={list.title}
+          listId={list._id}
+          boardId={boardId}
+          handleRenameList={this.handleRenameList}
+          isConfirmShow={isConfirmShow}
+          showConfirm={this.showConfirm}
+          hideConfirm={this.hideConfirm}
+        />
         <CardsWrapper>
           <Droppable droppableId={list._id} type="LIST" >
             {(provided, snapshot) => (
