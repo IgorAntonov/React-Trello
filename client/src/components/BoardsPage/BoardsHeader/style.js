@@ -32,7 +32,6 @@ export const Title = styled(H2)`
 
 export const MenuButton = styled(Button)`
   margin: 0;
-
   border-radius: 0;
 `;
 

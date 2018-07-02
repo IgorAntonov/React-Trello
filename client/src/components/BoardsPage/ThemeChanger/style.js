@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import ClickOutside from 'react-click-outside';
 
 import { P } from 'Components/shared';
 
-export const Container = styled.div`
+export const Container = styled(ClickOutside)`
   position: absolute;
   top: 8%;
   right: 0;
