@@ -5,7 +5,8 @@ import { Wrapper, AddButton, BoardInput } from './style';
 
 export class AddBoard extends Component {
   static propTypes = {
-    createBoard: PropTypes.func.isRequired
+    createBoard: PropTypes.func.isRequired,
+    history: PropTypes.shape({}).isRequired
   }
   state = {
     showCreateInput: false,
@@ -30,9 +31,11 @@ export class AddBoard extends Component {
   }
   handleKeyPress = e => {
     const { name } = this.state;
-    const { createBoard } = this.props;
-    if (e.which === 13) {
-      if (name.length !== 0) createBoard(name);
+    const { createBoard, history } = this.props;
+    if (e.which === 13 && name.length !== 0) {
+      const cb = id => history.push(`/boards/${id}`);
+      createBoard(name, cb);
+
       this.hideInput();
     }
   }

@@ -29,7 +29,8 @@ exports.createBoard = async (req, res) => {
         { $push: { boards: newBoard._id } }
       );
       return res.status(200).json({
-        status: 'ok'
+        status: 'ok',
+        id: newBoard._id
       });
     }
 
@@ -40,7 +41,8 @@ exports.createBoard = async (req, res) => {
         { $push: { boards: newBoard._id } }
       );
       return res.status(200).json({
-        status: 'ok'
+        status: 'ok',
+        id: newBoard._id
       });
     }
 

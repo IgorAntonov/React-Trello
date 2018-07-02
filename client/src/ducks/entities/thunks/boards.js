@@ -1,5 +1,5 @@
 import { actions } from '../actions';
-import { refreshUserBoards } from './common';
+import { refreshUserBoards, fetchUserBoards } from './common';
 import { boardAPI } from './api';
 
 export const renameBoard = (newName, boardId) => async dispatch => {
@@ -12,14 +12,16 @@ export const renameBoard = (newName, boardId) => async dispatch => {
   dispatch(refreshUserBoards());
 };
 
-export const createBoard = name => async dispatch => {
+export const createBoard = (name, cb) => async dispatch => {
+  dispatch(actions.requestBoards());
   try {
-    await boardAPI.postNew(name);
+    const { data: { id } } = await boardAPI.postNew(name);
+    await dispatch(fetchUserBoards());
+    cb(id);
   } catch (err) {
     const { error } = err.response.data;
     dispatch(actions.failureBoards(error));
   }
-  dispatch(refreshUserBoards());
 };
 
 export const deleteBoard = id => async (dispatch, getState) => {
