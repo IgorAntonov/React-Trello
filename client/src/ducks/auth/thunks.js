@@ -1,5 +1,5 @@
-import { actions } from 'Src/ducks/auth';
-import { authAPI } from '../api';
+import { actions } from './actions';
+import { authAPI } from './api';
 
 export const signupUser = ({ email, password, name }) => async dispatch => {
   dispatch(actions.requestApi());
@@ -50,4 +50,3 @@ export const logoutUser = () => async dispatch => {
     dispatch(actions.failureLogout());
   }
 };
-

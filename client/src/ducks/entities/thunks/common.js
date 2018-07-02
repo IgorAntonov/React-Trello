@@ -1,8 +1,8 @@
 import { normalize } from 'normalizr';
 
 import { boardSchema } from 'Src/helpers';
-import { actions } from 'Src/ducks/entities';
-import { boardAPI } from '../api';
+import { actions } from '../actions';
+import { boardAPI } from './api';
 
 export const fetchUserBoards = () => async dispatch => {
   dispatch(actions.requestBoards());

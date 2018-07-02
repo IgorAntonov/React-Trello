@@ -1,26 +1,7 @@
 import { createSelector } from 'reselect';
 
 import { themes } from 'Src/helpers';
-
-export const types = {
-  THEME_REQUEST: 'THEME/THEME_REQUEST',
-  THEME_SUCCESS: 'THEME/THEME_SUCCESS',
-  THEME_FAILURE: 'THEME/THEME_FAILURE'
-};
-
-export const actions = {
-  requestTheme: () => ({
-    type: types.THEME_REQUEST
-  }),
-  successTheme: theme => ({
-    type: types.THEME_SUCCESS,
-    theme
-  }),
-  failureTheme: error => ({
-    type: types.THEME_FAILURE,
-    error
-  })
-};
+import { types } from './actions';
 
 export const initialState = {
   name: 'default',
@@ -57,8 +38,11 @@ export const reducer = (state = initialState, action) => {
   }
 };
 
-const themeSelector = state => state.theme.colors;
-const isLoadingSelector = state => state.theme.isLoading;
-
-export const getColors = createSelector(themeSelector, theme => theme);
-export const getIsLoading = createSelector(isLoadingSelector, flag => flag);
+export const getColors = createSelector(
+  state => state.theme.colors,
+  theme => theme
+);
+export const getIsLoading = createSelector(
+  state => state.theme.isLoading,
+  flag => flag
+);
