@@ -1,1 +1,1 @@
-export { ListHeader } from './ListHeader';
+export { ListHeaderContainer as ListHeader } from './container';

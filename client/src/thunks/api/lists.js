@@ -8,6 +8,9 @@ export const listAPI = {
   postNew: (boardId, title) => axios.post('/api/list/create', {
     boardId,
     title
+  }),
+  delete: (boardId, listId) => axios.delete('/api/list/delete', {
+    data: { boardId, listId }
   })
 };
 
