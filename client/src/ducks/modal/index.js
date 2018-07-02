@@ -1,1 +1,2 @@
-export * from './modal';
+export * from './reducer';
+export * from './actions';

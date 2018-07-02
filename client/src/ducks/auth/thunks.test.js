@@ -1,8 +1,8 @@
 import moxios from 'moxios';
 
 import { mockStore } from 'Config/storeMock';
-import { actions as expectedActions } from 'Src/ducks/auth';
-import { signupUser, loginUser, fetchUser } from './auth';
+import { actions as expectedActions } from './actions';
+import { signupUser, loginUser, fetchUser } from './thunks';
 
 const setup = (status, data) => {
   moxios.wait(() => {

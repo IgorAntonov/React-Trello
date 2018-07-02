@@ -1,5 +1,5 @@
-import { actions } from 'Src/ducks/theme';
-import { themeAPI } from '../api';
+import { actions } from './actions';
+import { themeAPI } from './api';
 
 export const setTheme = theme => async dispatch => {
   dispatch(actions.requestTheme());

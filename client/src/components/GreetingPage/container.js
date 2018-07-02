@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 
-import { getIsAuth } from 'Src/ducks/auth';
-import { logoutUser } from 'Src/thunks/auth';
+import { logoutUser, getIsAuth } from 'Src/ducks/auth';
 import { GreetingPage } from './GreetingPage';
 
 const mapStateToProps = state => ({

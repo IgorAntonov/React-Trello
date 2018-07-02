@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 
-import { renameList } from 'Src/thunks/lists';
-import { getListsByBoardId, getBoardName } from 'Src/ducks/entities';
+import { renameList, getListsByBoardId, getBoardName } from 'Src/ducks/entities';
 import { Board } from './Board';
 
 const mapStateToProps = (state, ownProps) => {

@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 
-import { getIsAuth, getIsLoading, getError } from 'Src/ducks/auth';
-import { signupUser } from 'Src/thunks/auth';
+import { signupUser, getIsAuth, getIsLoading, getError } from 'Src/ducks/auth';
 import { SignupForm } from './SignupForm';
 
 const mapStateToProps = state => ({
