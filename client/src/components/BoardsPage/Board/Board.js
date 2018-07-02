@@ -23,6 +23,7 @@ export const Board = ({
         <List
           list={list}
           renameList={renameList}
+          boardId={match.params.id}
           key={list._id}
         />
       ))}

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import ClickOutside from 'react-click-outside';
 
 import { P, StyledLink } from 'Components/shared';
 
-export const Container = styled.div`
+export const Container = styled(ClickOutside)`
   position: absolute;
   top: 8%;
   left: 0;
@@ -10,9 +11,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 14rem;
-  min-height: 80vh;
+  width: 18rem;
+  min-height: 90vh;
   padding: 0.2rem;
+  border-radius: 4px;
 
   background-color: #fff;
 
