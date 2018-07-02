@@ -18,6 +18,9 @@ export class DropdownMenu extends Component {
       showMenu: false
     };
   }
+  componentWillUnmount = () => {
+    document.removeEventListener('click', this.closeMenu);
+  }
 
   showMenu = () => {
     this.setState({ showMenu: true }, () => {

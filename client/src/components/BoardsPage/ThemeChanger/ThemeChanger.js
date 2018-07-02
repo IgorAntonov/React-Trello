@@ -8,7 +8,7 @@ import { Container, ThemeButton, Title, Wrapper, CloseBtn, TitleWrapper } from '
 
 export const ThemeChanger = ({ closeModal, setTheme }) => (
   <Portal>
-    <Container>
+    <Container onClickOutside={() => closeModal('themeChanger')} >
       <TitleWrapper>
         <Title>
           Colors
@@ -25,7 +25,10 @@ export const ThemeChanger = ({ closeModal, setTheme }) => (
               theme={theme}
               color={color}
               key={theme}
-              onClick={() => setTheme(theme)}
+              onClick={() => {
+                setTheme(theme);
+                closeModal('themeChanger');
+              }}
             />);
           })
         }
