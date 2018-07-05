@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Wrapper } from './style';
+import { Wrapper, CardButton } from './style';
 
-export const Card = ({ card }) => (
+export const Card = ({ card, openCardDetails, listId }) => (
   <Wrapper>
-    {card.name}
+    <CardButton onClick={() => openCardDetails(card._id, listId)} >
+      {card.name}
+    </CardButton>
   </Wrapper>
 );
 
 Card.propTypes = {
-  card: PropTypes.shape({}).isRequired
+  card: PropTypes.shape({}).isRequired,
+  openCardDetails: PropTypes.func.isRequired,
+  listId: PropTypes.string.isRequired
 };
+
 
 export const StubCard = ({ name }) => (
   <Wrapper>

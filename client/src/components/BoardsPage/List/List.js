@@ -69,7 +69,7 @@ export class List extends Component {
             {(provided, snapshot) => (
               <div ref={provided.innerRef} {...provided.droppableProps}>
                 {list.cards.map((card, index) => (
-                  <Draggable draggableId={card} key={card} index={index} type="LIST" >
+                  <Draggable draggableId={card} key={card} index={index} type="LIST" disableInteractiveElementBlocking >
                     {(provided, snapshot) => (
                       <div
                         ref={provided.innerRef}
@@ -78,6 +78,7 @@ export class List extends Component {
                       >
                         <Card
                           cardId={card}
+                          listId={list._id}
                         />
                       </div>
                     )}
