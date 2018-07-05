@@ -28,5 +28,9 @@ export const cardAPI = {
   postNew: (name, listId) => axios.post('/api/card/create', {
     name,
     listId
+  }),
+  putName: (newName, cardId) => axios.put('/api/card/rename', {
+    newName,
+    cardId
   })
 };

@@ -8,7 +8,7 @@ export const initialState = {
   cards: {}
 };
 
-const boards = (state = {}, action) => {
+const boards = (state, action) => {
   switch (action.type) {
     case types.BOARD_DELETE:
       return action.payload;
@@ -18,6 +18,21 @@ const boards = (state = {}, action) => {
         [action.payload.boardId]: {
           ...state[action.payload.boardId],
           lists: action.payload.filtered
+        }
+      };
+    default:
+      return state;
+  }
+};
+
+const cards = (state, action) => {
+  switch (action.type) {
+    case types.CARD_RENAME:
+      return {
+        ...state,
+        [action.payload.cardId]: {
+          ...state[action.payload.cardId],
+          name: action.payload.newName
         }
       };
     default:
@@ -50,6 +65,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         boards: boards(state.boards, action)
+      };
+    case types.CARD_RENAME:
+      return {
+        ...state,
+        cards: cards(state.cards, action)
       };
     default:
       return state;

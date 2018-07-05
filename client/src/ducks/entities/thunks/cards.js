@@ -12,3 +12,14 @@ export const createCard = (name, listId, cb) => async dispatch => {
   await dispatch(refreshUserBoards());
   cb();
 };
+
+export const renameCard = (newName, cardId) => async dispatch => {
+  dispatch(actions.renameCard({ newName, cardId }));
+
+  try {
+    await cardAPI.putName(newName, cardId);
+  } catch (err) {
+    const { error } = err.response.data;
+    dispatch(actions.failureBoards(error));
+  }
+};
