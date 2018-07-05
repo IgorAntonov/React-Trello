@@ -43,6 +43,14 @@ const cards = (state, action) => {
           description: action.payload.description
         }
       };
+    case types.CARD_ADD_COMMENT:
+      return {
+        ...state,
+        [action.payload.cardId]: {
+          ...state[action.payload.cardId],
+          comments: action.payload.comments
+        }
+      };
     default:
       return state;
   }
@@ -76,6 +84,7 @@ export const reducer = (state = initialState, action) => {
       };
     case types.CARD_RENAME:
     case types.CARD_ADD_DESC:
+    case types.CARD_ADD_COMMENT:
       return {
         ...state,
         cards: cards(state.cards, action)

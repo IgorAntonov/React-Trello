@@ -4,10 +4,11 @@ import { Portal } from 'react-portal';
 
 import { CardName } from './CardName';
 import { CardDescription } from './CardDescription';
+import { AddComment } from './AddComment';
 import { Wrapper, DetailsWrapper, CloseBtn, CloseIcon } from './style';
 
 export const CardDetails = ({
-  card, closeCardDetails, listTitle, renameCard, addCardDesc
+  card, closeCardDetails, listTitle, renameCard, addCardDesc, user, addComment
 }) => (
   <Portal>
     <Wrapper>
@@ -22,6 +23,11 @@ export const CardDetails = ({
           cardId={card._id}
           description={card.description}
           addCardDesc={addCardDesc}
+        />
+        <AddComment
+          cardId={card._id}
+          username={user.username}
+          addComment={addComment}
         />
         <CloseBtn onClick={closeCardDetails} >
           <CloseIcon />
@@ -41,6 +47,11 @@ CardDetails.propTypes = {
   closeCardDetails: PropTypes.func.isRequired,
   listTitle: PropTypes.string.isRequired,
   renameCard: PropTypes.func.isRequired,
-  addCardDesc: PropTypes.func.isRequired
+  addCardDesc: PropTypes.func.isRequired,
+  user: PropTypes.shape({
+    userId: PropTypes.string,
+    username: PropTypes.string
+  }).isRequired,
+  addComment: PropTypes.func.isRequired
 };
 

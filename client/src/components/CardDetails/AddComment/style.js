@@ -4,7 +4,7 @@ import { Icon, P } from 'Components/shared';
 
 export const Wrapper = styled.div`
   display: flex;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 `;
 
 export const IconContainer = styled.div`
@@ -20,21 +20,27 @@ export const ContentContainer = styled.div`
   padding-left: 0.5rem;
 `;
 
-export const DescIcon = styled(Icon).attrs({
-  icon: 'list',
-  width: '26px',
-  height: '26px',
+export const CommentIcon = styled(Icon).attrs({
+  icon: 'comment',
+  width: '24px',
+  height: '24px',
   viewBox: '48'
 })``;
 
 export const Header = styled(P)`
+  margin: 0;
   font-size: 1.3rem;
   font-weight: 500;
   cursor: default;
 `;
 
-export const DescInput = styled.textarea.attrs({
-  placeholder: 'Add a more detailed description...'
+export const UserName = styled(P)`
+  color: #999;
+  cursor: default;
+`;
+
+export const CommentInput = styled.textarea.attrs({
+  placeholder: 'Write a comment...'
 })`
   padding: 0.5rem;
   
@@ -44,7 +50,7 @@ export const DescInput = styled.textarea.attrs({
   outline: none;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  
+
   transition: 0.2s all;
   :focus {
     cursor: text;

@@ -34,3 +34,18 @@ export const addCardDesc = (description, cardId) => async dispatch => {
     dispatch(actions.failureBoards(error));
   }
 };
+
+export const addComment = (comment, cardId) => async (dispatch, getState) => {
+  const { comments } = getState().entities.cards[cardId];
+  const { username } = getState().auth.user;
+
+  const newComments = comments.concat([{
+    body: comment,
+    author: username
+  }]);
+
+  dispatch(actions.addComment({
+    comments: newComments,
+    cardId
+  }));
+};

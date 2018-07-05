@@ -4,7 +4,7 @@ import { Icon } from 'Components/shared';
 
 export const Wrapper = styled.div`
   display: flex;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 `;
 
 export const IconContainer = styled.div`
