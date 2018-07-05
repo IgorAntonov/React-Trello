@@ -35,6 +35,14 @@ const cards = (state, action) => {
           name: action.payload.newName
         }
       };
+    case types.CARD_ADD_DESC:
+      return {
+        ...state,
+        [action.payload.cardId]: {
+          ...state[action.payload.cardId],
+          description: action.payload.description
+        }
+      };
     default:
       return state;
   }
@@ -67,6 +75,7 @@ export const reducer = (state = initialState, action) => {
         boards: boards(state.boards, action)
       };
     case types.CARD_RENAME:
+    case types.CARD_ADD_DESC:
       return {
         ...state,
         cards: cards(state.cards, action)

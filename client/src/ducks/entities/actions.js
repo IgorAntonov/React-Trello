@@ -5,7 +5,8 @@ export const types = {
   BOARDS_FAILURE: 'ENTITIES/BOARDS_FAILURE',
   BOARD_DELETE: 'ENTITIES/BOARD_DELETE',
   LIST_DELETE: 'ENTITIES/LIST_DELETE',
-  CARD_RENAME: 'ENTITIES/CARD_RENAME'
+  CARD_RENAME: 'ENTITIES/CARD_RENAME',
+  CARD_ADD_DESC: 'ENTITIES/CARD_ADD_DESC'
 };
 
 export const actions = {
@@ -33,6 +34,10 @@ export const actions = {
   }),
   renameCard: payload => ({
     type: types.CARD_RENAME,
+    payload
+  }),
+  addCardDesc: payload => ({
+    type: types.CARD_ADD_DESC,
     payload
   })
 };
