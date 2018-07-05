@@ -32,5 +32,6 @@ ListHeader.propTypes = {
   showConfirm: PropTypes.func.isRequired,
   hideConfirm: PropTypes.func.isRequired,
   listId: PropTypes.string.isRequired,
-  boardId: PropTypes.string.isRequired
+  boardId: PropTypes.string.isRequired,
+  deleteList: PropTypes.func.isRequired
 };

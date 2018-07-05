@@ -10,8 +10,6 @@ import { AllBoards } from './AllBoards';
 import { Board } from './Board';
 import { BoardsMenu } from './BoardsMenu';
 import { ThemeChanger } from './ThemeChanger';
-import { CreateBoard } from './CreateBoard';
-
 
 export class BoardsPage extends PureComponent {
   componentDidMount() {
@@ -27,7 +25,7 @@ export class BoardsPage extends PureComponent {
 
   render() {
     const {
-      isThemeModalOpen, match, isBoardsModalOpen, isLoadingBoards, isLoadingTheme, isCreateBoardOpen
+      isThemeModalOpen, match, isBoardsModalOpen, isLoadingBoards, isLoadingTheme
     } = this.props;
     const condition = isLoadingBoards || isLoadingTheme;
     return (

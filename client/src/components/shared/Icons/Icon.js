@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const icons = {
+  comment: 'M40 4H8C5.79 4 4 5.79 4 8v36l8-8h28c2.21 0 4-1.79 4-4V8c0-2.21-1.79-4-4-4zm0 28H12l-4 4V8h32v24z',
+  list: 'M6 26h4v-4H6v4zm0 8h4v-4H6v4zm0-16h4v-4H6v4zm8 8h28v-4H14v4zm0 8h28v-4H14v4zm0-20v4h28v-4H14z',
+  title: 'M40 8H8c-2.21 0-4 1.79-4 4v24c0 2.21 1.79 4 4 4h32c2.21 0 4-1.79 4-4V12c0-2.21-1.79-4-4-4zM8 24h8v4H8v-4zm20 12H8v-4h20v4zm12 0h-8v-4h8v4zm0-8H20v-4h20v4z',
   delete: 'M12 38c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4V14H12v24zM38 8h-7l-2-2H19l-2 2h-7v4h28V8z',
   ok: 'M18 32.34L9.66 24l-2.83 2.83L18 38l24-24-2.83-2.83z',
   plus: 'M38 26H26v12h-4V26H10v-4h12V10h4v12h12v4z',
