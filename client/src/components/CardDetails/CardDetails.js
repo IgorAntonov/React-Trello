@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
 
 import { CardName } from './CardName';
+import { CardDescription } from './CardDescription';
 import { Wrapper, DetailsWrapper, CloseBtn, CloseIcon } from './style';
 
 export const CardDetails = ({
@@ -17,6 +18,7 @@ export const CardDetails = ({
           listTitle={listTitle}
           renameCard={renameCard}
         />
+        <CardDescription description={card.description} />
         <CloseBtn onClick={closeCardDetails} >
           <CloseIcon />
         </CloseBtn>
