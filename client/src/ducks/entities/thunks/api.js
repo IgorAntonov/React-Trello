@@ -32,5 +32,9 @@ export const cardAPI = {
   putName: (newName, cardId) => axios.put('/api/card/rename', {
     newName,
     cardId
+  }),
+  putDescription: (description, cardId) => axios.put('/api/card/description', {
+    description,
+    cardId
   })
 };

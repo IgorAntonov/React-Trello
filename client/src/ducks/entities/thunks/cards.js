@@ -23,3 +23,14 @@ export const renameCard = (newName, cardId) => async dispatch => {
     dispatch(actions.failureBoards(error));
   }
 };
+
+export const addCardDesc = (description, cardId) => async dispatch => {
+  dispatch(actions.addCardDesc({ description, cardId }));
+
+  try {
+    await cardAPI.putDescription(description, cardId);
+  } catch (err) {
+    const { error } = err.response.data;
+    dispatch(actions.failureBoards(error));
+  }
+};

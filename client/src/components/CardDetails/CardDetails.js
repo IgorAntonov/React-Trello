@@ -7,7 +7,7 @@ import { CardDescription } from './CardDescription';
 import { Wrapper, DetailsWrapper, CloseBtn, CloseIcon } from './style';
 
 export const CardDetails = ({
-  card, closeCardDetails, listTitle, renameCard
+  card, closeCardDetails, listTitle, renameCard, addCardDesc
 }) => (
   <Portal>
     <Wrapper>
@@ -18,7 +18,11 @@ export const CardDetails = ({
           listTitle={listTitle}
           renameCard={renameCard}
         />
-        <CardDescription description={card.description} />
+        <CardDescription
+          cardId={card._id}
+          description={card.description}
+          addCardDesc={addCardDesc}
+        />
         <CloseBtn onClick={closeCardDetails} >
           <CloseIcon />
         </CloseBtn>
@@ -36,6 +40,7 @@ CardDetails.propTypes = {
   }).isRequired,
   closeCardDetails: PropTypes.func.isRequired,
   listTitle: PropTypes.string.isRequired,
-  renameCard: PropTypes.func.isRequired
+  renameCard: PropTypes.func.isRequired,
+  addCardDesc: PropTypes.func.isRequired
 };
 
