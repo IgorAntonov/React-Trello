@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { getOpenedCardById, getOpenedListTitle } from 'Src/ducks/entities';
+import { renameCard, getOpenedCardById, getOpenedListTitle } from 'Src/ducks/entities';
 import { actions } from 'Src/ducks/modal';
 import { CardDetails } from './CardDetails';
 
@@ -11,4 +11,7 @@ const mapStateToProps = state => ({
   listTitle: getOpenedListTitle(state)
 });
 
-export const CardDetailsContainer = connect(mapStateToProps, { closeCardDetails })(CardDetails);
+export const CardDetailsContainer = connect(
+  mapStateToProps,
+  { closeCardDetails, renameCard }
+)(CardDetails);
