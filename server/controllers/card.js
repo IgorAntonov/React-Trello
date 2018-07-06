@@ -90,17 +90,18 @@ exports.addDescription = async (req, res) => {
 exports.addComment = async (req, res) => {
   try {
     const { user } = req;
-    const { cardId, comment } = req.body;
+    const { cardId, comment, createAt } = req.body;
 
-    if (!cardId || !comment) {
+    if (!cardId || !comment || !createAt) {
       return res.status(400).json({
         status: 'error',
-        message: 'No card id or comment is provided'
+        message: 'No card id, comment or create date is provided'
       });
     }
     const newComment = {
       body: comment,
-      author: user.id
+      author: user.id,
+      createAt
     };
     await Card.findOneAndUpdate(
       { _id: cardId },
