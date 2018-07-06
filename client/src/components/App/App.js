@@ -48,7 +48,6 @@ html, body {
   font-family: 'Roboto';
   background-color: #fafafa;
 }
-
 * {
     box-sizing: border-box;
   }

@@ -20,7 +20,7 @@ export class AddComment extends Component {
     if (e.type === 'keypress' && e.which === 13 && !e.shiftKey) {
       e.preventDefault();
       e.target.blur();
-    } else if (e.type === 'blur') {
+    } else if (e.type === 'blur' && e.target.value !== '') {
       addComment(e.target.value, cardId);
       e.target.value = '';
     }

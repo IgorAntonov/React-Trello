@@ -38,11 +38,11 @@ export const addCardDesc = (description, cardId) => async dispatch => {
 export const addComment = (comment, cardId) => async (dispatch, getState) => {
   const { comments } = getState().entities.cards[cardId];
   const { username } = getState().auth.user;
+  const createAt = Date.now();
 
-  const newComments = comments.concat([{
-    body: comment,
-    author: username
-  }]);
+  const newComments = comments
+    .concat([{ body: comment, author: username, createAt }])
+    .sort((a, b) => a.createAt < b.createAt);
 
   dispatch(actions.addComment({
     comments: newComments,

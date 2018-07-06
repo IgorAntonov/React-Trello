@@ -11,10 +11,10 @@ export const Wrapper = styled.div`
   
   display:flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   
   background-color: rgba(0, 0, 0, 0.6);
 `;
@@ -29,6 +29,7 @@ export const DetailsWrapper = styled(ClickOutside)`
   min-height: 80vh;
   padding: 1rem;
   padding-right: 4rem;
+  margin-top: 3rem;
 
   border-radius: 4px;
   background-color: #edeff0;
