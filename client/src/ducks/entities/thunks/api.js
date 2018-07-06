@@ -36,5 +36,10 @@ export const cardAPI = {
   putDescription: (description, cardId) => axios.put('/api/card/description', {
     description,
     cardId
+  }),
+  postComment: (comment, cardId, createAt) => axios.post('/api/card/new_comment', {
+    comment,
+    cardId,
+    createAt
   })
 };

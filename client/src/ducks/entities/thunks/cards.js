@@ -48,4 +48,6 @@ export const addComment = (comment, cardId) => async (dispatch, getState) => {
     comments: newComments,
     cardId
   }));
+
+  await cardAPI.postComment(comment, cardId, createAt);
 };
