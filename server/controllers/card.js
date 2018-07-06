@@ -100,12 +100,12 @@ exports.addComment = async (req, res) => {
     }
     const newComment = {
       body: comment,
-      author: user.id,
+      author: user.name,
       createAt
     };
     await Card.findOneAndUpdate(
       { _id: cardId },
-      { $push: { comments: newComment } }
+      { $push: { comments: { $each: [newComment], $position: 0 } } }
     );
 
     return res.status(200).json({
