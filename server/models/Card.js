@@ -9,7 +9,7 @@ const cardSchema = Schema({
   __v: { type: Number, select: false },
   comments: [{
     body: { type: String, required: true },
-    author: { type: Schema.Types.ObjectId, required: true },
+    author: { type: String, required: true },
     createAt: { type: Number, required: true }
   }]
 });
