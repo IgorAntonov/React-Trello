@@ -4,7 +4,7 @@ import { Icon, P } from 'Components/shared';
 
 export const Wrapper = styled.div`
   display: flex;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `;
 
 export const IconContainer = styled.div`
@@ -29,7 +29,7 @@ export const CommentIcon = styled(Icon).attrs({
 
 export const Header = styled(P)`
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 500;
   cursor: default;
 `;
@@ -37,6 +37,7 @@ export const Header = styled(P)`
 export const UserName = styled(P)`
   color: #999;
   cursor: default;
+  font-size: 0.9rem;
 `;
 
 export const CommentInput = styled.textarea.attrs({

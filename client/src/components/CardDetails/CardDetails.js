@@ -5,10 +5,12 @@ import { Portal } from 'react-portal';
 import { CardName } from './CardName';
 import { CardDescription } from './CardDescription';
 import { AddComment } from './AddComment';
+import { Comments } from './Comments';
 import { Wrapper, DetailsWrapper, CloseBtn, CloseIcon } from './style';
 
 export const CardDetails = ({
-  card, closeCardDetails, listTitle, renameCard, addCardDesc, user, addComment
+  card, closeCardDetails, listTitle, renameCard, addCardDesc,
+  user, addComment
 }) => (
   <Portal>
     <Wrapper>
@@ -29,6 +31,7 @@ export const CardDetails = ({
           username={user.username}
           addComment={addComment}
         />
+        <Comments comments={card.comments} />
         <CloseBtn onClick={closeCardDetails} >
           <CloseIcon />
         </CloseBtn>

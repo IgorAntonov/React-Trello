@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
 `;
 
 export const IconContainer = styled.div`
+  
   fill: #999;
 `;
 
@@ -21,14 +22,14 @@ export const ContentContainer = styled.div`
 `;
 
 export const DescIcon = styled(Icon).attrs({
-  icon: 'list',
-  width: '26px',
-  height: '26px',
+  icon: 'description',
+  width: '24px',
+  height: '24px',
   viewBox: '48'
 })``;
 
 export const Header = styled(P)`
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 500;
   cursor: default;
 `;
@@ -42,12 +43,15 @@ export const DescInput = styled.textarea.attrs({
   border-radius: 4px;
   resize: none;
   outline: none;
-  cursor: pointer;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   
+  cursor: pointer;
+  color: #555;
+
   transition: 0.2s all;
   :focus {
-    cursor: text;
     box-shadow: ${p => `inset 1px 1px 2px ${p.theme.main}, inset -1px -1px 2px ${p.theme.main}`};
+    cursor: text;
+    color: #000;
   }
 `;
