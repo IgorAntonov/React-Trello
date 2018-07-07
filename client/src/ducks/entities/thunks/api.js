@@ -52,5 +52,8 @@ export const cardAPI = {
     comment,
     cardId,
     createAt
+  }),
+  delete: (cardId, listId) => axios.delete('/api/card/delete', {
+    data: { cardId, listId }
   })
 };

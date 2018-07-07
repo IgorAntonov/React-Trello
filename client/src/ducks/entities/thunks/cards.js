@@ -60,5 +60,12 @@ export const deleteCard = (cardId, listId) => async (dispatch, getState) => {
     listId
   };
   dispatch(actions.deleteCard(payload));
+
+  try {
+    await cardAPI.delete(cardId, listId);
+  } catch (err) {
+    const { error } = err.response.data;
+    dispatch(actions.failureBoards(error));
+  }
 };
 
