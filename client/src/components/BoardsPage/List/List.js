@@ -4,7 +4,7 @@ import { Droppable } from 'react-beautiful-dnd';
 
 import { DraggableCard } from 'Components/BoardsPage/DraggableCard';
 import { ListHeader } from 'Components/BoardsPage/ListHeader';
-import { StubCard } from 'Components/BoardsPage/Card';
+import { StubCard } from 'Components/BoardsPage/StubCard';
 import { AddCard } from 'Components/BoardsPage/AddCard';
 import { Wrapper, CardsWrapper } from './style';
 
