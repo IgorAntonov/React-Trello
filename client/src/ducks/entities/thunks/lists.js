@@ -37,7 +37,7 @@ export const deleteList = (boardId, listId) => async (dispatch, getState) => {
   dispatch(refreshUserBoards());
 };
 
-export const reorderList = (listId, cardId, sourseIndex, destinationIndex) => (
+export const reorderList = (listId, cardId, sourseIndex, destinationIndex) => async (
   dispatch,
   getState
 ) => {
@@ -47,9 +47,16 @@ export const reorderList = (listId, cardId, sourseIndex, destinationIndex) => (
 
   const payload = { cards: reordered, listId };
   dispatch(actions.reorderList(payload));
+
+  try {
+    await listAPI.reorder(listId, cardId, destinationIndex);
+  } catch (err) {
+    const { error } = err.response.data;
+    dispatch(actions.failureBoards(error));
+  }
 };
 
-export const moveFromToList = (sourceId, destinationId, cardId, start, end) => (
+export const moveFromToList = (sourceId, destinationId, cardId, start, end) => async (
   dispatch,
   getState
 ) => {
@@ -65,4 +72,11 @@ export const moveFromToList = (sourceId, destinationId, cardId, start, end) => (
     destinationCards
   };
   dispatch(actions.moveFromToList(payload));
+
+  try {
+    await listAPI.moveCard(sourceId, destinationId, cardId, end);
+  } catch (err) {
+    const { error } = err.response.data;
+    dispatch(actions.failureBoards(error));
+  }
 };
