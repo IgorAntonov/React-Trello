@@ -21,6 +21,17 @@ export const listAPI = {
   }),
   delete: (boardId, listId) => axios.delete('/api/list/delete', {
     data: { boardId, listId }
+  }),
+  reorder: (listId, cardId, end) => axios.put('/api/list/reorder', {
+    listId,
+    cardId,
+    end
+  }),
+  moveCard: (sourceId, destinationId, cardId, end) => axios.put('/api/list/move_from_to', {
+    sourceId,
+    destinationId,
+    cardId,
+    end
   })
 };
 
