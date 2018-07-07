@@ -9,7 +9,7 @@ export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
 
-  min-height: 36px;
+  min-height: 44px;
   padding: 0.5rem;
 `;
 

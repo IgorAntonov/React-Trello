@@ -12,14 +12,45 @@ import { BoardsMenu } from './BoardsMenu';
 import { ThemeChanger } from './ThemeChanger';
 
 export class BoardsPage extends PureComponent {
+  static propTypes = {
+    isThemeModalOpen: PropTypes.bool.isRequired,
+    isBoardsModalOpen: PropTypes.bool.isRequired,
+    fetchTheme: PropTypes.func.isRequired,
+    fetchUserBoards: PropTypes.func.isRequired,
+    match: PropTypes.shape({}).isRequired,
+    isLoadingBoards: PropTypes.bool.isRequired,
+    isLoadingTheme: PropTypes.bool.isRequired,
+    reorderList: PropTypes.func.isRequired,
+    moveFromToList: PropTypes.func.isRequired
+  }
+
   componentDidMount() {
     this.props.fetchUserBoards();
     this.props.fetchTheme();
   }
 
   onDragEnd = result => {
-    if (!result.destination) {
+    const { reorderList, moveFromToList } = this.props;
+    const { source, destination, draggableId } = result;
+    if (!destination) {
       return;
+    }
+    if (source.droppableId === destination.droppableId) {
+      reorderList(
+        source.droppableId,
+        draggableId,
+        source.index,
+        destination.index
+      );
+    }
+    if (source.droppableId !== destination.droppableId) {
+      moveFromToList(
+        source.droppableId,
+        destination.droppableId,
+        draggableId,
+        source.index,
+        destination.index
+      );
     }
   }
 
@@ -44,14 +75,3 @@ export class BoardsPage extends PureComponent {
     );
   }
 }
-
-BoardsPage.propTypes = {
-  isThemeModalOpen: PropTypes.bool.isRequired,
-  isBoardsModalOpen: PropTypes.bool.isRequired,
-  fetchTheme: PropTypes.func.isRequired,
-  fetchUserBoards: PropTypes.func.isRequired,
-  match: PropTypes.shape({}).isRequired,
-  isLoadingBoards: PropTypes.bool.isRequired,
-  isLoadingTheme: PropTypes.bool.isRequired
-};
-

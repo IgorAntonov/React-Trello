@@ -5,6 +5,8 @@ export const types = {
   BOARDS_FAILURE: 'ENTITIES/BOARDS_FAILURE',
   BOARD_DELETE: 'ENTITIES/BOARD_DELETE',
   LIST_DELETE: 'ENTITIES/LIST_DELETE',
+  LIST_REORDER: 'ENTITIES/LIST_REORDER',
+  LIST_MOVE_FROM_TO: 'ENTITIES/LIST_MOVE_FROM_TO',
   CARD_RENAME: 'ENTITIES/CARD_RENAME',
   CARD_ADD_DESC: 'ENTITIES/CARD_ADD_DESC',
   CARD_ADD_COMMENT: 'ENTITIES/CARD_ADD_COMMENT'
@@ -43,6 +45,14 @@ export const actions = {
   }),
   addComment: payload => ({
     type: types.CARD_ADD_COMMENT,
+    payload
+  }),
+  reorderList: payload => ({
+    type: types.LIST_REORDER,
+    payload
+  }),
+  moveFromToList: payload => ({
+    type: types.LIST_MOVE_FROM_TO,
     payload
   })
 };

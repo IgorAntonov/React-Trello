@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Draggable, Droppable } from 'react-beautiful-dnd';
+import { Droppable } from 'react-beautiful-dnd';
 
+import { DraggableCard } from 'Components/BoardsPage/DraggableCard';
 import { ListHeader } from 'Components/BoardsPage/ListHeader';
-import { Card, StubCard } from 'Components/BoardsPage/Card';
+import { StubCard } from 'Components/BoardsPage/Card';
 import { AddCard } from 'Components/BoardsPage/AddCard';
 import { Wrapper, CardsWrapper } from './style';
 
@@ -66,32 +67,21 @@ export class List extends Component {
         />
         <CardsWrapper>
           <Droppable droppableId={list._id} type="LIST" >
-            {(provided, snapshot) => (
+            {provided => (
               <div ref={provided.innerRef} {...provided.droppableProps}>
                 {list.cards.map((card, index) => (
-                  <Draggable draggableId={card} key={card} index={index} type="LIST" disableInteractiveElementBlocking >
-                    {(provided, snapshot) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                      >
-                        <Card
-                          cardId={card}
-                          listId={list._id}
-                        />
-                      </div>
-                    )}
-                  </Draggable>
-                  ))
-                }
+                  <DraggableCard
+                    card={card}
+                    key={card}
+                    index={index}
+                    listId={list._id}
+                  />
+                ))}
                 {provided.placeholder}
               </div>
             )}
           </Droppable>
-          {
-            isStubCardShow ? <StubCard name={stubCardName} /> : null
-          }
+          {isStubCardShow ? <StubCard name={stubCardName} /> : null}
           <AddCard
             listId={list._id}
             showStubCard={this.showStubCard}
