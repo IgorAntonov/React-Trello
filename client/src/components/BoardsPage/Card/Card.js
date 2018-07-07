@@ -40,13 +40,3 @@ Card.propTypes = {
   listId: PropTypes.string.isRequired,
   isDragging: PropTypes.bool.isRequired
 };
-
-
-export const StubCard = ({ name }) => (
-  <Wrapper>
-    {name}
-  </Wrapper>
-);
-StubCard.propTypes = {
-  name: PropTypes.string.isRequired
-};
