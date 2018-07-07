@@ -9,7 +9,8 @@ export const types = {
   LIST_MOVE_FROM_TO: 'ENTITIES/LIST_MOVE_FROM_TO',
   CARD_RENAME: 'ENTITIES/CARD_RENAME',
   CARD_ADD_DESC: 'ENTITIES/CARD_ADD_DESC',
-  CARD_ADD_COMMENT: 'ENTITIES/CARD_ADD_COMMENT'
+  CARD_ADD_COMMENT: 'ENTITIES/CARD_ADD_COMMENT',
+  CARD_DELETE: 'ENTITIES/CARD_DELETE'
 };
 
 export const actions = {
@@ -37,6 +38,10 @@ export const actions = {
   }),
   renameCard: payload => ({
     type: types.CARD_RENAME,
+    payload
+  }),
+  deleteCard: payload => ({
+    type: types.CARD_DELETE,
     payload
   }),
   addCardDesc: payload => ({

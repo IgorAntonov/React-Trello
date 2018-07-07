@@ -34,33 +34,3 @@ export const DetailsWrapper = styled(ClickOutside)`
   border-radius: 4px;
   background-color: #edeff0;
 `;
-
-export const CloseBtn = styled.button`
-  position: absolute;
-  top: 2%;
-  right: 2%;
-
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  margin: 0;
-
-  border: none;
-  background-color: transparent;
-  outline: none;
-  cursor: pointer;
-
-  fill: #999;
-
-  transition: 0.3s all;
-  :hover {
-    fill: #1a1a1a;
-  }
-`;
-export const CloseIcon = styled(Icon).attrs({
-  icon: 'close',
-  width: '24px',
-  height: '24px',
-  viewBox: '48'
-})``;
-

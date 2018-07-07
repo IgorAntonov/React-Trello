@@ -51,3 +51,14 @@ export const addComment = (comment, cardId) => async (dispatch, getState) => {
 
   await cardAPI.postComment(comment, cardId, createAt);
 };
+
+export const deleteCard = (cardId, listId) => async (dispatch, getState) => {
+  const { cards } = getState().entities.lists[listId];
+  const filtered = cards.filter(id => id !== cardId);
+  const payload = {
+    cards: filtered,
+    listId
+  };
+  dispatch(actions.deleteCard(payload));
+};
+
