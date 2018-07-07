@@ -7,6 +7,8 @@ const router = express.Router();
 router.post('/create', list.createList);
 
 router.put('/rename', list.renameList);
+router.put('/reorder', list.reorderList);
+router.put('/move_from_to', list.moveCardsBetweenLists);
 
 router.delete('/delete', list.deleteList);
 

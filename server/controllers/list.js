@@ -119,3 +119,67 @@ exports.getBoardLists = async (req, res) => {
   }
 };
 
+exports.reorderList = async (req, res) => {
+  try {
+    const {
+      listId, cardId, end
+    } = req.body;
+    if (!listId || !cardId) {
+      return res.status(400).json({
+        status: 'error',
+        message: 'No needed fields is provided'
+      });
+    }
+
+    const { cards } = await List.findById(listId);
+    const reordered = cards.filter(id => id.toString() !== cardId);
+    reordered.splice(end, 0, cardId);
+
+    await List.findByIdAndUpdate(
+      { _id: listId },
+      { cards: reordered }
+    ).exec();
+
+    return res.status(200).json({
+      status: 'ok'
+    });
+  } catch (err) {
+    return res.status(500).json({
+      status: 'error',
+      message: err.message
+    });
+  }
+};
+
+exports.moveCardsBetweenLists = async (req, res) => {
+  try {
+    const {
+      sourceId, destinationId, cardId, end
+    } = req.body;
+    if (!sourceId || !destinationId || !cardId) {
+      return res.status(400).json({
+        status: 'error',
+        message: 'No needed fields is provided'
+      });
+    }
+
+    await List.findOneAndUpdate(
+      { _id: sourceId },
+      { $pull: { cards: cardId } }
+    );
+    await List.findByIdAndUpdate(
+      { _id: destinationId },
+      { $push: { cards: { $each: [cardId], $position: end } } }
+    ).exec();
+
+    return res.status(200).json({
+      status: 'ok'
+    });
+  } catch (err) {
+    return res.status(500).json({
+      status: 'error',
+      message: err.message
+    });
+  }
+};
+
