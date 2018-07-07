@@ -47,6 +47,14 @@ const lists = (state, action) => {
           cards: action.payload.sourceCards
         }
       };
+    case types.CARD_DELETE:
+      return {
+        ...state,
+        [action.payload.listId]: {
+          ...state[action.payload.listId],
+          cards: action.payload.cards
+        }
+      };
     default:
       return state;
   }
@@ -118,6 +126,7 @@ export const reducer = (state = initialState, action) => {
       };
     case types.LIST_REORDER:
     case types.LIST_MOVE_FROM_TO:
+    case types.CARD_DELETE:
       return {
         ...state,
         lists: lists(state.lists, action)

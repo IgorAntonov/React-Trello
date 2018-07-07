@@ -6,11 +6,12 @@ import { CardName } from './CardName';
 import { CardDescription } from './CardDescription';
 import { AddComment } from './AddComment';
 import { Comments } from './Comments';
-import { Wrapper, DetailsWrapper, CloseBtn, CloseIcon } from './style';
+import { CardActions } from './CardActions';
+import { Wrapper, DetailsWrapper } from './style';
 
 export const CardDetails = ({
   card, closeCardDetails, listTitle, renameCard, addCardDesc,
-  user, addComment
+  user, addComment, listId, deleteCard
 }) => (
   <Portal>
     <Wrapper>
@@ -32,9 +33,12 @@ export const CardDetails = ({
           addComment={addComment}
         />
         <Comments comments={card.comments} />
-        <CloseBtn onClick={closeCardDetails} >
-          <CloseIcon />
-        </CloseBtn>
+        <CardActions
+          cardId={card._id}
+          listId={listId}
+          closeCardDetails={closeCardDetails}
+          deleteCard={deleteCard}
+        />
       </DetailsWrapper>
     </Wrapper>
   </Portal>
@@ -55,6 +59,8 @@ CardDetails.propTypes = {
     userId: PropTypes.string,
     username: PropTypes.string
   }).isRequired,
-  addComment: PropTypes.func.isRequired
+  addComment: PropTypes.func.isRequired,
+  listId: PropTypes.string.isRequired,
+  deleteCard: PropTypes.func.isRequired
 };
 
