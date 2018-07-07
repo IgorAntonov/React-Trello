@@ -37,3 +37,32 @@ export const deleteList = (boardId, listId) => async (dispatch, getState) => {
   dispatch(refreshUserBoards());
 };
 
+export const reorderList = (listId, cardId, sourseIndex, destinationIndex) => (
+  dispatch,
+  getState
+) => {
+  const { cards } = getState().entities.lists[listId];
+  const reordered = cards.filter(id => id !== cardId);
+  reordered.splice(destinationIndex, 0, cardId);
+
+  const payload = { cards: reordered, listId };
+  dispatch(actions.reorderList(payload));
+};
+
+export const moveFromToList = (sourceId, destinationId, cardId, start, end) => (
+  dispatch,
+  getState
+) => {
+  const sourceCards = getState().entities.lists[sourceId].cards.filter(id => id !== cardId);
+
+  const destinationCards = [...getState().entities.lists[destinationId].cards];
+  destinationCards.splice(end, 0, cardId);
+
+  const payload = {
+    sourceId,
+    destinationId,
+    sourceCards,
+    destinationCards
+  };
+  dispatch(actions.moveFromToList(payload));
+};

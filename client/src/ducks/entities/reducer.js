@@ -25,6 +25,33 @@ const boards = (state, action) => {
   }
 };
 
+const lists = (state, action) => {
+  switch (action.type) {
+    case types.LIST_REORDER:
+      return {
+        ...state,
+        [action.payload.listId]: {
+          ...state[action.payload.listId],
+          cards: action.payload.cards
+        }
+      };
+    case types.LIST_MOVE_FROM_TO:
+      return {
+        ...state,
+        [action.payload.destinationId]: {
+          ...state[action.payload.destinationId],
+          cards: action.payload.destinationCards
+        },
+        [action.payload.sourceId]: {
+          ...state[action.payload.sourceId],
+          cards: action.payload.sourceCards
+        }
+      };
+    default:
+      return state;
+  }
+};
+
 const cards = (state, action) => {
   switch (action.type) {
     case types.CARD_RENAME:
@@ -88,6 +115,12 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         cards: cards(state.cards, action)
+      };
+    case types.LIST_REORDER:
+    case types.LIST_MOVE_FROM_TO:
+      return {
+        ...state,
+        lists: lists(state.lists, action)
       };
     default:
       return state;
