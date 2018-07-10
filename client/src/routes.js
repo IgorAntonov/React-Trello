@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 
 import { PrivateRoute } from 'Components/shared';
-import { GreetingPage } from 'Components/GreetingPage';
-import { SignupPage } from 'Components/SignupPage';
-import { LoginPage } from 'Components/LoginPage';
-import { BoardsPage } from 'Components/BoardsPage';
+import {
+  BoardsPage,
+  GreetingPage,
+  LoginPage,
+  SignupPage
+} from 'Src/pages';
 
 const routes = [
   {

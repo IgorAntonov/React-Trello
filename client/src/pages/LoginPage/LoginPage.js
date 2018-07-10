@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Footer } from 'Components/shared';
-import { LoginFormContainer as LoginForm } from './LoginForm';
+import { LoginFormContainer as LoginForm } from 'Src/features/LoginForm';
 import { Wrapper, Header, H1, H2, Main, Link } from './style';
 
 export const LoginPage = () => (

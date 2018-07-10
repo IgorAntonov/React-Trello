@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import { Button } from 'Components/shared';
 import { Wrapper, FlexWrapper, Title, MenuButton } from './style';
-import { DropdownMenu } from '../DropdownMenu';
-import { CreateBoard } from '../CreateBoard';
+import { DropdownMenu } from './DropdownMenu';
+import { CreateBoard } from './CreateBoard';
 
 export const BoardsHeader = ({ logoutUser, openModal, user }) => (
   <Wrapper>

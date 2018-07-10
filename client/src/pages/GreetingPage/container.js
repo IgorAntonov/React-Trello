@@ -7,4 +7,7 @@ const mapStateToProps = state => ({
   isAuth: getIsAuth(state)
 });
 
-export const GreetingPageContainer = connect(mapStateToProps, { logoutUser })(GreetingPage);
+export const GreetingPageContainer = connect(
+  mapStateToProps,
+  { logoutUser }
+)(GreetingPage);

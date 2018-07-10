@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Icon } from 'Components/shared';
-import { AddBoard } from 'Components/BoardsPage/AddBoard';
-import { BoardLink } from 'Components/BoardsPage/BoardLink';
+import { AddBoard } from './AddBoard';
+import { BoardLink } from './BoardLink';
 import { Wrapper, FlexTitle, Title, FlexBoards } from './style';
 
 export const AllBoards = ({ boards, deleteBoard }) => (
