@@ -68,7 +68,7 @@ export class List extends Component {
         <CardsWrapper>
           <Droppable droppableId={list._id} type="LIST" >
             {provided => (
-              <div ref={provided.innerRef} {...provided.droppableProps}>
+              <div ref={provided.innerRef} {...provided.droppableProps} style={{ minHeight: '10px' }}>
                 {list.cards.map((card, index) => (
                   <DraggableCard
                     card={card}

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { media } from 'Src/helpers';
-import { H2, Button } from 'Components/shared';
+import { Button } from 'Components/shared';
 
 export const Wrapper = styled.header`
   display: flex;
@@ -24,13 +25,25 @@ export const FlexWrapper = styled.div`
   position: relative;
 `;
 
-export const Title = styled(H2)`
+export const Title = styled(Link)`
   margin: 0;
   padding: 0 0.5rem;
   text-align: center;
   font-style: italic;
   font-weight: 500;
   color: #fff;
+
+  font-size: 1.2rem;
+  ${media.mobile`
+    font-size: 1.3rem;
+  `}
+  ${media.tablet`
+    font-size: 1.4rem;
+    font-weight: 500;
+  `}
+  ${media.desktop`
+    font-size: 1.5rem;
+  `}
 `;
 
 export const MenuButton = styled(Button)`
