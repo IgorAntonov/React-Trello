@@ -19,11 +19,12 @@ export class AddCard extends Component {
   showInput = () => {
     this.setState({
       showInput: true
-    });
+    }, () => this.field.focus());
   }
   hideInput = () => {
     this.setState({
-      showInput: false
+      showInput: false,
+      cardName: ''
     });
   }
   handleChange = e => {
@@ -31,7 +32,7 @@ export class AddCard extends Component {
       cardName: e.target.value
     });
   }
-  handleClick = () => {
+  submitCard = () => {
     const { cardName } = this.state;
     const {
       listId, createCard, showStubCard, hideStubCard
@@ -43,6 +44,14 @@ export class AddCard extends Component {
     });
     createCard(cardName, listId, hideStubCard);
   }
+  handleKeyPress = e => {
+    if (e.which === 13 && !e.shiftKey) {
+      this.submitCard();
+    }
+    if (e.which === 27) {
+      this.hideInput();
+    }
+  }
 
   render() {
     const { showInput, cardName } = this.state;
@@ -51,9 +60,14 @@ export class AddCard extends Component {
         {!showInput
           ? <AddButton onClick={this.showInput} >Add a card...</AddButton> :
           <NewCardField onClickOutside={this.hideInput} >
-            <Field value={cardName} onChange={this.handleChange} />
+            <Field
+              innerRef={x => { this.field = x; }}
+              value={cardName}
+              onChange={this.handleChange}
+              onKeyDown={this.handleKeyPress}
+            />
             <FieldActions>
-              <Button onClick={this.handleClick} >Add</Button>
+              <Button onClick={this.submitCard} >Add</Button>
               <CancelButton onClick={this.hideInput} >
                 <Icon icon="close" width="28" height="28" viewBox="48" />
               </CancelButton>

@@ -17,7 +17,7 @@ export class AddList extends Component {
   showInput = () => {
     this.setState({
       showInput: true
-    });
+    }, () => this.field.focus());
   }
   hideInput = () => {
     this.setState({
@@ -30,7 +30,7 @@ export class AddList extends Component {
       listName: e.target.value
     });
   }
-  handleClick = () => {
+  submitList = () => {
     const { listName } = this.state;
     const { boardId, createList } = this.props;
     this.setState({
@@ -39,6 +39,15 @@ export class AddList extends Component {
     });
     createList(boardId, listName);
   }
+  handleKeyPress = e => {
+    if (e.which === 13 && !e.shiftKey) {
+      this.submitList();
+    }
+    if (e.which === 27) {
+      this.hideInput();
+    }
+  }
+
   render() {
     const { showInput, listName } = this.state;
     return (
@@ -46,9 +55,14 @@ export class AddList extends Component {
         {!showInput
           ? <AddButton onClick={this.showInput} >Add a list...</AddButton> :
           <NewCardField onClickOutside={this.hideInput} >
-            <Field value={listName} onChange={this.handleChange} />
+            <Field
+              value={listName}
+              onChange={this.handleChange}
+              innerRef={x => { this.field = x; }}
+              onKeyDown={this.handleKeyPress}
+            />
             <FieldActions>
-              <Button onClick={this.handleClick} >Add</Button>
+              <Button onClick={this.submitList} >Add</Button>
               <CancelButton onClick={this.hideInput} >
                 <Icon icon="close" width="28" height="28" viewBox="48" />
               </CancelButton>

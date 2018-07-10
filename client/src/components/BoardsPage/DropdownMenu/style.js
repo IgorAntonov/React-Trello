@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+import { media } from 'Src/helpers';
+import { Button } from 'Components/shared';
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,3 +22,6 @@ export const MenuWrapper = styled.div`
   background-color: ${p => p.theme.darker};
 `;
 
+export const UserButton = styled(Button)`
+  
+`;

@@ -3,8 +3,9 @@ import { css } from 'styled-components';
 import { media } from 'Src/helpers';
 
 export const styles = css`
-  display: block;
-  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  padding: 0.4rem;
   margin: 0 0.1rem;
 
   border-width: 0;
@@ -14,7 +15,8 @@ export const styles = css`
 
   color: #fff;
   font-weight: 300;
-  
+  text-align: center;
+
   transition: 0.1s ease-out;
   cursor: pointer;
   user-select: none;

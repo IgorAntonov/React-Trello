@@ -1,8 +1,19 @@
 import styled from 'styled-components';
 import ClickOutside from 'react-click-outside';
 
+import { media } from 'Src/helpers';
+
 export const Wrapper = styled(ClickOutside)`
-  flex-basis: 23%;
+  flex-basis: 98%;
+  ${media.mobile`
+    flex-basis: 48%;
+  `}
+  ${media.tablet`
+    flex-basis: 31%;
+  `}
+  ${media.desktop`
+    flex-basis: 23%;
+  `}
   
   margin-bottom: 1rem;
   margin-right: 1%;

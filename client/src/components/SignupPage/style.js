@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { H1 as defaultH1, StyledLink } from 'Components/shared';
+import { H1 as DefaultH1, StyledLink } from 'Components/shared';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -20,8 +20,9 @@ export const Header = styled.header`
   background-color: #f8f9f9;
 `;
 
-export const H1 = styled(defaultH1)`
+export const H1 = styled(DefaultH1)`
   color: #333;
+  cursor: default;
 `;
 
 export const Main = styled.main`
@@ -34,9 +35,12 @@ export const Main = styled.main`
   padding: 2rem;
 
   background-color: #eceff1;
+  cursor: default;
 `;
 
 export const Link = styled(StyledLink)`
+  margin-bottom: 1rem;
+
   background-color: #eceff1;
   color: #2e7d32;
 `;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ClickOutside from 'react-click-outside';
 
-import { Icon } from 'Components/shared';
+import { media } from 'Src/helpers';
 
 export const Wrapper = styled.div`
   position: absolute;
@@ -24,7 +24,13 @@ export const DetailsWrapper = styled(ClickOutside)`
 
   display: flex;
   flex-direction: column;
-  flex-basis: 50%;
+  flex-basis: 90%;
+  ${media.mobile`
+    flex-basis: 80%;
+  `}
+  ${media.desktop`
+    flex-basis: 50%;
+  `}
 
   min-height: 80vh;
   padding: 1rem;

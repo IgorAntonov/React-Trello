@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import ClickOutside from 'react-click-outside';
 
+import { media } from 'Src/helpers';
 import { Icon } from 'Components/shared';
 
 export const Wrapper = styled.div`
@@ -10,7 +11,17 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: stretch;
 
-  flex-basis: 23%;
+  flex-basis: 98%;
+  ${media.mobile`
+    flex-basis: 48%;
+  `}
+  ${media.tablet`
+    flex-basis: 31%;
+  `}
+  ${media.desktop`
+    flex-basis: 23%;
+  `}
+  
   margin-bottom: 1rem;
   margin-right: 1%;
   margin-left: 1%;
