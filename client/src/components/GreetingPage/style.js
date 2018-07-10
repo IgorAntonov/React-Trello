@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { P as defaultP, H1 as defaultH1 } from 'Components/shared';
+import { P as DefaultP, H1 as DefaultH1 } from 'Components/shared';
 import { media } from 'Src/helpers';
 
 import bg from 'Src/assets/bg.jpg';
@@ -28,11 +28,21 @@ export const Logo = styled(Link)`
   display: block;
   padding: 0.25rem 0.5rem;
 
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #aeafaf;
   transition: 0.2s color;
   text-decoration: none;
+  
+  ${media.mobile`
+    font-size: 1.2rem;
+  `}
+  ${media.tablet`
+    font-size: 1.8rem;
+  `}
+  ${media.desktop`
+    font-size: 2rem;
+  `}
 
   :hover {
     color: #7c7d7d;
@@ -61,10 +71,10 @@ export const Main = styled.main`
     padding: 2rem 15rem;`}
 `;
 
-export const H1 = styled(defaultH1)`
+export const H1 = styled(DefaultH1)`
   margin-bottom: 2rem;
 `;
 
-export const P = styled(defaultP)`
+export const P = styled(DefaultP)`
   margin-bottom: 2rem;
 `;

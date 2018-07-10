@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { P as defaultP } from '../Typography';
+import { P as DefaultP } from '../Typography';
 
 export const FooterWrapper = styled.footer`
   display: flex;
@@ -12,10 +12,11 @@ export const FooterWrapper = styled.footer`
   background-color: #201e1c;
 `;
 
-export const P = styled(defaultP)`
+export const P = styled(DefaultP)`
   margin: 0;
   font-weight: 400;
   color: #7b7a7a;
+  cursor: default;
 `;
 
 export const Wrapper = styled.div`

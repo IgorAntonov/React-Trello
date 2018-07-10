@@ -26,8 +26,8 @@ export const GreetingPage = ({ isAuth, logoutUser }) => (
         What are you waiting for? Sign up for free:
       </P>}
       {isAuth
-        ? <Link to="/boards" >Boards</Link>
-        : <Link to="/signup" >Create Account</Link>
+        ? <Link color="#607D8B" to="/boards" >Boards</Link>
+        : <Link color="#607D8B" to="/signup" >Create Account</Link>
       }
     </Main>
     <Footer />

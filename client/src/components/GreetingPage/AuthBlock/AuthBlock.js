@@ -12,9 +12,9 @@ export const AuthBlock = ({ isAuth, logoutUser }) => (
         <Button onClick={logoutUser} >Logout</Button>
       </Fragment> :
       <Fragment>
-        <A href="/api/auth/google" >Login with Google</A>
-        <Link color="#388e3c" to="/login">LOGIN</Link>
-        <Link color="#e64a19" to="/signup">SIGNUP</Link>
+        <A color="#e64a19" href="/api/auth/google" >with Google</A>
+        <Link color="#607D8B" to="/login">LOGIN</Link>
+        <Link color="#607D8B" to="/signup">SIGNUP</Link>
       </Fragment>}
   </Wrapper>
 );

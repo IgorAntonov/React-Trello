@@ -46,6 +46,9 @@ export class CreateBoard extends Component {
       this.submitBoard();
       this.hideInput();
     }
+    if (e.which === 27) {
+      this.hideInput();
+    }
   }
   render() {
     const { showCreateInput, name } = this.state;
@@ -57,7 +60,7 @@ export class CreateBoard extends Component {
               onChange={this.handleChange}
               value={name}
               innerRef={x => { this.input = x; }}
-              onKeyPress={this.handleKeyPress}
+              onKeyDown={this.handleKeyPress}
             />
           }
           <CreateButton onClick={this.handleClick} >

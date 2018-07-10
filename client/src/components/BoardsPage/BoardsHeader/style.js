@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { media } from 'Src/helpers';
 import { H2, Button } from 'Components/shared';
 
 export const Wrapper = styled.header`
@@ -7,13 +8,15 @@ export const Wrapper = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  padding: 0.5rem 0;
+  padding: 0.5rem;
 
   background-color: ${p => p.theme.darker};
 `;
 
 export const FlexWrapper = styled.div`
-  flex: 1;
+  ${media.mobile`
+    flex: 1;
+  `}
   display: flex;
   align-items: center;
   justify-content: ${p => p.justify};
@@ -22,15 +25,16 @@ export const FlexWrapper = styled.div`
 `;
 
 export const Title = styled(H2)`
-  flex: 1;
   margin: 0;
-  
+  padding: 0 0.5rem;
   text-align: center;
   font-style: italic;
+  font-weight: 500;
   color: #fff;
 `;
 
 export const MenuButton = styled(Button)`
+  justify-content: center;
   margin: 0;
   border-radius: 0;
 `;
