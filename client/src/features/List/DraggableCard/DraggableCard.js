@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Draggable } from 'react-beautiful-dnd';
 
-import { Card } from 'Components/BoardsPage/Card';
+import { Card } from '../Card';
 
 export const DraggableCard = ({ card, index, listId }) => (
   <Draggable

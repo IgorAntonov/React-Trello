@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Footer } from 'Components/shared';
-import { SignupFormContainer as SignupForm } from './SignupForm';
+import { SignupFormContainer as SignupForm } from 'Src/features/SignupForm';
 import { Wrapper, Header, H1, H2, Main, Link } from './style';
 
 export const SignupPage = () => (

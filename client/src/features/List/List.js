@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Droppable } from 'react-beautiful-dnd';
 
-import { DraggableCard } from 'Components/BoardsPage/DraggableCard';
-import { ListHeader } from 'Components/BoardsPage/ListHeader';
-import { StubCard } from 'Components/BoardsPage/StubCard';
-import { AddCard } from 'Components/BoardsPage/AddCard';
+import { DraggableCard } from './DraggableCard';
+import { ListHeader } from './ListHeader';
+import { StubCard } from './StubCard';
+import { AddCard } from './AddCard';
 import { Wrapper, CardsWrapper } from './style';
 
 export class List extends Component {

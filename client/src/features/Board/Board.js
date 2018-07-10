@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { List } from 'Components/BoardsPage/List';
-import { BoardTitle } from 'Components/BoardsPage/BoardTitle';
-import { AddList } from 'Components/BoardsPage/AddList';
-import { CardDetails } from 'Components/CardDetails';
+import { BoardTitle } from './BoardTitle';
+import { AddList } from './AddList';
+import { List } from '../List';
+import { CardDetails } from '../CardDetails';
 import { Wrapper, FlexTitle, FlexBoard } from './style';
 
 export const Board = ({
