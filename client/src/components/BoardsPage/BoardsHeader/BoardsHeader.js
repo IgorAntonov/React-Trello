@@ -11,7 +11,9 @@ export const BoardsHeader = ({ logoutUser, openModal, user }) => (
     <FlexWrapper justify="flex-start" >
       <Button onClick={() => openModal('boardsMenu')} >Boards</Button>
     </FlexWrapper>
-    <Title>Reactive Trello</Title>
+    <Title to="/" >
+      Reactive Trello
+    </Title>
     <FlexWrapper justify="flex-end" >
       <CreateBoard />
       <DropdownMenu username={user.username}>

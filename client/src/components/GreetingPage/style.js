@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { P as DefaultP, H1 as DefaultH1 } from 'Components/shared';
 import { media } from 'Src/helpers';
 
-import bg from 'Src/assets/bg.jpg';
+import bg from './assets/bg.jpg';
 
 export const Wrapper = styled.div`
   display: flex;
