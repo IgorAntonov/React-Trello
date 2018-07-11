@@ -8,8 +8,7 @@ import { BoardsMenu } from 'Src/features/BoardsMenu';
 import { ThemeChanger } from 'Src/features/ThemeChanger';
 import { AllBoards } from 'Src/features/AllBoards';
 import { Board } from 'Src/features/Board';
-import { PageSpinner } from 'Components/shared';
-import { Wrapper } from './style';
+import { PageSpinner, FlexPage } from 'Src/ui';
 
 export class BoardsPage extends PureComponent {
   static propTypes = {
@@ -56,13 +55,20 @@ export class BoardsPage extends PureComponent {
 
   render() {
     const {
-      isThemeModalOpen, match, isBoardsModalOpen, isLoadingBoards, isLoadingTheme
+      isThemeModalOpen,
+      isBoardsModalOpen,
+      isLoadingBoards,
+      isLoadingTheme,
+      match
     } = this.props;
     const condition = isLoadingBoards || isLoadingTheme;
+
+    if (condition) {
+      return <PageSpinner />;
+    }
     return (
-      condition ? <PageSpinner /> :
       <DragDropContext onDragEnd={this.onDragEnd} >
-        <Wrapper>
+        <FlexPage>
           <BoardsHeader />
           <Switch>
             <Route exact path={`${match.path}`} component={AllBoards} />
@@ -70,7 +76,7 @@ export class BoardsPage extends PureComponent {
           </Switch>
           {isThemeModalOpen && <ThemeChanger />}
           {isBoardsModalOpen && <BoardsMenu />}
-        </Wrapper>
+        </FlexPage>
       </DragDropContext>
     );
   }

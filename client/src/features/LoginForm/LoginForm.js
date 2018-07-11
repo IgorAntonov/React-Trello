@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import {
   Form, Input, Field, Label, FormActions,
   Submit, Cancel, LoadingSpinner, SubmitError
-} from 'Components/shared';
+} from 'Src/ui';
 
 export class LoginForm extends Component {
   static propTypes = {

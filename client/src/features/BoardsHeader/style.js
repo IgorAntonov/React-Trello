@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { media } from 'Src/helpers';
-import { Button } from 'Components/shared';
+import { Button } from 'Src/ui';
 
 export const Wrapper = styled.header`
   display: flex;

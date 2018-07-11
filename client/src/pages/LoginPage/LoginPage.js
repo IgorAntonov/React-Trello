@@ -1,21 +1,30 @@
 import React from 'react';
 
-import { Footer } from 'Components/shared';
+import {
+  Footer,
+  FlexPage,
+  Header,
+  Col,
+  H1,
+  H2,
+  StyledLink
+} from 'Src/ui';
 import { LoginFormContainer as LoginForm } from 'Src/features/LoginForm';
-import { Wrapper, Header, H1, H2, Main, Link } from './style';
 
 export const LoginPage = () => (
-  <Wrapper>
-    <Header>
+  <FlexPage>
+    <Header justify="center" bgColor="#0067a3">
       <H1>Welcome back to Reactive Trello!</H1>
     </Header>
 
-    <Main>
+    <Col align="center" grow={1} padding="2rem" bgColor="#0079bf">
       <H2>Sign in and continue to work productively</H2>
-      <Link to="/signup" >Do not have an account yet?</Link>
+      <StyledLink to="/signup" bgcolor="transparent">
+        Do not have an account yet?
+      </StyledLink>
       <LoginForm />
-    </Main>
+    </Col>
 
     <Footer />
-  </Wrapper>
+  </FlexPage>
 );

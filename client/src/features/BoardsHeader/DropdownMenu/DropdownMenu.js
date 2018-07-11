@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Button } from 'Components/shared';
+import { Button } from 'Src/ui';
 import { Wrapper, MenuWrapper, UserButton } from './style';
 
 export class DropdownMenu extends Component {
