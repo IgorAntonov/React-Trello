@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 
 import {
-  reorderList, moveFromToList, fetchUserBoards,
+  reorderList,
+  moveFromToList,
+  fetchUserBoards,
   getIsLoading as getIsLoadingBoards
 } from 'Src/ducks/entities';
 import { fetchTheme, getIsLoading as getIsLoadingTheme } from 'Src/ducks/theme';
@@ -18,5 +20,10 @@ const mapStateToProps = state => ({
 
 export const BoardsPageContainer = connect(
   mapStateToProps,
-  { fetchUserBoards, fetchTheme, reorderList, moveFromToList }
+  {
+    fetchUserBoards,
+    fetchTheme,
+    reorderList,
+    moveFromToList
+  }
 )(BoardsPage);

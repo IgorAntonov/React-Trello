@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { media } from 'Src/helpers';
-import { Button } from 'Components/shared';
+import { Button } from 'Src/ui';
 
 export const Wrapper = styled.div`
   display: none;

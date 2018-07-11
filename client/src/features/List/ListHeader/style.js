@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ClickOutside from 'react-click-outside';
 
-import { Icon } from 'Components/shared';
+import { Icon } from 'Src/ui';
 
 export const TitleWrapper = styled.div`
   position: relative;

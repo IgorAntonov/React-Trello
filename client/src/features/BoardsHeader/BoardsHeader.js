@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button } from 'Components/shared';
+import { Button } from 'Src/ui';
 import { Wrapper, FlexWrapper, Title, MenuButton } from './style';
 import { DropdownMenu } from './DropdownMenu';
 import { CreateBoard } from './CreateBoard';

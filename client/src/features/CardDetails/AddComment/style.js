@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Icon, P } from 'Components/shared';
+import { Icon, P } from 'Src/ui';
 
 export const Wrapper = styled.div`
   display: flex;

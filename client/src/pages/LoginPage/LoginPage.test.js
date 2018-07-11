@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Footer } from 'Components/shared';
+import { Footer } from 'Src/ui';
 import { LoginPage } from './LoginPage';
 import { LoginFormContainer as LoginForm } from './LoginForm';
 import { Header, Link } from './style';

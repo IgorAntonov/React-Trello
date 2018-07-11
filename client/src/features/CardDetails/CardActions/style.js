@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Icon } from 'Components/shared';
+import { Icon } from 'Src/ui';
 
 export const Wrapper = styled.div`
   position: absolute;

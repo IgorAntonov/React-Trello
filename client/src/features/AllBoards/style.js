@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { H2 } from 'Components/shared';
+import { H2 } from 'Src/ui';
 
 export const Wrapper = styled.section`
   display: flex;

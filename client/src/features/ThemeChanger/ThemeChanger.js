@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
 
-import { Icon } from 'Components/shared';
+import { Icon } from 'Src/ui';
 import { themes, themesKeys } from 'Src/helpers';
 import { Container, ThemeButton, Title, Wrapper, CloseBtn, TitleWrapper } from './style';
 

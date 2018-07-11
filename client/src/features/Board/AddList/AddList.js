@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Icon, Button } from 'Components/shared';
+import { Icon, Button } from 'Src/ui';
 import { Wrapper, AddButton, Field, FieldActions, NewCardField, CancelButton } from './style';
 
 export class AddList extends Component {

@@ -6,7 +6,7 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { injectGlobal, ThemeProvider } from 'styled-components';
 
-import { PageSpinner } from 'Components/shared';
+import { PageSpinner } from 'Src/ui';
 import { fetchUser, getIsAuth, getIsLoading } from 'Src/ducks/auth';
 import { getColors } from 'Src/ducks/theme';
 import { Routes } from './routes';

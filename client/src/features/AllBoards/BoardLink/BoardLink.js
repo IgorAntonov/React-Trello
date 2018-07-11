@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Icon } from 'Components/shared';
+import { Icon } from 'Src/ui';
 import {
   StyledLink, Wrapper, DeleteBtn, DeleteConfirm,
   ConfirmBtn, ChoiceIcon, IconContainer

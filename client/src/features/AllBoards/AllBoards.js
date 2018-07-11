@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Icon } from 'Components/shared';
+import { Icon } from 'Src/ui';
 import { AddBoard } from './AddBoard';
 import { BoardLink } from './BoardLink';
 import { Wrapper, FlexTitle, Title, FlexBoards } from './style';

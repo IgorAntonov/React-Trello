@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ClickOutside from 'react-click-outside';
 
-import { Icon } from 'Components/shared';
+import { Icon } from 'Src/ui';
 import { Wrapper, CreateButton, CreateInput } from './style';
 
 export class CreateBoard extends Component {

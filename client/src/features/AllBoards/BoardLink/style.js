@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ClickOutside from 'react-click-outside';
 
 import { media } from 'Src/helpers';
-import { Icon } from 'Components/shared';
+import { Icon } from 'Src/ui';
 
 export const Wrapper = styled.div`
   position: relative;
