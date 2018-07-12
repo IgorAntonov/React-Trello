@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
 
   display: flex;
   align-items: stretch;
-
   flex-basis: 98%;
   ${media.mobile`
     flex-basis: 48%;
@@ -25,12 +24,11 @@ export const Wrapper = styled.div`
   margin-bottom: 1rem;
   margin-right: 1%;
   margin-left: 1%;
+  border-radius: 4px;
 
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  
-  border-radius: 4px;
   background-color: rgba(222, 225, 227, 0.7);
   cursor: pointer;
 
@@ -47,12 +45,12 @@ export const Wrapper = styled.div`
 export const StyledLink = styled(Link)`
   width: 100%;
   padding: 1rem;
+  outline: none;
 
   border: none;
   border-radius: 4px;
   background-color: transparent;
   color: #4c4e50;
-  outline: none;
 `;
 
 export const DeleteBtn = styled.button`
@@ -62,12 +60,12 @@ export const DeleteBtn = styled.button`
   
   padding: 0;
   border: none;
+  outline: none;
+  
   background-color: transparent;
   cursor: pointer;
-
   fill: ${p => p.theme.button};
   opacity: 0.7;
-  outline: none;
   transition: 0.2s all;
 
   :hover {
@@ -89,7 +87,6 @@ export const DeleteConfirm = styled(ClickOutside)`
   z-index: 10;
   
   display: flex;
-
   width: 100%;
   height: 100%;
   border-radius: 4px;
@@ -100,16 +97,16 @@ export const ConfirmBtn = styled.button`
   width: 100%;
   padding: 0 1rem;
   border: none;
+  outline: none;
+  overflow: hidden;
+
+  color: ${p => (p.isConfirm ? 'green' : 'inherit')};
   background-color: #fafafa;
   cursor: pointer;
   text-align: start;
-  outline: none;
-  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  
   transition: 0.3s color;
-  color: ${p => (p.isConfirm ? 'green' : 'inherit')}
 `;
 
 export const IconContainer = styled.div`
@@ -122,11 +119,3 @@ export const IconContainer = styled.div`
   transition: 0.3s fill;
   fill: ${p => (p.isConfirm ? 'green' : 'red')}
 `;
-
-export const ChoiceIcon = styled(Icon).attrs({
-  icon: p => (p.isConfirm ? 'ok' : 'close'),
-  width: '24px',
-  height: '24px',
-  viewBox: '48'
-})``;
-

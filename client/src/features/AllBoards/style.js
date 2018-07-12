@@ -2,15 +2,7 @@ import styled from 'styled-components';
 
 import { H2 } from 'Src/ui';
 
-export const Wrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-
-  background-color: ${p => p.theme.main};
-`;
-
-export const FlexTitle = styled.div`
+export const Flex = styled.div`
   display: flex;
   align-items: center;
 
@@ -24,7 +16,6 @@ export const Title = styled(H2)`
   padding: 0 0.5rem;
 
   color: #fff;
-  cursor: default;
 `;
 
 export const FlexBoards = styled.div`
@@ -32,10 +23,9 @@ export const FlexBoards = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   
-  padding: 0.5rem;
-    
+  padding: 0.5rem;   
   overflow: auto;
-  
+
   ::-webkit-scrollbar {
     width: 0.8rem;
     border-radius: 14px;

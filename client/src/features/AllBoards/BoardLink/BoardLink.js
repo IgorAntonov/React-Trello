@@ -3,8 +3,12 @@ import PropTypes from 'prop-types';
 
 import { Icon } from 'Src/ui';
 import {
-  StyledLink, Wrapper, DeleteBtn, DeleteConfirm,
-  ConfirmBtn, ChoiceIcon, IconContainer
+  StyledLink,
+  Wrapper,
+  DeleteBtn,
+  DeleteConfirm,
+  ConfirmBtn,
+  IconContainer
 } from './style';
 
 export class BoardLink extends Component {
@@ -19,25 +23,17 @@ export class BoardLink extends Component {
     isConfirm: true
   }
 
-  showDelete = () => this.setState({
-    showDeleteBtn: true
-  });
-  hideDelete = () => this.setState({
-    showDeleteBtn: false
-  });
-  showConfirm = () => this.setState({
-    showDeleteConfirm: true
-  });
+  showDelete = () => this.setState({ showDeleteBtn: true });
+  hideDelete = () => this.setState({ showDeleteBtn: false });
+
+  showConfirm = () => this.setState({ showDeleteConfirm: true });
   hideConfirm = () => this.setState({
     showDeleteConfirm: false,
     isConfirm: true
   });
-  confirmDelete = () => this.setState({
-    isConfirm: true
-  });
-  cancelDelete = () => this.setState({
-    isConfirm: false
-  });
+
+  confirmDelete = () => this.setState({ isConfirm: true });
+  cancelDelete = () => this.setState({ isConfirm: false });
 
   render() {
     const { boardId, name, deleteBoard } = this.props;
@@ -45,23 +41,19 @@ export class BoardLink extends Component {
     return (
       <Wrapper
         onMouseEnter={this.showDelete}
-        onFocus={this.showDelete}
         onMouseLeave={this.hideDelete}
+        onFocus={this.showDelete}
         onBlur={this.hideDelete}
       >
-        <StyledLink to={`/boards/${boardId}`} >
+        <StyledLink to={`/boards/${boardId}`}>
           {name}
         </StyledLink>
+
         {showDeleteBtn &&
           <DeleteBtn onClick={this.showConfirm} >
-            <Icon
-              icon="delete"
-              width="24px"
-              height="24px"
-              viewBox="48"
-            />
-          </DeleteBtn>
-        }
+            <Icon icon="delete" />
+          </DeleteBtn>}
+
         {showDeleteConfirm &&
           <DeleteConfirm
             onClickOutside={this.hideConfirm}
@@ -73,10 +65,9 @@ export class BoardLink extends Component {
               Delete this board?
             </ConfirmBtn>
             <IconContainer isConfirm={isConfirm}>
-              <ChoiceIcon isConfirm={isConfirm} />
+              <Icon icon={isConfirm ? 'ok' : 'close'} />
             </IconContainer>
-          </DeleteConfirm>
-        }
+          </DeleteConfirm>}
       </Wrapper>
     );
   }

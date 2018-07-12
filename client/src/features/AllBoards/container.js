@@ -7,5 +7,8 @@ const mapStateToProps = state => ({
   boards: getAllBoards(state),
 });
 
-export const AllBoardsContainer = connect(mapStateToProps, { deleteBoard })(AllBoards);
+export const AllBoardsContainer = connect(
+  mapStateToProps,
+  { deleteBoard }
+)(AllBoards);
 
