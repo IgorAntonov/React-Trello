@@ -13,22 +13,19 @@ export class AddBoard extends Component {
     name: ''
   }
 
-  showInput = () => {
-    this.setState({
-      showCreateInput: true
-    }, () => this.input.focus());
-  }
-  hideInput = () => {
-    this.setState({
-      showCreateInput: false,
-      name: ''
-    });
-  }
-  handleChange = e => {
-    this.setState({
-      name: e.target.value
-    });
-  }
+  showInput = () => this.setState(
+    { showCreateInput: true },
+    () => this.input.focus()
+  );
+  hideInput = () => this.setState({
+    showCreateInput: false,
+    name: ''
+  });
+
+  handleChange = e => this.setState({
+    name: e.target.value
+  });
+
   handleKeyPress = e => {
     const { name } = this.state;
     const { createBoard, history } = this.props;
@@ -53,8 +50,7 @@ export class AddBoard extends Component {
           /> :
           <AddButton onClick={this.showInput} >
             Create new board...
-          </AddButton>
-        }
+          </AddButton>}
       </Wrapper>
     );
   }

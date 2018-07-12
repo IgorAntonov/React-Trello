@@ -18,14 +18,12 @@ export const Wrapper = styled(ClickOutside)`
   margin-bottom: 1rem;
   margin-right: 1%;
   margin-left: 1%;
-
-  
   border: none;
   border-radius: 4px;
+  
   overflow: hidden;
   background-color: rgba(222, 225, 227, 0.2);
   text-align: center;
-  
   transition: 0.2s all;
   :focus {
     outline: none;
@@ -42,8 +40,8 @@ export const AddButton = styled.button`
 
   border: none;
   outline: none;
-  
   overflow: hidden;
+  
   white-space: nowrap;
   text-overflow: ellipsis;
   background-color: transparent;
@@ -56,9 +54,9 @@ export const BoardInput = styled.input.attrs({
 })`
   width: 100%;
   padding: 1rem;
-  
-  color: #4c4e50;
   border: none;
   outline: none;
+  
+  color: #4c4e50;
 `;
 

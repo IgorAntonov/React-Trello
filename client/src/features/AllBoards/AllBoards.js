@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Icon } from 'Src/ui';
+import { Col, Icon } from 'Src/ui';
 import { AddBoard } from './AddBoard';
 import { BoardLink } from './BoardLink';
-import { Wrapper, FlexTitle, Title, FlexBoards } from './style';
+import { Flex, Title, FlexBoards } from './style';
 
 export const AllBoards = ({ boards, deleteBoard }) => (
-  <Wrapper>
-    <FlexTitle>
-      <Icon icon="portrait" width="30px" height="30px" viewBox="48" />
-      <Title>My Boards</Title>
-    </FlexTitle>
-
+  <Col grow={1} bgColor={p => p.theme.main}>
+    <Flex>
+      <Icon icon="portrait" width="30px" height="30px" />
+      <Title> My Boards </Title>
+    </Flex>
     <FlexBoards>
       {boards.map(board => (
         <BoardLink
@@ -24,7 +23,7 @@ export const AllBoards = ({ boards, deleteBoard }) => (
       ))}
       <AddBoard />
     </FlexBoards>
-  </Wrapper>
+  </Col>
 );
 
 AllBoards.propTypes = {
