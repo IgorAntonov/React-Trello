@@ -2,26 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
 
-import { Icon } from 'Src/ui';
+import { Row, Icon } from 'Src/ui';
 import { themes, themesKeys } from 'Src/helpers';
-import { Container, ThemeButton, Title, Wrapper, CloseBtn, TitleWrapper } from './style';
+import {
+  Container,
+  ThemeButton,
+  Title,
+  CloseBtn,
+  TitleWrapper
+} from './style';
 
 export const ThemeChanger = ({ closeModal, setTheme }) => (
   <Portal>
     <Container onClickOutside={() => closeModal('themeChanger')} >
       <TitleWrapper>
-        <Title>
-          Colors
-        </Title>
+        <Title> Colors </Title>
         <CloseBtn onClick={() => closeModal('themeChanger')} >
-          <Icon icon="close" width="24px" height="24px" viewBox="48" />
+          <Icon icon="close" />
         </CloseBtn>
       </TitleWrapper>
-      <Wrapper>
-        {
-          themesKeys.map(theme => {
-            const color = themes[theme].main;
-            return (<ThemeButton
+      <Row wrap="wrap" justify="space-around">
+        {themesKeys.map(theme => {
+          const color = themes[theme].main;
+          return (
+            <ThemeButton
               theme={theme}
               color={color}
               key={theme}
@@ -29,10 +33,10 @@ export const ThemeChanger = ({ closeModal, setTheme }) => (
                 setTheme(theme);
                 closeModal('themeChanger');
               }}
-            />);
-          })
-        }
-      </Wrapper>
+            />
+          );
+        })}
+      </Row>
     </Container>
   </Portal>
 );

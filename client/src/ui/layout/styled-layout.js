@@ -11,6 +11,7 @@ const mixins = p => css`
   flex-grow: ${prop(p.grow)};
   flex-shrink: ${prop(p.shrink)};
   flex-basis: ${prop(p.basis)};
+  flex-wrap: ${prop(p.wrap)};
   order: ${prop(p.order)};
   width: ${prop(p.width)};
   padding: ${prop(p.padding)};
@@ -63,6 +64,7 @@ Row.propTypes = Col.propTypes = {
     PropTypes.number,
     PropTypes.string,
   ]),
+  wrap: PropTypes.string,
   order: PropTypes.number,
   width: PropTypes.string,
   padding: PropTypes.string,

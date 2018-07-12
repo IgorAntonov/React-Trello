@@ -37,6 +37,6 @@ Icon.propTypes = {
 Icon.defaultProps = {
   width: '24px',
   height: '24px',
-  viewBox: 48
+  viewBox: '48'
 };
 

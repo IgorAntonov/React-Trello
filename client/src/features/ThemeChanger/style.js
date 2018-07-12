@@ -14,14 +14,7 @@ export const Container = styled(ClickOutside)`
   width: 14rem;
 
   background-color: #fff;
-
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-`;
-
-export const Wrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
 `;
 
 export const TitleWrapper = styled.div`
@@ -30,18 +23,15 @@ export const TitleWrapper = styled.div`
   align-items: center;
   
   padding: 0.6rem 0;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  margin-bottom: 0.5rem;
+  margin: 0 1rem 0.5rem 1rem; 
   border-bottom: 1px solid #d6dadc;
 `;
 
 export const Title = styled(P)`
   margin: 0;
-
+  
+  color: #333;
   font-weight: 500;
-
-  cursor: default;
 `;
 
 export const CloseBtn = styled.button`
@@ -69,7 +59,6 @@ export const ThemeButton = styled.button`
   
   height: 4rem;
   margin-bottom: 0.5rem;
-
   border: none;
   border-radius: 6px;
 
