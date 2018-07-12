@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import ClickOutside from 'react-click-outside';
 
 import { media } from 'Src/helpers';
 import { Button } from 'Src/ui';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(ClickOutside)`
   display: none;
 
   ${media.tablet`
@@ -19,7 +20,6 @@ export const CreateButton = styled(Button)`
   padding: 0.3rem;
   
   fill: #fff;
-
   :hover {
     opacity: 0.6;
   }

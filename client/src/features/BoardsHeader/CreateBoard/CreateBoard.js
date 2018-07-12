@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ClickOutside from 'react-click-outside';
 
 import { Icon } from 'Src/ui';
 import { Wrapper, CreateButton, CreateInput } from './style';
@@ -15,17 +14,15 @@ export class CreateBoard extends Component {
     name: ''
   }
 
-  handleChange = e => {
-    this.setState({
-      name: e.target.value
-    });
-  }
-  hideInput = () => {
-    this.setState({
-      showCreateInput: false,
-      name: ''
-    });
-  }
+  handleChange = e => this.setState({
+    name: e.target.value
+  });
+
+  hideInput = () => this.setState({
+    showCreateInput: false,
+    name: ''
+  });
+
   submitBoard = () => {
     const { name } = this.state;
     const { createBoard, history } = this.props;
@@ -53,26 +50,18 @@ export class CreateBoard extends Component {
   render() {
     const { showCreateInput, name } = this.state;
     return (
-      <ClickOutside onClickOutside={this.hideInput} >
-        <Wrapper >
-          {showCreateInput &&
-            <CreateInput
-              onChange={this.handleChange}
-              value={name}
-              innerRef={x => { this.input = x; }}
-              onKeyDown={this.handleKeyPress}
-            />
-          }
-          <CreateButton onClick={this.handleClick} >
-            <Icon
-              icon={showCreateInput ? 'ok' : 'plus'}
-              width="24px"
-              height="24px"
-              viewBox="48"
-            />
-          </CreateButton>
-        </Wrapper>
-      </ClickOutside>
+      <Wrapper onClickOutside={this.hideInput}>
+        {showCreateInput &&
+          <CreateInput
+            value={name}
+            onChange={this.handleChange}
+            onKeyDown={this.handleKeyPress}
+            innerRef={x => { this.input = x; }}
+          />}
+        <CreateButton onClick={this.handleClick} >
+          <Icon icon={showCreateInput ? 'ok' : 'plus'} />
+        </CreateButton>
+      </Wrapper>
     );
   }
 }

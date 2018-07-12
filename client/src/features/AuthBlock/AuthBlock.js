@@ -1,11 +1,15 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { StyledLink as Link, Button, A } from 'Src/ui';
-import { Wrapper } from './style';
+import {
+  Row,
+  StyledLink as Link,
+  Button,
+  A
+} from 'Src/ui';
 
 export const AuthBlock = ({ isAuth, logoutUser }) => (
-  <Wrapper>
+  <Row justify="space-between" padding="0.25rem 0.5rem">
     {isAuth ? (
       <Fragment>
         <Link to="/boards">Boards</Link>
@@ -24,7 +28,7 @@ export const AuthBlock = ({ isAuth, logoutUser }) => (
         </Link>
       </Fragment>
     )}
-  </Wrapper>
+  </Row>
 );
 
 AuthBlock.propTypes = {

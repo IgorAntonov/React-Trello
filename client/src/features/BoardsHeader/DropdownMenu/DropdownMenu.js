@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import ClickOutside from 'react-click-outside';
 
-import { Button } from 'Src/ui';
-import { Wrapper, MenuWrapper, UserButton } from './style';
+import { Col, Button } from 'Src/ui';
+
+const MenuWrapper = styled.div`
+  position: absolute;
+  right: 0;
+  top: 120%;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  background-color: ${p => p.theme.darker};
+`;
 
 export class DropdownMenu extends Component {
   static propTypes = {
@@ -12,40 +26,30 @@ export class DropdownMenu extends Component {
       PropTypes.node
     ]).isRequired
   }
-  constructor(props) {
-    super(props);
-    this.state = {
-      showMenu: false
-    };
-  }
-  componentWillUnmount = () => {
-    document.removeEventListener('click', this.closeMenu);
-  }
+  state = {
+    showMenu: false
+  };
 
-  showMenu = () => {
-    this.setState({ showMenu: true }, () => {
-      document.addEventListener('click', this.closeMenu);
-    });
-  }
-  closeMenu = () => {
-    this.setState({ showMenu: false }, () => {
-      document.removeEventListener('click', this.closeMenu);
-    });
-  }
+  hideMenu = () => this.setState({ showMenu: false });
+  toggleMenu = () => this.setState(prevState => ({
+    showMenu: !prevState.showMenu
+  }));
+
   render() {
     const { children, username } = this.props;
     const { showMenu } = this.state;
     return (
-      <Wrapper>
-        <UserButton onClick={this.showMenu}>
-          {username}
-        </UserButton>
-        {showMenu &&
-          <MenuWrapper>
-            {children}
-          </MenuWrapper>
-        }
-      </Wrapper>
+      <ClickOutside onClickOutside={this.hideMenu} >
+        <Col align="center">
+          <Button onClick={this.toggleMenu}>
+            {username}
+          </Button>
+          {showMenu &&
+            <MenuWrapper>
+              {children}
+            </MenuWrapper>}
+        </Col>
+      </ClickOutside>
     );
   }
 }
