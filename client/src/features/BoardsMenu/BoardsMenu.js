@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
-import { Container, Title, TitleWrapper, FlexWrapper, BoardLink } from './style';
+import {
+  Container,
+  Title,
+  TitleWrapper,
+  FlexWrapper,
+  BoardLink
+} from './style';
 
 export const BoardsMenu = ({ closeModal, boards }) => (
   <Portal>
@@ -10,17 +16,15 @@ export const BoardsMenu = ({ closeModal, boards }) => (
         <Title>Personal Boards</Title>
       </TitleWrapper>
       <FlexWrapper>
-        {
-          boards.map(board => (
-            <BoardLink
-              key={board._id}
-              to={`/boards/${board._id}`}
-              onClick={() => closeModal('boardsMenu')}
-            >
-              {board.name}
-            </BoardLink>
-          ))
-        }
+        {boards.map(board => (
+          <BoardLink
+            key={board._id}
+            to={`/boards/${board._id}`}
+            onClick={() => closeModal('boardsMenu')}
+          >
+            {board.name}
+          </BoardLink>
+        ))}
       </FlexWrapper>
     </Container>
   </Portal>

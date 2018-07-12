@@ -17,17 +17,14 @@ export const Container = styled(ClickOutside)`
   border-radius: 4px;
 
   background-color: #fff;
-
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 `;
 
 export const Title = styled(P)`
   margin: 0;
 
-  font-weight: 500;
   color: #4c4e50;
-  
-  cursor: default;
+  font-weight: 500;
 `;
 
 export const TitleWrapper = styled.div`

@@ -9,7 +9,6 @@ const MenuWrapper = styled.div`
   position: absolute;
   right: 0;
   top: 120%;
-  z-index: 10;
 
   display: flex;
   flex-direction: column;
