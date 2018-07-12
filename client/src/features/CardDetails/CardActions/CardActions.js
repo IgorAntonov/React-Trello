@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ClickOutside from 'react-click-outside';
 
-import { Wrapper, IconWrapper, CloseIcon, DeleteIcon, DeleteBtn } from './style';
+import { Icon } from 'Src/ui';
+import { Wrapper, IconWrapper, DeleteBtn } from './style';
 
 export class CardActions extends Component {
   static propTypes ={
@@ -33,7 +34,7 @@ export class CardActions extends Component {
     return (
       <Wrapper>
         <IconWrapper onClick={closeCardDetails} >
-          <CloseIcon />
+          <Icon icon="close" />
         </IconWrapper>
         {showDeleteConfirm ?
           <ClickOutside onClickOutside={this.hideConfirm} >
@@ -42,7 +43,7 @@ export class CardActions extends Component {
             </DeleteBtn>
           </ClickOutside> :
           <IconWrapper onClick={this.showConfirm} >
-            <DeleteIcon />
+            <Icon icon="delete" />
           </IconWrapper>
         }
       </Wrapper>

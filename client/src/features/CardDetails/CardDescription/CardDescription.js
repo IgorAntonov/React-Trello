@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import autosize from 'autosize';
 
-import { Wrapper, IconContainer, ContentContainer, DescIcon, Header, DescInput } from './style';
+import { Row, Col, Icon } from 'Src/ui';
+import { IconContainer, Header, DescInput } from './style';
 
 export class CardDescription extends Component {
   static propTypes = {
@@ -27,11 +28,11 @@ export class CardDescription extends Component {
   render() {
     const { description } = this.props;
     return (
-      <Wrapper>
+      <Row margin="0 0 1.5rem 0">
         <IconContainer>
-          <DescIcon />
+          <Icon icon="description" />
         </IconContainer>
-        <ContentContainer>
+        <Col grow={1} margin="0 0.75rem" padding="0 0 0 0.5rem" >
           <Header>Description</Header>
           <DescInput
             defaultValue={description === 'no description' ? '' : description}
@@ -39,8 +40,8 @@ export class CardDescription extends Component {
             onBlur={this.handleAddDesc}
             onKeyPress={this.handleAddDesc}
           />
-        </ContentContainer>
-      </Wrapper>
+        </Col>
+      </Row>
     );
   }
 }

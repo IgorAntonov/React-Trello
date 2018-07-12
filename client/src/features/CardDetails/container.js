@@ -1,8 +1,12 @@
 import { connect } from 'react-redux';
 
 import {
-  addComment, renameCard, addCardDesc, deleteCard,
-  getOpenedCardById, getOpenedListTitle
+  addComment,
+  renameCard,
+  addCardDesc,
+  deleteCard,
+  getOpenedCardById,
+  getOpenedListTitle
 } from 'Src/ducks/entities';
 import { getUser } from 'Src/ducks/auth';
 import { actions, getOpenedListId } from 'Src/ducks/modal';

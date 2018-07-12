@@ -3,7 +3,7 @@ import ClickOutside from 'react-click-outside';
 
 import { media } from 'Src/helpers';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   position: absolute;
   top: 0;
   left: 0;
@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
   display:flex;
   justify-content: center;
   align-items: flex-start;
-
   width: 100%;
   min-height: 100vh;
   
@@ -31,12 +30,11 @@ export const DetailsWrapper = styled(ClickOutside)`
   ${media.desktop`
     flex-basis: 50%;
   `}
-
   min-height: 80vh;
   padding: 1rem;
   padding-right: 4rem;
   margin-top: 3rem;
-
   border-radius: 4px;
+  
   background-color: #edeff0;
 `;
