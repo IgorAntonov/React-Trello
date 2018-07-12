@@ -35,7 +35,12 @@ export const Card = ({
 );
 
 Card.propTypes = {
-  card: PropTypes.shape({}).isRequired,
+  card: PropTypes.shape({
+    _id: PropTypes.string,
+    name: PropTypes.string,
+    description: PropTypes.string,
+    comments: PropTypes.array
+  }).isRequired,
   openCardDetails: PropTypes.func.isRequired,
   listId: PropTypes.string.isRequired,
   isDragging: PropTypes.bool.isRequired
