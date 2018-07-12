@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Icon, Button } from 'Src/ui';
-import { Wrapper, AddButton, Field, FieldActions, NewCardField, CancelButton } from './style';
+import { Row, Icon, Button } from 'Src/ui';
+import {
+  Wrapper,
+  AddButton,
+  Field,
+  NewCardField,
+  CancelButton
+} from './style';
 
 export class AddList extends Component {
   static propTypes = {
@@ -14,30 +20,26 @@ export class AddList extends Component {
     listName: ''
   }
 
-  showInput = () => {
-    this.setState({
-      showInput: true
-    }, () => this.field.focus());
-  }
-  hideInput = () => {
-    this.setState({
-      showInput: false,
-      listName: ''
-    });
-  }
-  handleChange = e => {
-    this.setState({
-      listName: e.target.value
-    });
-  }
+  showInput = () => this.setState(
+    { showInput: true },
+    () => this.field.focus()
+  );
+  hideInput = () => this.setState({
+    showInput: false,
+    listName: ''
+  });
+  handleChange = e => this.setState({
+    listName: e.target.value
+  });
+
   submitList = () => {
     const { listName } = this.state;
     const { boardId, createList } = this.props;
+    createList(boardId, listName);
     this.setState({
       showInput: false,
       listName: ''
     });
-    createList(boardId, listName);
   }
   handleKeyPress = e => {
     if (e.which === 13 && !e.shiftKey) {
@@ -61,14 +63,13 @@ export class AddList extends Component {
               innerRef={x => { this.field = x; }}
               onKeyDown={this.handleKeyPress}
             />
-            <FieldActions>
+            <Row padding="0.5rem 0">
               <Button onClick={this.submitList} >Add</Button>
               <CancelButton onClick={this.hideInput} >
-                <Icon icon="close" width="28" height="28" viewBox="48" />
+                <Icon icon="close" width="28" height="28" />
               </CancelButton>
-            </FieldActions>
-          </NewCardField>
-        }
+            </Row>
+          </NewCardField>}
       </Wrapper>
     );
   }

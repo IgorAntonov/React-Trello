@@ -12,7 +12,6 @@ export class BoardTitle extends Component {
 
   handleRenameBoard = e => {
     const { boardId, renameBoard } = this.props;
-
     if (e.type === 'keypress' && e.which === 13) {
       e.preventDefault();
       e.target.blur();

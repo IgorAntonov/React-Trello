@@ -1,1 +1,1 @@
-export { BoardTitleContainer as BoardTitle } from './container';
+export { BoardTitle } from './BoardTitle';

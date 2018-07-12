@@ -1,12 +1,17 @@
 import { connect } from 'react-redux';
 
-import { renameList, getListsByBoardId, getBoardName } from 'Src/ducks/entities';
+import {
+  renameList,
+  createList,
+  renameBoard,
+  getListsByBoardId,
+  getBoardName,
+} from 'Src/ducks/entities';
 import { getIsCardDetailsOpen } from 'Src/ducks/modal';
 import { Board } from './Board';
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;
-
   return {
     lists: getListsByBoardId(state, id),
     boardName: getBoardName(state, id),
@@ -14,4 +19,7 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export const BoardContainer = connect(mapStateToProps, { renameList })(Board);
+export const BoardContainer = connect(
+  mapStateToProps,
+  { renameList, createList, renameBoard }
+)(Board);
