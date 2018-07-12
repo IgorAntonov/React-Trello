@@ -7,17 +7,16 @@ export const RenameInput = styled.textarea.attrs({
   padding: 0.3rem;
   width: 100%;
   overflow: hidden;
-
-  resize: none;
-  background-color: transparent;
   border: none;
   border-radius: 4px;
   outline: none;
-  cursor: pointer;
+
   color: #fff;
+  background-color: transparent;
   font-weight: 500;
   font-size: 1.5rem;
-  
+  resize: none;
+  cursor: pointer;
   transition: 0.3s all;
   :focus {
     background-color: #fff;

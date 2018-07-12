@@ -1,1 +1,1 @@
-export { AddListContainer as AddList } from './container';
+export { AddList } from './AddList';

@@ -1,24 +1,31 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import { Col, Row } from 'Src/ui';
 import { BoardTitle } from './BoardTitle';
 import { AddList } from './AddList';
 import { List } from '../List';
 import { CardDetails } from '../CardDetails';
-import { Wrapper, FlexTitle, FlexBoard } from './style';
+import { FlexBoard } from './style';
 
 export const Board = ({
-  lists, renameList, boardName, isCardDetailsOpen, match
+  lists, renameList, createList, renameBoard,
+  boardName, isCardDetailsOpen, match
 }) => (
   <Fragment>
-    <Wrapper>
-      <FlexTitle>
+    <Col
+      grow={1}
+      padding="0.5rem 1rem"
+      bgColor={p => p.theme.main}
+    >
+      <Row align="flex-start" margin="0 0 0.8rem 0" >
         <BoardTitle
           title={boardName}
+          renameBoard={renameBoard}
           key={match.params.id}
           boardId={match.params.id}
         />
-      </FlexTitle>
+      </Row>
       <FlexBoard>
         {lists.map(list => (
           <List
@@ -28,18 +35,21 @@ export const Board = ({
             key={list._id}
           />
         ))}
-        <AddList boardId={match.params.id} />
+        <AddList
+          boardId={match.params.id}
+          createList={createList}
+        />
       </FlexBoard>
-    </Wrapper>
-    {isCardDetailsOpen &&
-      <CardDetails />
-    }
+    </Col>
+    {isCardDetailsOpen && <CardDetails />}
   </Fragment>
 );
 
 Board.propTypes = {
   lists: PropTypes.arrayOf(PropTypes.object).isRequired,
   renameList: PropTypes.func.isRequired,
+  createList: PropTypes.func.isRequired,
+  renameBoard: PropTypes.func.isRequired,
   boardName: PropTypes.string.isRequired,
   isCardDetailsOpen: PropTypes.bool.isRequired,
   match: PropTypes.shape({}).isRequired

@@ -3,24 +3,22 @@ import ClickOutside from 'react-click-outside';
 
 export const Wrapper = styled.div`
   display: flex;
-
   min-width: 16rem;
 `;
 
 export const AddButton = styled.button`
   display: flex;
-  flex: 1;
   justify-content: center;
-  padding: 0.5rem;
+  flex: 1;
   
+  padding: 0.5rem;
   border: none;
   border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.1);
   
+  background-color: rgba(0, 0, 0, 0.1);
   color: #fff;
   font-weight: 500;
   cursor: pointer;
-  
   transition: 0.3s all;
   :hover {
     background-color: rgba(0, 0, 0, 0.2);
@@ -49,20 +47,12 @@ export const Field = styled.textarea.attrs({
   height: 4rem;
   padding: 0.3rem;
   margin: 0.5rem;
-
-  resize: none;
   border: none;
   border-radius: 4px;
+  outline: none;
+
+  resize: none;
   word-wrap: break-word;
-
-  :focus {
-    outline: none;
-  }
-`;
-
-export const FieldActions = styled.div`
-  display: flex;
-  padding: 0.5rem 0;
 `;
 
 export const CancelButton = styled.button`
@@ -70,13 +60,13 @@ export const CancelButton = styled.button`
   
   padding: 0;
   margin: 0;
-  
   border: none;
-  background-color: transparent;
-  fill: #999;
-  cursor: pointer;
   outline: none;
+  
+  background-color: transparent;
+  cursor: pointer;
   transition: 0.3s all;
+  fill: #999;
   :hover {
     fill: #1a1a1a;
   }
