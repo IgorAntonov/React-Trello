@@ -9,7 +9,7 @@ import {
   H2,
   StyledLink
 } from 'Src/ui';
-import { SignupFormContainer as SignupForm } from 'Src/features/SignupForm';
+import { SignupForm } from 'Src/features/SignupForm';
 
 
 export const SignupPage = () => (

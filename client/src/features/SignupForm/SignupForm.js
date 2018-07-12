@@ -1,123 +1,76 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import { Formik } from 'formik';
+import * as yup from 'yup';
 
 import {
-  Form, Input, Field, Label, FormActions,
-  Submit, Cancel, LoadingSpinner, SubmitError
+  StyledForm, Wrapper, StyledField, Label, FormActions,
+  Submit, Cancel, SubmitError
 } from 'Src/ui';
 
-export class SignupForm extends Component {
-  static propTypes = {
-    signupUser: PropTypes.func.isRequired,
-    error: PropTypes.string.isRequired,
-    isLoading: PropTypes.bool.isRequired,
-    isAuth: PropTypes.bool.isRequired
-  }
-  state = {
-    validName: false,
-    validEmail: false,
-    validPass: false,
-    formErrors: { name: '', email: '', password: '' },
-    name: '',
-    email: '',
-    password: ''
-  }
+const schema = yup.object().shape({
+  email: yup.string().email('not valid').required('is required'),
+  name: yup.string().required('is required'),
+  password: yup.string().min(6, 'must be 6 characters or longer').required('is required')
+});
 
-  handleChange = e => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
+export const SignupForm = ({ error, isAuth, signupUser }) => {
+  if (isAuth) {
+    return <Redirect to="/boards" />;
   }
-  handleSubmit = e => {
-    e.preventDefault();
-    const { signupUser } = this.props;
-    const { name, email, password } = this.state;
-    signupUser({ name, email, password });
-  }
-  validateField = (fieldName, value) => {
-    let isValid = false;
-    const { formErrors } = this.state;
-    switch (fieldName) {
-      case 'name':
-        isValid = /^[a-z ,.'-]+$/i.test(value);
-        formErrors.name = isValid ? '' : 'must have no special characters';
-        this.setState({ validName: isValid });
-        break;
-      case 'email':
-        isValid = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value);
-        formErrors.email = isValid ? '' : 'is invalid';
-        this.setState({ validEmail: isValid });
-        break;
-      case 'password':
-        isValid = value.length > 5;
-        formErrors.password = isValid ? '' : 'must be larger than 6 characters';
-        this.setState({ validPass: isValid });
-        break;
-      default:
-        break;
-    }
-    this.setState({ formErrors });
-  };
+  return (
+    <Formik
+      initialValues={{ email: '', name: '', password: '' }}
+      validationSchema={schema}
+      onSubmit={({ name, email, password }, actions) => {
+        actions.setSubmitting(false);
+        signupUser({ name, email, password });
+      }}
+      render={({ values, errors, touched }) => (
+        <StyledForm>
+          <Wrapper>
+            <StyledField
+              warn={errors.name}
+              value={values.name}
+              type="text"
+              name="name"
+            />
+            <Label>Name {touched.name && errors.name}</Label>
+          </Wrapper>
+          <Wrapper>
+            <StyledField
+              warn={errors.email}
+              value={values.email}
+              type="email"
+              name="email"
+            />
+            <Label>Email {touched.email && errors.email}</Label>
+          </Wrapper>
+          <Wrapper>
+            <StyledField
+              warn={errors.password}
+              value={values.password}
+              type="password"
+              name="password"
+            />
+            <Label>Password {touched.password && errors.password}</Label>
+          </Wrapper>
+          <FormActions>
+            <Cancel to="/">Cancel</Cancel>
+            <Submit type="submit">SIGNUP</Submit>
+          </FormActions>
+          <SubmitError>
+            {error}
+          </SubmitError>
+        </StyledForm>
+      )}
+    />
+  );
+};
 
-  render() {
-    const {
-      validName, validEmail, validPass,
-      name, email, password, formErrors
-    } = this.state;
-    const isFormValid = validName && validEmail && validPass;
-    const { isLoading, isAuth, error } = this.props;
-
-    if (isAuth) return <Redirect to="/boards" />;
-    return (
-      isLoading ? <LoadingSpinner /> :
-      <Form onSubmit={this.handleSubmit}>
-        <Field>
-          <Input
-            type="text"
-            name="name"
-            id="name"
-            valid={validName}
-            value={name}
-            onChange={this.handleChange}
-            onInput={() => this.validateField('name', name)}
-            onBlur={() => this.validateField('name', name)}
-          />
-          <Label htmlFor="name"> Name {formErrors.name} </Label>
-        </Field>
-        <Field>
-          <Input
-            type="email"
-            name="email"
-            id="email"
-            valid={validEmail}
-            value={email}
-            onChange={this.handleChange}
-            onInput={() => this.validateField('email', email)}
-            onBlur={() => this.validateField('email', email)}
-          />
-          <Label htmlFor="email"> Email {formErrors.email} </Label>
-        </Field>
-        <Field>
-          <Input
-            type="password"
-            name="password"
-            id="password"
-            valid={validPass}
-            value={password}
-            onChange={this.handleChange}
-            onInput={() => this.validateField('password', password)}
-            onBlur={() => this.validateField('password', password)}
-          />
-          <Label htmlFor="password"> Password {formErrors.password} </Label>
-        </Field>
-        <FormActions>
-          <Cancel to="/">Cancel</Cancel>
-          <Submit disabled={!isFormValid} >Create</Submit>
-        </FormActions>
-        <SubmitError>
-          {error}
-        </SubmitError>
-      </Form>
-    );
-  }
-}
+SignupForm.propTypes = {
+  error: PropTypes.string.isRequired,
+  isAuth: PropTypes.bool.isRequired,
+  signupUser: PropTypes.func.isRequired
+};

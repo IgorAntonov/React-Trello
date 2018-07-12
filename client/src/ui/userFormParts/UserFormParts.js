@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
-
+import { Form, Field } from 'formik';
 import { media } from 'Src/helpers';
 import { Button, StyledLink, P } from 'Src/ui';
 
-export const Form = styled.form`
+export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
   
@@ -46,7 +46,7 @@ export const Label = styled.label`
   `}
 `;
 
-export const Input = styled.input`
+export const StyledField = styled(Field)`
   display: block;
   width: 100%;
   padding: 0.6rem 0.6rem  0.6rem  0.3rem;
@@ -67,12 +67,12 @@ export const Input = styled.input`
     + label {
       top: -1rem;
       font-size:0.9rem;
-      color:${props.valid ? '#337ab7' : 'red'};
+      color:${props.warn ? 'red' : '#337ab7'};
     } 
   `}
 `;
 
-export const Field = styled.div`
+export const Wrapper = styled.div`
   position: relative;
   margin-bottom: 2rem;
 `;

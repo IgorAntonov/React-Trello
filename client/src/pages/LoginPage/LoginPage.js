@@ -9,7 +9,7 @@ import {
   H2,
   StyledLink
 } from 'Src/ui';
-import { LoginFormContainer as LoginForm } from 'Src/features/LoginForm';
+import { LoginForm } from 'Src/features/LoginForm';
 
 export const LoginPage = () => (
   <FlexPage>

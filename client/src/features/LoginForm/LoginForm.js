@@ -1,103 +1,66 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import { Formik } from 'formik';
+import * as yup from 'yup';
 
 import {
-  Form, Input, Field, Label, FormActions,
-  Submit, Cancel, LoadingSpinner, SubmitError
+  StyledForm, Wrapper, StyledField, Label, FormActions,
+  Submit, Cancel, SubmitError
 } from 'Src/ui';
 
-export class LoginForm extends Component {
-  static propTypes = {
-    loginUser: PropTypes.func.isRequired,
-    error: PropTypes.string.isRequired,
-    isAuth: PropTypes.bool.isRequired,
-    isLoading: PropTypes.bool.isRequired
-  }
-  state = {
-    validEmail: false,
-    validPass: false,
-    formErrors: { email: '', password: '' },
-    email: '',
-    password: ''
-  }
+const schema = yup.object().shape({
+  email: yup.string().email('not valid').required('is required'),
+  password: yup.string().min(6, 'must be 6 characters or longer').required('is required')
+});
 
-  validateField = (fieldName, value) => {
-    let isValid = false;
-    const { formErrors } = this.state;
-    switch (fieldName) {
-      case 'email':
-        isValid = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value);
-        formErrors.email = isValid ? '' : 'is invalid';
-        this.setState({ validEmail: isValid });
-        break;
-      case 'password':
-        isValid = value.length > 5;
-        formErrors.password = isValid ? '' : 'must be larger than 6 characters';
-        this.setState({ validPass: isValid });
-        break;
-      default:
-        break;
-    }
-    this.setState({ formErrors });
-  };
+export const LoginForm = ({ error, isAuth, loginUser }) => {
+  if (isAuth) {
+    return <Redirect to="/boards" />;
+  }
+  return (
+    <Formik
+      initialValues={{ email: '', password: '' }}
+      validationSchema={schema}
+      onSubmit={({ email, password }, actions) => {
+        actions.setSubmitting(false);
+        loginUser({ email, password });
+      }}
+      render={({ values, errors, touched }) => (
+        <StyledForm>
+          <Wrapper>
+            <StyledField
+              warn={errors.email}
+              value={values.email}
+              type="email"
+              name="email"
+            />
+            <Label>Email {touched.email && errors.email}</Label>
+          </Wrapper>
+          <Wrapper>
+            <StyledField
+              warn={errors.password}
+              value={values.password}
+              type="password"
+              name="password"
+            />
+            <Label>Password {touched.password && errors.password}</Label>
+          </Wrapper>
+          <FormActions>
+            <Cancel to="/">Cancel</Cancel>
+            <Submit type="submit">LOGIN</Submit>
+          </FormActions>
+          <SubmitError>
+            {error}
+          </SubmitError>
+        </StyledForm>
+      )}
+    />
+  );
+};
 
-  handleChange = e => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  }
-  handleSubmit = e => {
-    e.preventDefault();
-    const { loginUser } = this.props;
-    const { email, password } = this.state;
-    loginUser({ email, password });
-  }
-
-  render() {
-    const {
-      validEmail, validPass,
-      email, password, formErrors
-    } = this.state;
-    const isFormValid = validEmail && validPass;
-    const { isLoading, isAuth, error } = this.props;
-    if (isAuth) return <Redirect to="/boards" />;
-    return (
-      isLoading ? <LoadingSpinner /> :
-      <Form onSubmit={this.handleSubmit}>
-        <Field>
-          <Input
-            type="email"
-            name="email"
-            id="email"
-            valid={validEmail}
-            value={email}
-            onChange={this.handleChange}
-            onInput={() => this.validateField('email', email)}
-            onBlur={() => this.validateField('email', email)}
-          />
-          <Label htmlFor="email"> Email {formErrors.email} </Label>
-        </Field>
-        <Field>
-          <Input
-            type="password"
-            name="password"
-            id="password"
-            valid={validPass}
-            value={password}
-            onChange={this.handleChange}
-            onInput={() => this.validateField('password', password)}
-            onBlur={() => this.validateField('password', password)}
-          />
-          <Label htmlFor="password"> Password {formErrors.password} </Label>
-        </Field>
-        <FormActions>
-          <Cancel to="/">Cancel</Cancel>
-          <Submit disabled={!isFormValid}>LOGIN</Submit>
-        </FormActions>
-        <SubmitError>
-          {error}
-        </SubmitError>
-      </Form>
-    );
-  }
-}
+LoginForm.propTypes = {
+  error: PropTypes.string.isRequired,
+  isAuth: PropTypes.bool.isRequired,
+  loginUser: PropTypes.func.isRequired
+};

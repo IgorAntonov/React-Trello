@@ -74,6 +74,7 @@
     "core-js": "^2.5.5",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "formik": "^0.11.11",
     "mongoose": "^5.0.17",
     "normalize.css": "^8.0.0",
     "normalizr": "^3.2.4",
@@ -94,7 +95,8 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
-    "styled-components": "^3.2.6"
+    "styled-components": "^3.2.6",
+    "yup": "^0.25.1"
   },
   "browserslist": [
     ">1%",
