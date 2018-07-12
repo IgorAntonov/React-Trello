@@ -10,4 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
   card: getCardById(state, ownProps.cardId)
 });
 
-export const CardContainer = connect(mapStateToProps, { openCardDetails })(Card);
+export const CardContainer = connect(
+  mapStateToProps,
+  { openCardDetails }
+)(Card);

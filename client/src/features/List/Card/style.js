@@ -16,20 +16,17 @@ export const CardButton = styled.button`
   padding: 0.5rem;
   margin: 0.8rem;
   margin-top: 0;
-
   border: none;
   border-radius: 4px;
 
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.24);
   cursor: pointer;
-  
   transition: 0.2s all;
+  ${p => p.isDragging && 'transform: rotate(1deg) scale(1.05);'}
   :hover {
     background-color: #edeff0;
   }
-
-  ${p => p.isDragging && 'transform: rotate(1deg) scale(1.05);'}
 `;
 
 export const IconsWrapper = styled.div`
@@ -46,8 +43,7 @@ export const DescWrapper = styled.div`
 export const DescIcon = styled(Icon).attrs({
   icon: 'description',
   width: '16px',
-  height: '16px',
-  viewBox: '48'
+  height: '16px'
 })``;
 
 export const CommentWrapper = styled.div`  
@@ -68,6 +64,5 @@ export const CommentCount = styled.div`
 export const CommentIcon = styled(Icon).attrs({
   icon: 'comment',
   width: '16px',
-  height: '16px',
-  viewBox: '48'
+  height: '16px'
 })``;

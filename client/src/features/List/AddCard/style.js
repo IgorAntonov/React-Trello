@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 import ClickOutside from 'react-click-outside';
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex: 1;
-`;
-
 export const AddButton = styled.button`
   display: flex;
   flex: 1;
@@ -13,18 +8,15 @@ export const AddButton = styled.button`
   min-height: 34px;
   border: none;
   border-radius: 4px;
-  background-color: transparent;
-  
+  outline: none;
+
   color: #8c8c8c;
   font-weight: 500;
+  background-color: transparent;
   cursor: pointer;
-  
   transition: 0.3s all;
-  :hover {
-    background-color: #c8ced0;
-  }
+  :hover,
   :focus {
-    outline: none;
     background-color: #c8ced0;
   }
 `;
@@ -33,7 +25,6 @@ export const NewCardField = styled(ClickOutside)`
   display: flex;
   flex-direction: column;
   flex: 1;
-
   min-height: 130px;
 `;
 
@@ -44,20 +35,12 @@ export const Field = styled.textarea`
   min-height: 4rem;
   padding: 0.3rem;
   margin: 0.5rem;
-
-  resize: none;
   border: none;
   border-radius: 4px;
+  outline: none;
+
+  resize: none;
   word-wrap: break-word;
-
-  :focus {
-    outline: none;
-  }
-`;
-
-export const FieldActions = styled.div`
-  display: flex;
-  padding: 0.5rem 0;
 `;
 
 export const CancelButton = styled.button`
@@ -65,12 +48,12 @@ export const CancelButton = styled.button`
   
   padding: 0;
   margin: 0;
-  
   border: none;
+  outline: none;
+  
   background-color: transparent;
   fill: #999;
   cursor: pointer;
-  outline: none;
   transition: 0.3s all;
   :hover {
     fill: #1a1a1a;

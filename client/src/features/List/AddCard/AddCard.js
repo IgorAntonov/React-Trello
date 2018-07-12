@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Button, Icon } from 'Src/ui';
-import { Wrapper, AddButton, NewCardField, Field, FieldActions, CancelButton } from './style';
+import { Row, Button, Icon } from 'Src/ui';
+import { AddButton, NewCardField, Field, CancelButton } from './style';
 
 export class AddCard extends Component {
   static propTypes = {
@@ -16,33 +16,30 @@ export class AddCard extends Component {
     cardName: ''
   }
 
-  showInput = () => {
-    this.setState({
-      showInput: true
-    }, () => this.field.focus());
-  }
-  hideInput = () => {
-    this.setState({
-      showInput: false,
-      cardName: ''
-    });
-  }
-  handleChange = e => {
-    this.setState({
-      cardName: e.target.value
-    });
-  }
+  showInput = () => this.setState(
+    { showInput: true },
+    () => this.field.focus()
+  );
+  hideInput = () => this.setState({
+    showInput: false,
+    cardName: ''
+  });
+
+  handleChange = e => this.setState({
+    cardName: e.target.value
+  });
+
   submitCard = () => {
     const { cardName } = this.state;
     const {
       listId, createCard, showStubCard, hideStubCard
     } = this.props;
     showStubCard(cardName);
+    createCard(cardName, listId, hideStubCard);
     this.setState({
       showInput: false,
       cardName: ''
     });
-    createCard(cardName, listId, hideStubCard);
   }
   handleKeyPress = e => {
     if (e.which === 13 && !e.shiftKey) {
@@ -56,9 +53,9 @@ export class AddCard extends Component {
   render() {
     const { showInput, cardName } = this.state;
     return (
-      <Wrapper>
+      <Row grow={1}>
         {!showInput
-          ? <AddButton onClick={this.showInput} >Add a card...</AddButton> :
+          ? <AddButton onClick={this.showInput}>Add a card...</AddButton> :
           <NewCardField onClickOutside={this.hideInput} >
             <Field
               innerRef={x => { this.field = x; }}
@@ -66,15 +63,14 @@ export class AddCard extends Component {
               onChange={this.handleChange}
               onKeyDown={this.handleKeyPress}
             />
-            <FieldActions>
+            <Row padding="0.5rem 0">
               <Button onClick={this.submitCard} >Add</Button>
               <CancelButton onClick={this.hideInput} >
-                <Icon icon="close" width="28" height="28" viewBox="48" />
+                <Icon icon="close" width="28" height="28" />
               </CancelButton>
-            </FieldActions>
-          </NewCardField>
-        }
-      </Wrapper>
+            </Row>
+          </NewCardField>}
+      </Row>
     );
   }
 }

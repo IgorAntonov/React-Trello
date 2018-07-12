@@ -10,7 +10,11 @@ import { Wrapper, CardsWrapper } from './style';
 
 export class List extends Component {
   static propTypes = {
-    list: PropTypes.shape({}).isRequired,
+    list: PropTypes.shape({
+      _id: PropTypes.string,
+      title: PropTypes.string,
+      cards: PropTypes.array
+    }).isRequired,
     renameList: PropTypes.func.isRequired,
     boardId: PropTypes.string.isRequired
   }
@@ -27,22 +31,17 @@ export class List extends Component {
   });
 
   // While an api update is in progress, show a card stub
-  showStubCard = cardName => {
-    this.setState({
-      isStubCardShow: true,
-      stubCardName: cardName
-    });
-  }
-  hideStubCard = () => {
-    this.setState({
-      isStubCardShow: false,
-      stubCardName: null
-    });
-  }
+  showStubCard = cardName => this.setState({
+    isStubCardShow: true,
+    stubCardName: cardName
+  });
+  hideStubCard = () => this.setState({
+    isStubCardShow: false,
+    stubCardName: null
+  });
 
   handleRenameList = e => {
     const { list, renameList } = this.props;
-
     if (e.type === 'keypress' && e.which === 13) {
       e.preventDefault();
       e.target.blur();
@@ -60,7 +59,7 @@ export class List extends Component {
           title={list.title}
           listId={list._id}
           boardId={boardId}
-          handleRenameList={this.handleRenameList}
+          renameList={this.handleRenameList}
           isConfirmShow={isConfirmShow}
           showConfirm={this.showConfirm}
           hideConfirm={this.hideConfirm}
@@ -68,7 +67,11 @@ export class List extends Component {
         <CardsWrapper>
           <Droppable droppableId={list._id} type="LIST" >
             {provided => (
-              <div ref={provided.innerRef} {...provided.droppableProps} style={{ minHeight: '10px' }}>
+              <div
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+                style={{ minHeight: '10px' }}
+              >
                 {list.cards.map((card, index) => (
                   <DraggableCard
                     card={card}
@@ -81,7 +84,7 @@ export class List extends Component {
               </div>
             )}
           </Droppable>
-          {isStubCardShow ? <StubCard name={stubCardName} /> : null}
+          {isStubCardShow && <StubCard name={stubCardName} />}
           <AddCard
             listId={list._id}
             showStubCard={this.showStubCard}
