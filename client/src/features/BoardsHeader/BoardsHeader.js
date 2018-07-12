@@ -1,32 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button } from 'Src/ui';
-import { Wrapper, FlexWrapper, Title, MenuButton } from './style';
+import { Row, Button } from 'Src/ui';
+import { Flex, Title, MenuButton } from './style';
 import { DropdownMenu } from './DropdownMenu';
 import { CreateBoard } from './CreateBoard';
 
 export const BoardsHeader = ({ logoutUser, openModal, user }) => (
-  <Wrapper>
-    <FlexWrapper justify="flex-start" >
+  <Row
+    justify="space-between"
+    align="center"
+    padding="0.5rem"
+    bgColor={p => p.theme.darker}
+  >
+    <Flex justify="flex-start" >
       <Button onClick={() => openModal('boardsMenu')} >Boards</Button>
-    </FlexWrapper>
+    </Flex>
     <Title to="/" >
       Reactive Trello
     </Title>
-    <FlexWrapper justify="flex-end" >
+    <Flex justify="flex-end" >
       <CreateBoard />
       <DropdownMenu username={user.username}>
         <MenuButton onClick={() => openModal('themeChanger')} >Change Background</MenuButton>
         <MenuButton onClick={logoutUser} >Logout</MenuButton>
       </DropdownMenu>
-    </FlexWrapper>
-  </Wrapper>
+    </Flex>
+  </Row>
 );
 
 BoardsHeader.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   openModal: PropTypes.func.isRequired,
-  user: PropTypes.shape({}).isRequired
+  user: PropTypes.shape({
+    userId: PropTypes.string,
+    username: PropTypes.string
+  }).isRequired
 };
 

@@ -32,8 +32,7 @@ export const GreetingPage = ({ isAuth, logoutUser }) => (
 
       {isAuth
         ? <Link bgcolor="#607D8B" to="/boards" >Boards</Link>
-        : <Link bgcolor="#607D8B" to="/signup" >Create Account</Link>
-      }
+        : <Link bgcolor="#607D8B" to="/signup" >Create Account</Link>}
     </Main>
     <Footer />
   </FlexPage>

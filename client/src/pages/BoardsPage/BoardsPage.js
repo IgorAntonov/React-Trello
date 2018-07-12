@@ -14,13 +14,13 @@ export class BoardsPage extends PureComponent {
   static propTypes = {
     isThemeModalOpen: PropTypes.bool.isRequired,
     isBoardsModalOpen: PropTypes.bool.isRequired,
-    fetchTheme: PropTypes.func.isRequired,
-    fetchUserBoards: PropTypes.func.isRequired,
-    match: PropTypes.shape({}).isRequired,
     isLoadingBoards: PropTypes.bool.isRequired,
     isLoadingTheme: PropTypes.bool.isRequired,
+    fetchTheme: PropTypes.func.isRequired,
+    fetchUserBoards: PropTypes.func.isRequired,
     reorderList: PropTypes.func.isRequired,
-    moveFromToList: PropTypes.func.isRequired
+    moveFromToList: PropTypes.func.isRequired,
+    match: PropTypes.shape({}).isRequired
   }
 
   componentDidMount() {
