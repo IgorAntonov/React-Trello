@@ -11,7 +11,7 @@ export const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.API_REQUEST:
+    case types.AUTH_REQUEST:
       return {
         ...state,
         error: '',
@@ -59,7 +59,22 @@ export const reducer = (state = initialState, action) => {
   }
 };
 
-export const getUser = createSelector(state => state.auth.user, user => user);
-export const getError = createSelector(state => state.auth.error, error => error);
-export const getIsLoading = createSelector(state => state.auth.isLoading, flag => flag);
-export const getIsAuth = createSelector(state => state.auth.isAuthenticated, flag => flag);
+export const getUser = createSelector(
+  state => state.auth.user,
+  user => user
+);
+
+export const getError = createSelector(
+  state => state.auth.error,
+  error => error
+);
+
+export const getIsLoading = createSelector(
+  state => state.auth.isLoading,
+  flag => flag
+);
+
+export const getIsAuth = createSelector(
+  state => state.auth.isAuthenticated,
+  flag => flag
+);

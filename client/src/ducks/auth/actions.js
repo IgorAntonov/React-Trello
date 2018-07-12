@@ -1,5 +1,5 @@
 export const types = {
-  API_REQUEST: 'AUTH/API_REQUEST',
+  AUTH_REQUEST: 'AUTH/AUTH_REQUEST',
   CURRENTUSER_SUCCESS: 'AUTH/CURRENTUSER_SUCCESS',
   CURRENTUSER_FAILURE: 'AUTH/CURRENTUSER_FAILURE',
   LOGOUT_SUCCESS: 'AUTH/LOGOUT_SUCCESS',
@@ -9,7 +9,7 @@ export const types = {
 
 export const actions = {
   requestApi: () => ({
-    type: types.API_REQUEST
+    type: types.AUTH_REQUEST
   }),
   successCurrentUser: payload => ({
     type: types.CURRENTUSER_SUCCESS,
