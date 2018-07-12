@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 import { DragDropContext } from 'react-beautiful-dnd';
 
@@ -9,6 +10,10 @@ import { ThemeChanger } from 'Src/features/ThemeChanger';
 import { AllBoards } from 'Src/features/AllBoards';
 import { Board } from 'Src/features/Board';
 import { PageSpinner, FlexPage } from 'Src/ui';
+
+const Wrapper = styled(FlexPage)`
+  position: fixed;
+`;
 
 export class BoardsPage extends PureComponent {
   static propTypes = {
@@ -68,7 +73,7 @@ export class BoardsPage extends PureComponent {
     }
     return (
       <DragDropContext onDragEnd={this.onDragEnd} >
-        <FlexPage>
+        <Wrapper>
           <BoardsHeader />
           <Switch>
             <Route exact path={`${match.path}`} component={AllBoards} />
@@ -76,7 +81,7 @@ export class BoardsPage extends PureComponent {
           </Switch>
           {isThemeModalOpen && <ThemeChanger />}
           {isBoardsModalOpen && <BoardsMenu />}
-        </FlexPage>
+        </Wrapper>
       </DragDropContext>
     );
   }

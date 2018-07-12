@@ -1,30 +1,16 @@
 import styled from 'styled-components';
 import TimeAgo from 'react-timeago';
 
-import { Icon, P } from 'Src/ui';
-
-export const Wrapper = styled.div`
-  display: flex;
-
-  margin-bottom: 0.5rem;
-  
-`;
+import { P } from 'Src/ui';
 
 export const IconContainer = styled.div`
   fill: #999;
 `;
-export const AvatarIcon = styled(Icon).attrs({
-  icon: 'portrait',
-  width: '28px',
-  height: '28px',
-  viewBox: '48'
-})``;
 
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-
   margin: 0 0.75rem;
   padding-left: 0.5rem;
   padding-bottom: 0.5rem;
@@ -54,12 +40,11 @@ export const Time = styled(TimeAgo)`
 export const CommentBody = styled(P)`
   min-width: 40%;
   padding: 0.5rem;
-
   border-radius: 4px;
+  
+  color: #000;
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  
   font-weight: 300;
-  cursor: default;
 `;
 

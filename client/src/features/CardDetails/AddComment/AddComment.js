@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import autosize from 'autosize';
 
-import { Wrapper, IconContainer, ContentContainer, CommentIcon, Header, CommentInput, UserName } from './style';
+import { Row, Col, Icon } from 'Src/ui';
+import { IconContainer, Header, CommentInput, UserName } from './style';
 
 export class AddComment extends Component {
   static propTypes = {
@@ -29,11 +30,11 @@ export class AddComment extends Component {
   render() {
     const { username } = this.props;
     return (
-      <Wrapper>
+      <Row margin="0 0 2rem 0">
         <IconContainer>
-          <CommentIcon />
+          <Icon icon="comment" />
         </IconContainer>
-        <ContentContainer>
+        <Col grow={1} margin="0 0.75rem" padding="0 0 0 0.5rem" >
           <Header>Add Comment</Header>
           <UserName>as {username}</UserName>
           <CommentInput
@@ -41,8 +42,8 @@ export class AddComment extends Component {
             onBlur={this.handleAddComment}
             onKeyPress={this.handleAddComment}
           />
-        </ContentContainer>
-      </Wrapper>
+        </Col>
+      </Row>
     );
   }
 }

@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Col } from 'Src/ui';
 import { Comment } from '../Comment';
-import { Wrapper } from './style';
+
 
 export const Comments = ({ comments }) => (
-  <Wrapper>
+  <Col>
     {comments.map(comment => (
       <Comment comment={comment} key={comment.createAt} />
     ))}
-  </Wrapper>
+  </Col>
 );
 
 Comments.propTypes = {

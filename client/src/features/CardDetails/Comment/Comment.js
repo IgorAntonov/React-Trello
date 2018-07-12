@@ -1,26 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Row, Icon } from 'Src/ui';
 import {
-  Wrapper, IconContainer, ContentContainer, AvatarIcon,
-  Header, AuthorName, Time, CommentBody
+  IconContainer,
+  ContentContainer,
+  Header,
+  AuthorName,
+  Time,
+  CommentBody
 } from './style';
 
 export const Comment = ({ comment }) => (
-  <Wrapper>
+  <Row margin="0 0 0.5rem 0">
     <IconContainer>
-      <AvatarIcon />
+      <Icon icon="portrait" width="28px" height="28px" />
     </IconContainer>
     <ContentContainer>
       <Header>
         <AuthorName>{comment.author}</AuthorName>
-        <Time date={comment.createAt} component="div" minPeriod={5} />
+        <Time
+          date={comment.createAt}
+          component="div"
+          minPeriod={5}
+        />
       </Header>
       <CommentBody>
         {comment.body}
       </CommentBody>
     </ContentContainer>
-  </Wrapper>
+  </Row>
 );
 
 Comment.propTypes = {

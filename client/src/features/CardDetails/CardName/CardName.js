@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { Wrapper, IconContainer, ContentContainer, TitleIcon, NameInput, Span } from './style';
+import { Row, Col, Icon } from 'Src/ui';
+import { IconContainer, NameInput, Span } from './style';
 
 export class CardName extends Component {
   static propTypes = {
@@ -24,19 +25,19 @@ export class CardName extends Component {
   render() {
     const { cardName, listTitle } = this.props;
     return (
-      <Wrapper>
+      <Row margin="0 0 1.5rem 0">
         <IconContainer>
-          <TitleIcon />
+          <Icon icon="title" />
         </IconContainer>
-        <ContentContainer>
+        <Col grow={1} margin="0 0.75rem">
           <NameInput
             defaultValue={cardName}
             onBlur={this.handleRenameCard}
             onKeyPress={this.handleRenameCard}
           />
           <Span>in list {listTitle}</Span>
-        </ContentContainer>
-      </Wrapper>
+        </Col>
+      </Row>
     );
   }
 }
