@@ -3,7 +3,7 @@ import { types, actions, reducer, initialState } from './auth';
 describe('auth actionCreators', () => {
   test('should create an action on every api request', () => {
     const expectedAction = {
-      type: types.API_REQUEST
+      type: types.AUTH_REQUEST
     };
     expect(actions.requestApi()).toEqual(expectedAction);
   });
@@ -44,8 +44,8 @@ describe('auth reducer', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
   });
 
-  test('should handle API_REQUEST', () => {
-    expect(reducer(initialState, { type: types.API_REQUEST }))
+  test('should handle AUTH_REQUEST', () => {
+    expect(reducer(initialState, { type: types.AUTH_REQUEST }))
       .toEqual({ ...initialState, isLoading: true });
   });
 

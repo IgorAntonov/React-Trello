@@ -19,11 +19,9 @@ export const Header = ({
 
 Header.propTypes = {
   children: PropTypes.oneOfType([
-    PropTypes.element,
+    PropTypes.node,
     PropTypes.array
   ]).isRequired,
   justify: PropTypes.string.isRequired,
   bgColor: PropTypes.string.isRequired
 };
-
-// Общий хедер #f8f9f9

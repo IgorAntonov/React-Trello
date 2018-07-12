@@ -1,2 +1,2 @@
 export * from './reducer';
-export * from './actions';
+export { types, actions } from './actions';
