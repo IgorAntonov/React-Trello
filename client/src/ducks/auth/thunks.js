@@ -2,7 +2,7 @@ import { actions } from './actions';
 import { authAPI } from './api';
 
 export const signupUser = ({ email, password, name }) => async dispatch => {
-  dispatch(actions.requestApi());
+  dispatch(actions.requestAuth());
   try {
     const {
       data: { _id: userId, name: username }
@@ -16,7 +16,7 @@ export const signupUser = ({ email, password, name }) => async dispatch => {
 };
 
 export const fetchUser = () => async dispatch => {
-  dispatch(actions.requestApi());
+  dispatch(actions.requestAuth());
   try {
     const {
       data: { _id: userId, name: username }
@@ -29,7 +29,7 @@ export const fetchUser = () => async dispatch => {
 };
 
 export const loginUser = ({ email, password }) => async dispatch => {
-  dispatch(actions.requestApi());
+  dispatch(actions.requestAuth());
   try {
     const {
       data: { _id: userId, name: username }
@@ -42,7 +42,7 @@ export const loginUser = ({ email, password }) => async dispatch => {
 };
 
 export const logoutUser = () => async dispatch => {
-  dispatch(actions.requestApi());
+  dispatch(actions.requestAuth());
   try {
     const { data } = await authAPI.logout();
     if (data.message === 'ok') dispatch(actions.successLogout());

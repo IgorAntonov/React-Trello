@@ -1,6 +1,7 @@
+import { createReducer } from 'redux-act';
 import { createSelector } from 'reselect';
 
-import { types } from './actions';
+import { actions } from './actions';
 
 export const initialState = {
   user: {},
@@ -9,55 +10,41 @@ export const initialState = {
   isAuthenticated: false
 };
 
-export const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case types.AUTH_REQUEST:
-      return {
-        ...state,
-        error: '',
-        isLoading: true
-      };
-    case types.CURRENTUSER_SUCCESS:
-      return {
-        ...state,
-        user: action.payload,
-        error: '',
-        isLoading: false,
-        isAuthenticated: true
-      };
-    case types.LOGOUT_SUCCESS:
-      return {
-        ...state,
-        user: {},
-        error: '',
-        isLoading: false,
-        isAuthenticated: false
-      };
-    case types.LOGOUT_FAILURE:
-      return {
-        ...state,
-        isLoading: false
-      };
-    case types.AUTH_FAILURE:
-      return {
-        ...state,
-        user: {},
-        error: action.error,
-        isLoading: false,
-        isAuthenticated: false
-      };
-    case types.CURRENTUSER_FAILURE:
-      return {
-        ...state,
-        user: {},
-        error: '',
-        isLoading: false,
-        isAuthenticated: false
-      };
-    default:
-      return state;
-  }
-};
+export const reducer = createReducer({
+  [actions.requestAuth]: state => ({ ...state, error: '', isLoading: true }),
+  [actions.successCurrentUser]: (state, payload) => ({
+    ...state,
+    user: payload,
+    error: '',
+    isLoading: false,
+    isAuthenticated: true
+  }),
+  [actions.successLogout]: state => ({
+    ...state,
+    user: {},
+    error: '',
+    isLoading: false,
+    isAuthenticated: false
+  }),
+  [actions.failureLogout]: state => ({
+    ...state,
+    isLoading: false
+  }),
+  [actions.failureAuth]: (state, payload) => ({
+    ...state,
+    user: {},
+    error: payload,
+    isLoading: false,
+    isAuthenticated: false
+  }),
+  [actions.failureCurrentUser]: state => ({
+    ...state,
+    user: {},
+    error: '',
+    isLoading: false,
+    isAuthenticated: false
+  })
+}, initialState);
 
 export const getUser = createSelector(
   state => state.auth.user,

@@ -1,7 +1,13 @@
+import { createAction, createReducer } from 'redux-act';
 import { createSelector } from 'reselect';
 
 import { themes } from 'Src/helpers';
-import { types } from './actions';
+
+export const actions = {
+  requestTheme: createAction('theme/THEME_REQUEST'),
+  successTheme: createAction('theme/THEME_SUCCESS'),
+  failureTheme: createAction('theme/THEME_FAILURE')
+};
 
 export const initialState = {
   name: 'default',
@@ -10,33 +16,26 @@ export const initialState = {
   error: ''
 };
 
-export const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case types.THEME_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-        error: ''
-      };
-    case types.THEME_SUCCESS:
-      return {
-        ...state,
-        name: action.theme,
-        colors: { ...themes[action.theme] },
-        isLoading: false
-      };
-    case types.THEME_FAILURE:
-      return {
-        ...state,
-        name: 'default',
-        colors: { ...themes.default },
-        isLoading: false,
-        error: action.error
-      };
-    default:
-      return state;
-  }
-};
+export const reducer = createReducer({
+  [actions.requestTheme]: state => ({
+    ...state,
+    isLoading: true,
+    error: ''
+  }),
+  [actions.successTheme]: (state, payload) => ({
+    ...state,
+    name: payload,
+    colors: { ...themes[payload] },
+    isLoading: false
+  }),
+  [actions.failureTheme]: (state, payload) => ({
+    ...state,
+    name: 'default',
+    colors: { ...themes.default },
+    isLoading: false,
+    error: payload
+  })
+}, initialState);
 
 export const getColors = createSelector(
   state => state.theme.colors,

@@ -1,63 +1,16 @@
-export const types = {
-  BOARDS_REQUEST: 'ENTITIES/BOARDS_REQUEST',
-  BOARDS_REFRESH: 'ENTITIES/BOARDS_REFRESH',
-  BOARDS_SUCCESS: 'ENTITIES/BOARDS_SUCCESS',
-  BOARDS_FAILURE: 'ENTITIES/BOARDS_FAILURE',
-  BOARD_DELETE: 'ENTITIES/BOARD_DELETE',
-  LIST_DELETE: 'ENTITIES/LIST_DELETE',
-  LIST_REORDER: 'ENTITIES/LIST_REORDER',
-  LIST_MOVE_FROM_TO: 'ENTITIES/LIST_MOVE_FROM_TO',
-  CARD_RENAME: 'ENTITIES/CARD_RENAME',
-  CARD_ADD_DESC: 'ENTITIES/CARD_ADD_DESC',
-  CARD_ADD_COMMENT: 'ENTITIES/CARD_ADD_COMMENT',
-  CARD_DELETE: 'ENTITIES/CARD_DELETE'
-};
+import { createAction } from 'redux-act';
 
 export const actions = {
-  requestBoards: () => ({
-    type: types.BOARDS_REQUEST
-  }),
-  refreshBoards: () => ({
-    type: types.BOARDS_REFRESH
-  }),
-  successBoards: payload => ({
-    type: types.BOARDS_SUCCESS,
-    payload
-  }),
-  failureBoards: error => ({
-    type: types.BOARDS_FAILURE,
-    error
-  }),
-  deleteBoard: payload => ({
-    type: types.BOARD_DELETE,
-    payload
-  }),
-  deleteList: payload => ({
-    type: types.LIST_DELETE,
-    payload
-  }),
-  renameCard: payload => ({
-    type: types.CARD_RENAME,
-    payload
-  }),
-  deleteCard: payload => ({
-    type: types.CARD_DELETE,
-    payload
-  }),
-  addCardDesc: payload => ({
-    type: types.CARD_ADD_DESC,
-    payload
-  }),
-  addComment: payload => ({
-    type: types.CARD_ADD_COMMENT,
-    payload
-  }),
-  reorderList: payload => ({
-    type: types.LIST_REORDER,
-    payload
-  }),
-  moveFromToList: payload => ({
-    type: types.LIST_MOVE_FROM_TO,
-    payload
-  })
+  requestBoards: createAction('entities/BOARDS_REQUEST'),
+  refreshBoards: createAction('entities/BOARDS_REFRESH'),
+  successBoards: createAction('entities/BOARDS_SUCCESS'),
+  failureBoards: createAction('entities/BOARDS_FAILURE'),
+  deleteBoard: createAction('entities/BOARD_DELETE'),
+  deleteList: createAction('entities/LIST_DELETE'),
+  reorderList: createAction('entities/LIST_REORDER'),
+  renameCard: createAction('entities/CARD_RENAME'),
+  deleteCard: createAction('entities/CARD_DELETE'),
+  addCardDesc: createAction('entities/CARD_ADD_DESC'),
+  addComment: createAction('entities/CARD_ADD_COMMENT'),
+  moveFromToList: createAction('entities/LIST_MOVE_FROM_TO')
 };
