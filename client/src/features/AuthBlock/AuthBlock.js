@@ -12,8 +12,8 @@ export const AuthBlock = ({ isAuth, logoutUser }) => (
   <Row justify="space-between" padding="0.25rem 0.5rem">
     {isAuth ? (
       <Fragment>
-        <Link to="/boards">Boards</Link>
-        <Button onClick={logoutUser}>Logout</Button>
+        <Link bgcolor="#607D8B" to="/boards">Boards</Link>
+        <Button bgcolor="#607D8B" onClick={logoutUser}>Logout</Button>
       </Fragment>
     ) : (
       <Fragment>

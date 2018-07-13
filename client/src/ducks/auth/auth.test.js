@@ -5,7 +5,7 @@ describe('auth actionCreators', () => {
     const expectedAction = {
       type: types.AUTH_REQUEST
     };
-    expect(actions.requestApi()).toEqual(expectedAction);
+    expect(actions.requestAuth()).toEqual(expectedAction);
   });
 
   test('should create an action to save current user', () => {

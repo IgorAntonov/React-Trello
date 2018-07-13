@@ -34,7 +34,7 @@ describe('thunk auth/signup should create all expected actions', () => {
     await store.dispatch(signupUser(data));
     const actions = store.getActions();
     expect(actions).toHaveLength(2);
-    expect(actions[0]).toEqual(expectedActions.requestApi());
+    expect(actions[0]).toEqual(expectedActions.requestAuth());
     expect(actions[1]).toEqual(expectedActions.successCurrentUser(data));
   });
 
@@ -48,7 +48,7 @@ describe('thunk auth/signup should create all expected actions', () => {
     await store.dispatch(signupUser(data));
     const actions = store.getActions();
     expect(actions).toHaveLength(2);
-    expect(actions[0]).toEqual(expectedActions.requestApi());
+    expect(actions[0]).toEqual(expectedActions.requestAuth());
     expect(actions[1]).toEqual(expectedActions.failureAuth(data.error));
   });
 });
@@ -73,7 +73,7 @@ describe('thunk auth/login should create all expected actions', () => {
     await store.dispatch(loginUser(data.email, data.password));
     const actions = store.getActions();
     expect(actions).toHaveLength(2);
-    expect(actions[0]).toEqual(expectedActions.requestApi());
+    expect(actions[0]).toEqual(expectedActions.requestAuth());
     expect(actions[1]).toEqual(expectedActions.successCurrentUser(data));
   });
 
@@ -87,7 +87,7 @@ describe('thunk auth/login should create all expected actions', () => {
     await store.dispatch(signupUser(data));
     const actions = store.getActions();
     expect(actions).toHaveLength(2);
-    expect(actions[0]).toEqual(expectedActions.requestApi());
+    expect(actions[0]).toEqual(expectedActions.requestAuth());
     expect(actions[1]).toEqual(expectedActions.failureAuth(data.error));
   });
 });
@@ -112,7 +112,7 @@ describe('thunk auth/fetchUser should create all expected actions', () => {
     await store.dispatch(fetchUser());
     const actions = store.getActions();
     expect(actions).toHaveLength(2);
-    expect(actions[0]).toEqual(expectedActions.requestApi());
+    expect(actions[0]).toEqual(expectedActions.requestAuth());
     expect(actions[1]).toEqual(expectedActions.successCurrentUser(data));
   });
 
@@ -123,7 +123,7 @@ describe('thunk auth/fetchUser should create all expected actions', () => {
     await store.dispatch(fetchUser());
     const actions = store.getActions();
     expect(actions).toHaveLength(2);
-    expect(actions[0]).toEqual(expectedActions.requestApi());
+    expect(actions[0]).toEqual(expectedActions.requestAuth());
     expect(actions[1]).toEqual(expectedActions.failureCurrentUser());
   });
 });

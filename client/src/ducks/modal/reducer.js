@@ -1,6 +1,7 @@
+import { createReducer } from 'redux-act';
 import { createSelector } from 'reselect';
 
-import { types } from './actions';
+import { actions } from './actions';
 
 export const initialState = {
   themeChanger: false,
@@ -12,43 +13,32 @@ export const initialState = {
   }
 };
 
-const cardDetails = (state, action) => {
-  switch (action.type) {
-    case types.CARD_DETAILS_OPEN:
-      return {
-        ...state,
-        open: true,
-        cardId: action.cardId,
-        listId: action.listId
-      };
-    case types.CARD_DETAILS_CLOSE:
-      return {
-        ...state,
-        open: false,
-        cardId: '',
-        listId: ''
-      };
-    default:
-      return state;
-  }
-};
-
-export const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case types.MODAL_OPEN:
-      return { ...state, [action.modalName]: true };
-    case types.MODAL_CLOSE:
-      return { ...state, [action.modalName]: false };
-    case types.CARD_DETAILS_OPEN:
-    case types.CARD_DETAILS_CLOSE:
-      return {
-        ...state,
-        cardDetails: cardDetails(state.cardDetails, action)
-      };
-    default:
-      return state;
-  }
-};
+export const reducer = createReducer({
+  [actions.openModal]: (state, payload) => ({
+    ...state,
+    [payload]: true
+  }),
+  [actions.closeModal]: (state, payload) => ({
+    ...state,
+    [payload]: false
+  }),
+  [actions.openCardDetails]: (state, { cardId, listId }) => ({
+    ...state,
+    cardDetails: {
+      open: true,
+      cardId,
+      listId
+    }
+  }),
+  [actions.closeCardDetails]: state => ({
+    ...state,
+    cardDetails: {
+      open: false,
+      cardId: '',
+      listId: ''
+    }
+  })
+}, initialState);
 
 export const getIsThemeModalOpen = createSelector(
   state => state.modal.themeChanger,
