@@ -6,7 +6,8 @@ import {
   BoardsPage,
   GreetingPage,
   LoginPage,
-  SignupPage
+  SignupPage,
+  NotFoundPage
 } from 'Src/pages';
 import { PrivateRoute } from './PrivateRoute';
 
@@ -19,13 +20,13 @@ const routes = [
   },
   {
     path: '/signup',
-    exact: false,
+    exact: true,
     isPrivate: false,
     component: SignupPage
   },
   {
     path: '/login',
-    exact: false,
+    exact: true,
     isPrivate: false,
     component: LoginPage
   },
@@ -34,6 +35,12 @@ const routes = [
     exact: false,
     isPrivate: true,
     component: BoardsPage
+  },
+  {
+    path: '',
+    exact: false,
+    isPrivate: false,
+    component: NotFoundPage
   }
 ];
 
