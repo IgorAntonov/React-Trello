@@ -1,4 +1,4 @@
-import { actions } from './reducer';
+import { actions } from './actions';
 import { themeAPI } from './api';
 
 export const setTheme = theme => async dispatch => {
