@@ -1,3 +1,4 @@
-export { types, actions } from './actions';
-export * from './reducer';
+export { actions } from './actions';
+export { reducer } from './reducer';
+export * from './selectors';
 export * from './thunks';

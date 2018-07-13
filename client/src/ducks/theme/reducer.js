@@ -1,13 +1,7 @@
-import { createAction, createReducer } from 'redux-act';
-import { createSelector } from 'reselect';
+import { createReducer } from 'redux-act';
 
 import { themes } from 'Src/helpers';
-
-export const actions = {
-  requestTheme: createAction('theme/THEME_REQUEST'),
-  successTheme: createAction('theme/THEME_SUCCESS'),
-  failureTheme: createAction('theme/THEME_FAILURE')
-};
+import { actions } from './actions';
 
 export const initialState = {
   name: 'default',
@@ -36,12 +30,3 @@ export const reducer = createReducer({
     error: payload
   })
 }, initialState);
-
-export const getColors = createSelector(
-  state => state.theme.colors,
-  theme => theme
-);
-export const getIsLoading = createSelector(
-  state => state.theme.isLoading,
-  flag => flag
-);
