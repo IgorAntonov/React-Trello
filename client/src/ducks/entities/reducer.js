@@ -5,6 +5,7 @@ import { actions } from './actions';
 
 export const initialState = {
   isLoading: false,
+  showListSpinner: false,
   error: '',
   boards: {},
   lists: {},
@@ -21,6 +22,11 @@ const isLoadingReducer = createReducer({
   [actions.successBoards]: () => false,
   [actions.failureBoards]: () => false
 }, initialState.isLoading);
+
+const showListSpinnerReducer = createReducer({
+  [actions.showListSpinner]: () => true,
+  [actions.hideListSpinner]: () => false
+}, initialState.showListSpinner);
 
 const boardsReducer = createReducer({
   [actions.successBoards]: (state, { boards }) => ({
@@ -108,6 +114,7 @@ const cardsReducer = createReducer({
 export const reducer = combineReducers({
   isLoading: isLoadingReducer,
   error: errorReducer,
+  showListSpinner: showListSpinnerReducer,
   boards: boardsReducer,
   lists: listsReducer,
   cards: cardsReducer

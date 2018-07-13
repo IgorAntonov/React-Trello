@@ -13,13 +13,15 @@ export const renameList = (newTitle, listId) => async dispatch => {
 };
 
 export const createList = (boardId, title) => async dispatch => {
+  dispatch(actions.showListSpinner());
   try {
     await listAPI.postNew(boardId, title);
+    await dispatch(refreshUserBoards());
+    dispatch(actions.hideListSpinner());
   } catch (err) {
     const { error } = err.response.data;
     dispatch(actions.failureBoards(error));
   }
-  dispatch(refreshUserBoards());
 };
 
 export const deleteList = (boardId, listId) => async (dispatch, getState) => {

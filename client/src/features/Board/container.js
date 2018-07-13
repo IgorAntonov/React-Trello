@@ -6,6 +6,7 @@ import {
   renameBoard,
   getListsByBoardId,
   getBoardName,
+  getIsShowListSpinner
 } from 'Src/ducks/entities';
 import { getIsCardDetailsOpen } from 'Src/ducks/modal';
 import { Board } from './Board';
@@ -15,7 +16,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     lists: getListsByBoardId(state, id),
     boardName: getBoardName(state, id),
-    isCardDetailsOpen: getIsCardDetailsOpen(state)
+    isCardDetailsOpen: getIsCardDetailsOpen(state),
+    isListSpinnerShow: getIsShowListSpinner(state)
   };
 };
 
