@@ -49,3 +49,8 @@ export const getOpenedListTitle = createSelector(
   (lists, id) => lists[id].title
 );
 
+export const getIsShowListSpinner = createSelector(
+  state => state.entities.showListSpinner,
+  flag => flag
+);
+

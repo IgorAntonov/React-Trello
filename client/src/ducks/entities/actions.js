@@ -12,5 +12,7 @@ export const actions = {
   deleteCard: createAction('entities/CARD_DELETE'),
   addCardDesc: createAction('entities/CARD_ADD_DESC'),
   addComment: createAction('entities/CARD_ADD_COMMENT'),
-  moveFromToList: createAction('entities/LIST_MOVE_FROM_TO')
+  moveFromToList: createAction('entities/LIST_MOVE_FROM_TO'),
+  showListSpinner: createAction('entities/SHOW_LIST_SPINNER'),
+  hideListSpinner: createAction('entities/HIDE_LIST_SPINNER'),
 };

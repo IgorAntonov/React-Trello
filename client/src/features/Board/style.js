@@ -20,3 +20,9 @@ export const FlexBoard = styled.div`
   }
 `;
 
+export const SpinnerWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  min-width: 16rem;
+`;
+

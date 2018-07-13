@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { Col, Row } from 'Src/ui';
+import { Col, Row, LoadingSpinner } from 'Src/ui';
 import { BoardTitle } from './BoardTitle';
 import { AddList } from './AddList';
 import { List } from '../List';
 import { CardDetails } from '../CardDetails';
-import { FlexBoard } from './style';
+import { FlexBoard, SpinnerWrapper } from './style';
 
 export const Board = ({
   lists, renameList, createList, renameBoard,
-  boardName, isCardDetailsOpen, match
+  boardName, isCardDetailsOpen, match, isListSpinnerShow
 }) => (
   <Fragment>
     <Col
@@ -35,6 +35,10 @@ export const Board = ({
             key={list._id}
           />
         ))}
+        {isListSpinnerShow &&
+          <SpinnerWrapper>
+            <LoadingSpinner />
+          </SpinnerWrapper>}
         <AddList
           boardId={match.params.id}
           createList={createList}
@@ -52,6 +56,7 @@ Board.propTypes = {
   renameBoard: PropTypes.func.isRequired,
   boardName: PropTypes.string.isRequired,
   isCardDetailsOpen: PropTypes.bool.isRequired,
+  isListSpinnerShow: PropTypes.bool.isRequired,
   match: PropTypes.shape({}).isRequired
 };
 
