@@ -7,7 +7,7 @@ import { CardDescription } from './CardDescription';
 import { AddComment } from './AddComment';
 import { Comments } from './Comments';
 import { CardActions } from './CardActions';
-import { Wrapper, DetailsWrapper } from './style';
+import { Wrapper, DetailsWrapper, Posed } from './style';
 
 export const CardDetails = ({
   card, closeCardDetails, listTitle, renameCard, addCardDesc,
@@ -16,29 +16,31 @@ export const CardDetails = ({
   <Portal>
     <Wrapper>
       <DetailsWrapper onClickOutside={closeCardDetails} >
-        <CardName
-          cardId={card._id}
-          cardName={card.name}
-          listTitle={listTitle}
-          renameCard={renameCard}
-        />
-        <CardDescription
-          cardId={card._id}
-          description={card.description}
-          addCardDesc={addCardDesc}
-        />
-        <AddComment
-          cardId={card._id}
-          username={user.username}
-          addComment={addComment}
-        />
-        <Comments comments={card.comments} />
-        <CardActions
-          cardId={card._id}
-          listId={listId}
-          closeCardDetails={closeCardDetails}
-          deleteCard={deleteCard}
-        />
+        <Posed initialPose="init" pose="open">
+          <CardName
+            cardId={card._id}
+            cardName={card.name}
+            listTitle={listTitle}
+            renameCard={renameCard}
+          />
+          <CardDescription
+            cardId={card._id}
+            description={card.description}
+            addCardDesc={addCardDesc}
+          />
+          <AddComment
+            cardId={card._id}
+            username={user.username}
+            addComment={addComment}
+          />
+          <Comments comments={card.comments} />
+          <CardActions
+            cardId={card._id}
+            listId={listId}
+            closeCardDetails={closeCardDetails}
+            deleteCard={deleteCard}
+          />
+        </Posed>
       </DetailsWrapper>
     </Wrapper>
   </Portal>

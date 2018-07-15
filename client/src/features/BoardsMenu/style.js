@@ -1,18 +1,20 @@
 import styled from 'styled-components';
+import posed from 'react-pose';
 import ClickOutside from 'react-click-outside';
 
 import { P, StyledLink } from 'Src/ui';
 
-export const Container = styled(ClickOutside)`
-  position: absolute;
-  top: 8%;
-  left: 0;
+export const Posed = posed.div({
+  init: { translateX: '-100%', opacity: 0 },
+  open: { translateX: 0, opacity: 1 }
+});
 
+export const Container = styled(ClickOutside)`
   display: flex;
   flex-direction: column;
 
   width: 18rem;
-  height: 90vh;
+  height: 100vh;
   padding: 0.2rem;
   border-radius: 4px;
 

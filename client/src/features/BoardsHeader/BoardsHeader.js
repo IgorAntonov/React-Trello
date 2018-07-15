@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Row, Button } from 'Src/ui';
-import { Flex, Title, MenuButton } from './style';
 import { DropdownMenu } from './DropdownMenu';
 import { CreateBoard } from './CreateBoard';
+import {
+  PosedFlex,
+  Title,
+  MenuButton
+} from './style';
 
 export const BoardsHeader = ({ logoutUser, openModal, user }) => (
   <Row
@@ -13,19 +17,17 @@ export const BoardsHeader = ({ logoutUser, openModal, user }) => (
     padding="0.5rem"
     bgColor={p => p.theme.darker}
   >
-    <Flex justify="flex-start" >
+    <PosedFlex justify="flex-start" initialPose="right" pose="mount" >
       <Button onClick={() => openModal('boardsMenu')} >Boards</Button>
-    </Flex>
-    <Title to="/" >
-      Reactive Trello
-    </Title>
-    <Flex justify="flex-end" >
+    </PosedFlex>
+    <Title to="/">Reactive Trello </Title>
+    <PosedFlex justify="flex-end" initialPose="left" pose="mount" >
       <CreateBoard />
       <DropdownMenu username={user.username}>
         <MenuButton onClick={() => openModal('themeChanger')} >Change Background</MenuButton>
         <MenuButton onClick={logoutUser} >Logout</MenuButton>
       </DropdownMenu>
-    </Flex>
+    </PosedFlex>
   </Row>
 );
 

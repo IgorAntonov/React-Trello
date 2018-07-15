@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import posed from 'react-pose';
 import ClickOutside from 'react-click-outside';
 
 import { media } from 'Src/helpers';
@@ -17,6 +18,11 @@ export const Wrapper = styled.section`
   
   background-color: rgba(0, 0, 0, 0.6);
 `;
+
+export const Posed = posed.div({
+  init: { opacity: 0 },
+  open: { opacity: 1 }
+});
 
 export const DetailsWrapper = styled(ClickOutside)`
   position: relative;

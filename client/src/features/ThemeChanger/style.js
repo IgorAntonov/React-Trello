@@ -1,11 +1,17 @@
 import styled from 'styled-components';
+import posed from 'react-pose';
 import ClickOutside from 'react-click-outside';
 
 import { P } from 'Src/ui';
 
+export const Posed = posed.div({
+  init: { opacity: 0 },
+  open: { opacity: 1 }
+});
+
 export const Container = styled(ClickOutside)`
   position: absolute;
-  top: 8%;
+  top: 0;
   right: 0;
 
   display: flex;

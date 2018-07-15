@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import { Icon } from 'Src/ui';
 import {
-  StyledLink,
   Wrapper,
+  StyledLink,
   DeleteBtn,
   DeleteConfirm,
   ConfirmBtn,

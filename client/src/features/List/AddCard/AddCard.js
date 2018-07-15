@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Row, Button, Icon } from 'Src/ui';
-import { AddButton, NewCardField, Field, CancelButton } from './style';
+import {
+  AddButton,
+  NewCardField,
+  PosedField,
+  CancelButton
+} from './style';
 
 export class AddCard extends Component {
   static propTypes = {
@@ -56,12 +61,14 @@ export class AddCard extends Component {
       <Row grow={1}>
         {!showInput
           ? <AddButton onClick={this.showInput}>Add a card...</AddButton> :
-          <NewCardField onClickOutside={this.hideInput} >
-            <Field
+          <NewCardField onClickOutside={this.hideInput}>
+            <PosedField
               innerRef={x => { this.field = x; }}
               value={cardName}
               onChange={this.handleChange}
               onKeyDown={this.handleKeyPress}
+              initialPose="init"
+              pose="open"
             />
             <Row padding="0.5rem 0">
               <Button onClick={this.submitCard} >Add</Button>

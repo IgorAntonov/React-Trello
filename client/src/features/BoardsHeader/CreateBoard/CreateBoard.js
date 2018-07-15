@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Icon } from 'Src/ui';
-import { Wrapper, CreateButton, CreateInput } from './style';
+import { Wrapper, CreateButton, PosedCreateInput } from './style';
 
 export class CreateBoard extends Component {
   static propTypes = {
@@ -52,11 +52,13 @@ export class CreateBoard extends Component {
     return (
       <Wrapper onClickOutside={this.hideInput}>
         {showCreateInput &&
-          <CreateInput
+          <PosedCreateInput
             value={name}
             onChange={this.handleChange}
             onKeyDown={this.handleKeyPress}
             innerRef={x => { this.input = x; }}
+            initialPose="init"
+            pose="open"
           />}
         <CreateButton onClick={this.handleClick} >
           <Icon icon={showCreateInput ? 'ok' : 'plus'} />
