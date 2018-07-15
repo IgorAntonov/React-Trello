@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import posed from 'react-pose';
 import ClickOutside from 'react-click-outside';
 
 export const AddButton = styled.button`
@@ -21,6 +22,7 @@ export const AddButton = styled.button`
   }
 `;
 
+
 export const NewCardField = styled(ClickOutside)`
   display: flex;
   flex-direction: column;
@@ -28,7 +30,7 @@ export const NewCardField = styled(ClickOutside)`
   min-height: 130px;
 `;
 
-export const Field = styled.textarea`
+const Field = styled.textarea`
   display: flex;
   flex:1;
   
@@ -42,6 +44,10 @@ export const Field = styled.textarea`
   resize: none;
   word-wrap: break-word;
 `;
+export const PosedField = posed(Field)({
+  init: { scaleY: 0 },
+  open: { scaleY: 1 }
+});
 
 export const CancelButton = styled.button`
   display: flex;

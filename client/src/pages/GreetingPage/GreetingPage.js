@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import posed from 'react-pose';
 
 import { AuthBlock } from 'Src/features/AuthBlock';
 import {
@@ -12,8 +13,13 @@ import {
 } from 'Src/ui';
 import { Main, Logo } from './style';
 
+const PosedPage = posed(FlexPage)({
+  init: { scaleY: 0.1 },
+  mount: { scaleY: 1, transition: { type: 'tween', duration: 200 } }
+});
+
 export const GreetingPage = ({ isAuth, logoutUser }) => (
-  <FlexPage>
+  <PosedPage initialPose="init" pose="mount" >
     <Header justify="space-between" bgColor="#f8f9f9" >
       <Logo to="/"> Reactive Trello </Logo>
       <AuthBlock isAuth={isAuth} logoutUser={logoutUser} />
@@ -35,7 +41,7 @@ export const GreetingPage = ({ isAuth, logoutUser }) => (
         : <Link bgcolor="#607D8B" to="/signup" >Create Account</Link>}
     </Main>
     <Footer />
-  </FlexPage>
+  </PosedPage>
 );
 
 GreetingPage.propTypes = {

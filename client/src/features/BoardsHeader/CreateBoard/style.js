@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import posed from 'react-pose';
 import ClickOutside from 'react-click-outside';
 
 import { media } from 'Src/helpers';
@@ -37,3 +38,7 @@ export const CreateInput = styled.input.attrs({
   border-radius: 4px;
 `;
 
+export const PosedCreateInput = posed(CreateInput)({
+  init: { translateX: '100%', opacity: 0 },
+  open: { translateX: 0, opacity: 1 }
+});

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import posed from 'react-pose';
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 16rem;
@@ -11,6 +12,11 @@ export const Wrapper = styled.div`
   background-color: #e2e4e6;
   color: #333;
 `;
+
+export const Posed = posed(Wrapper)({
+  init: { scaleY: 0 },
+  open: { scaleY: 1 }
+});
 
 export const CardsWrapper = styled.div`
   display: flex;

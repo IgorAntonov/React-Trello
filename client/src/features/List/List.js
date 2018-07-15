@@ -6,7 +6,7 @@ import { DraggableCard } from './DraggableCard';
 import { ListHeader } from './ListHeader';
 import { StubCard } from './StubCard';
 import { AddCard } from './AddCard';
-import { Wrapper, CardsWrapper } from './style';
+import { CardsWrapper, Posed } from './style';
 
 export class List extends Component {
   static propTypes = {
@@ -54,7 +54,7 @@ export class List extends Component {
     const { list, boardId } = this.props;
     const { isStubCardShow, stubCardName, isConfirmShow } = this.state;
     return (
-      <Wrapper>
+      <Posed initialPose="init" pose="open" >
         <ListHeader
           title={list.title}
           listId={list._id}
@@ -91,7 +91,7 @@ export class List extends Component {
             hideStubCard={this.hideStubCard}
           />
         </CardsWrapper>
-      </Wrapper>
+      </Posed>
     );
   }
 }

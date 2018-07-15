@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import posed from 'react-pose';
 import { Link } from 'react-router-dom';
 
 import { media } from 'Src/helpers';
 import { Row, Button } from 'Src/ui';
 
-export const Flex = styled(Row)`
+const Flex = styled(Row)`
   position: relative;
   
   align-items: center;
@@ -12,6 +13,11 @@ export const Flex = styled(Row)`
     flex: 1;
   `}
 `;
+export const PosedFlex = posed(Flex)({
+  right: { translateX: '-100%' },
+  left: { translateX: '100%' },
+  mount: { translateX: 0 }
+});
 
 export const Title = styled(Link)`
   margin: 0;
@@ -38,5 +44,8 @@ export const MenuButton = styled(Button)`
   justify-content: center;
   margin: 0;
   border-radius: 0;
+  :active {
+    transform: none;
+  }
 `;
 

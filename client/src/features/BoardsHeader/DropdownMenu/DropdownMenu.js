@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import posed from 'react-pose';
 import PropTypes from 'prop-types';
 import ClickOutside from 'react-click-outside';
 
@@ -16,6 +17,10 @@ const MenuWrapper = styled.div`
 
   background-color: ${p => p.theme.darker};
 `;
+const PosedMenu = posed(MenuWrapper)({
+  init: { translateY: '100%', opacity: 0 },
+  open: { translateY: 0, opacity: 1 }
+});
 
 export class DropdownMenu extends Component {
   static propTypes = {
@@ -44,9 +49,9 @@ export class DropdownMenu extends Component {
             {username}
           </Button>
           {showMenu &&
-            <MenuWrapper>
+            <PosedMenu initialPose="init" pose="open" >
               {children}
-            </MenuWrapper>}
+            </PosedMenu>}
         </Col>
       </ClickOutside>
     );
