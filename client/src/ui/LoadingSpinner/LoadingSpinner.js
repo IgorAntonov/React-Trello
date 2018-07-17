@@ -43,7 +43,7 @@ const dash = keyframes`
   }
 `;
 
-export const Svg = styled.svg`
+const Svg = styled.svg`
   animation: ${rotator} 1.4s linear infinite;
 `;
 

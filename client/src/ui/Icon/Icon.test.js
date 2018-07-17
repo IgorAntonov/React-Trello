@@ -3,15 +3,10 @@ import { shallow } from 'enzyme';
 
 import { Icon, icons } from './Icon';
 
-describe('<Icon />', () => {
+describe('<Icon/>', () => {
   let wrapper;
-  const props = {
-    width: '25',
-    height: '30',
-    icon: 'github'
-  };
   beforeEach(() => {
-    wrapper = shallow(<Icon {...props} />);
+    wrapper = shallow(<Icon icon="github" />);
   });
 
   test('renders', () => {
@@ -19,10 +14,10 @@ describe('<Icon />', () => {
     expect(wrapper.type()).toEqual('svg');
   });
 
-
   test('should render correct icon', () => {
-    expect(wrapper.find('svg').prop('width')).toEqual('25');
-    expect(wrapper.find('svg').prop('height')).toEqual('30');
+    expect(wrapper.find('svg').prop('width')).toEqual('24px');
+    expect(wrapper.find('svg').prop('height')).toEqual('24px');
+    expect(wrapper.find('svg').prop('viewBox')).toEqual('0 0 48 48');
     expect(wrapper.find('path').prop('d')).toEqual(icons.github);
   });
 });

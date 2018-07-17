@@ -1,10 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { LoadingSpinner, Svg } from './LoadingSpinner';
+import { LoadingSpinner } from './LoadingSpinner';
 
-test(' <LoadingSpinner /> renders', () => {
-  const wrapper = shallow(<LoadingSpinner />);
-  expect(wrapper.exists()).toBe(true);
-  expect(wrapper.find(Svg)).toHaveLength(1);
+describe(' <LoadingSpinner/>', () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<LoadingSpinner />);
+  });
+
+  test('renders', () => {
+    expect(wrapper.exists()).toBe(true);
+  });
+  test('should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 });

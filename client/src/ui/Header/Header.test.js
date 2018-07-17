@@ -1,12 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Button } from '../Button';
+import { Header } from './Header';
 
-describe('<Button/>', () => {
+describe('<Header/>', () => {
   let wrapper;
+  const props = {
+    bgColor: '#000',
+    justify: 'center'
+  };
   beforeEach(() => {
-    wrapper = shallow(<Button />);
+    wrapper = shallow(<Header {...props}> Header </Header>);
   });
 
   test('renders', () => {
@@ -16,4 +20,3 @@ describe('<Button/>', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });
-

@@ -3,9 +3,16 @@ import { shallow } from 'enzyme';
 
 import { A } from '../A';
 
-test('<A /> renders', () => {
-  const href = '/';
-  const wrapper = shallow(<A href={href} />);
+describe('<A/>', () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<A href="/" />);
+  });
 
-  expect(wrapper.exists()).toBe(true);
+  test('renders', () => {
+    expect(wrapper.exists()).toBe(true);
+  });
+  test('should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 });

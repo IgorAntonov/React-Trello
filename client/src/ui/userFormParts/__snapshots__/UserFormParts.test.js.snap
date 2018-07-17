@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Userform parts should match snapshots 1`] = `
+<Form
+  className="UserFormParts__StyledForm-hzDVqG hmDNBc"
+/>
+`;
+
+exports[`Userform parts should match snapshots 2`] = `
+<label
+  className="UserFormParts__Label-PFUIj cACuHb"
+/>
+`;
+
+exports[`Userform parts should match snapshots 3`] = `
+<Field
+  className="UserFormParts__StyledField-gRCJyV kRDSgF"
+/>
+`;
+
+exports[`Userform parts should match snapshots 4`] = `
+<div
+  className="UserFormParts__Wrapper-kpSPIp vSvWc"
+/>
+`;
+
+exports[`Userform parts should match snapshots 5`] = `
+<div
+  className="UserFormParts__FormActions-jXKkKl dYijO"
+/>
+`;
+
+exports[`Userform parts should match snapshots 6`] = `
+<Button
+  className="UserFormParts__Submit-gioWXW danNXL"
+/>
+`;
+
+exports[`Userform parts should match snapshots 7`] = `
+<StyledLink
+  className="UserFormParts__Cancel-hJQiUA hnGbDz"
+/>
+`;
+
+exports[`Userform parts should match snapshots 8`] = `
+<P
+  className="UserFormParts__SubmitError-bmJoMZ hcxXxq"
+/>
+`;
