@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> should match snapshot 1`] = `
+<styled-layout__Row
+  align="center"
+  bgColor="#201e1c"
+  justify="space-between"
+  padding="0.5rem"
+>
+  <P
+    color="#7b7a7a"
+    marginB="0"
+  >
+    © 2018 Igor Antonov
+  </P>
+  <styled-layout__Row
+    align="flex-end"
+  >
+    <Footer__IconBtn
+      href="https://github.com/IgorAntonov"
+    >
+      <Icon
+        height="24px"
+        icon="github"
+        viewBox="24"
+        width="24px"
+      />
+    </Footer__IconBtn>
+    <Footer__IconBtn
+      href="https://twitter.com/IgorAntonov18"
+    >
+      <Icon
+        height="24px"
+        icon="twitter"
+        viewBox="24"
+        width="24px"
+      />
+    </Footer__IconBtn>
+    <Footer__IconBtn
+      href="https://vk.com/id18941999"
+    >
+      <Icon
+        height="24px"
+        icon="vk"
+        viewBox="24"
+        width="24px"
+      />
+    </Footer__IconBtn>
+  </styled-layout__Row>
+</styled-layout__Row>
+`;

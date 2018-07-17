@@ -3,9 +3,17 @@ import { shallow } from 'enzyme';
 
 import { StyledLink } from '../StyledLink';
 
-test('renders', () => {
-  const wrapper = shallow(<StyledLink to="/" />);
+describe('<StyledLink/>', () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<StyledLink to="/" />);
+  });
 
-  expect(wrapper.exists()).toBe(true);
+  test('renders', () => {
+    expect(wrapper.exists()).toBe(true);
+  });
+  test('should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 });
 
