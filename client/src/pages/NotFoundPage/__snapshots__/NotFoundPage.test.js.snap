@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotFoundPage/> should match snapshot 1`] = `
+<Component
+  initialPose="init"
+  pose="mount"
+>
+  <styled-layout__Col
+    align="center"
+    bgColor="#89609e"
+    grow={1}
+    justify="center"
+  >
+    <Component
+      initialPose="init"
+      pose="mount"
+    >
+      404
+    </Component>
+    <Component
+      initialPose="init"
+      marginB="2rem"
+      pose="mount"
+    >
+      Page not found :(
+    </Component>
+    <StyledLink
+      bgcolor="#755286"
+      to="/"
+    >
+      Take me back to the main page
+    </StyledLink>
+  </styled-layout__Col>
+  <Footer />
+</Component>
+`;

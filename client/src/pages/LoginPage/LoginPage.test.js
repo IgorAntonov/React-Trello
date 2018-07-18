@@ -1,12 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Footer } from 'Src/ui';
+import { Footer, Header, StyledLink } from 'Src/ui';
+import { LoginForm } from 'Src/features/LoginForm';
 import { LoginPage } from './LoginPage';
-import { LoginFormContainer as LoginForm } from './LoginForm';
-import { Header, Link } from './style';
 
-describe('<LoginPage />', () => {
+describe('<LoginPage/>', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = shallow(<LoginPage />);
@@ -16,22 +15,21 @@ describe('<LoginPage />', () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  test('should render <Header />', () => {
-    expect(wrapper.find(Header)).toHaveLength(1);
+  test('should render <Header/>', () => {
+    expect(wrapper.contains(<Header />)).toBe(true);
   });
 
-  test('should render <Footer />', () => {
-    expect(wrapper.find(Footer)).toHaveLength(1);
+  test('should render <Footer/>', () => {
+    expect(wrapper.contains(<Footer />)).toBe(true);
   });
 
-  test('should render <Link /> to signup page', () => {
-    const link = wrapper.find(Link);
-
+  test('should render <Link/> to signup page', () => {
+    const link = wrapper.find(StyledLink);
     expect(link).toHaveLength(1);
     expect(link.prop('to')).toEqual('/signup');
   });
 
-  test('should render <LoginForm />', () => {
-    expect(wrapper.find(LoginForm)).toHaveLength(1);
+  test('should render <LoginForm/>', () => {
+    expect(wrapper.contains(<LoginForm />)).toBe(true);
   });
 });
