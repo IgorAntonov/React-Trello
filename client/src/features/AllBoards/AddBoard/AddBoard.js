@@ -12,10 +12,10 @@ export class AddBoard extends Component {
     showCreateInput: false,
     name: ''
   }
-
+  input = React.createRef();
   showInput = () => this.setState(
     { showCreateInput: true },
-    () => this.input.focus()
+    () => this.input.current.focus()
   );
   hideInput = () => this.setState({
     showCreateInput: false,
@@ -43,7 +43,7 @@ export class AddBoard extends Component {
       <Wrapper onClickOutside={this.hideInput} >
         {showCreateInput ?
           <BoardInput
-            innerRef={x => { this.input = x; }}
+            innerRef={this.input}
             onKeyPress={this.handleKeyPress}
             onChange={this.handleChange}
             value={name}
