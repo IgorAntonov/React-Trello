@@ -1,12 +1,34 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
+import { PageSpinner } from 'Src/ui';
 import { App } from './App';
 
-test('<App />', () => {
-  const fetchUser = jest.fn();
+describe('<App/>', () => {
+  let wrapper;
+  const initialProps = {
+    fetchUser: jest.fn(),
+    isAuth: false,
+    isLoading: false,
+    theme: {}
+  };
+  beforeEach(() => {
+    wrapper = shallow(<App {...initialProps} />);
+  });
 
-  const wrapper = shallow(<App fetchUser={fetchUser} />);
-  expect(wrapper.exists()).toBe(true);
+  test('renders', () => {
+    expect(wrapper.exists()).toBe(true);
+  });
+
+  test('should fetch User on mount', () => {
+    const { fetchUser } = wrapper.instance().props;
+    expect(fetchUser).toHaveBeenCalled();
+  });
+
+  test('should render <PageSpinner/> by loading condition', () => {
+    expect(wrapper.contains(<PageSpinner />)).toBe(false);
+    wrapper.setProps({ isLoading: true });
+    expect(wrapper.contains(<PageSpinner />)).toBe(true);
+  });
 });
 
