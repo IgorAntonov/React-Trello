@@ -19,10 +19,10 @@ export class AddList extends Component {
     showInput: false,
     listName: ''
   }
-
+  field = React.createRef();
   showInput = () => this.setState(
     { showInput: true },
-    () => this.field.focus()
+    () => this.field.current.focus()
   );
   hideInput = () => this.setState({
     showInput: false,
@@ -36,10 +36,7 @@ export class AddList extends Component {
     const { listName } = this.state;
     const { boardId, createList } = this.props;
     createList(boardId, listName);
-    this.setState({
-      showInput: false,
-      listName: ''
-    });
+    this.hideInput();
   }
   handleKeyPress = e => {
     if (e.which === 13 && !e.shiftKey) {
@@ -60,7 +57,7 @@ export class AddList extends Component {
             <Field
               value={listName}
               onChange={this.handleChange}
-              innerRef={x => { this.field = x; }}
+              innerRef={this.field}
               onKeyDown={this.handleKeyPress}
             />
             <Row padding="0.5rem 0">
