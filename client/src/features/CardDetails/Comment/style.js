@@ -39,6 +39,7 @@ export const Time = styled(TimeAgo)`
 
 export const CommentBody = styled(P)`
   min-width: 40%;
+
   padding: 0.5rem;
   border-radius: 4px;
   
