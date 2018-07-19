@@ -17,7 +17,7 @@ const MenuWrapper = styled.div`
 
   background-color: ${p => p.theme.darker};
 `;
-const PosedMenu = posed(MenuWrapper)({
+export const PosedMenu = posed(MenuWrapper)({
   init: { translateY: '100%', opacity: 0 },
   open: { translateY: 0, opacity: 1 }
 });
