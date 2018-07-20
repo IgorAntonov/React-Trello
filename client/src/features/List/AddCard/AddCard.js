@@ -41,10 +41,7 @@ export class AddCard extends Component {
     } = this.props;
     showStubCard(cardName);
     createCard(cardName, listId, hideStubCard);
-    this.setState({
-      showInput: false,
-      cardName: ''
-    });
+    this.hideInput();
   }
   handleKeyPress = e => {
     if (e.which === 13 && !e.shiftKey) {
