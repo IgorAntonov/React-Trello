@@ -16,11 +16,11 @@ describe('<LoginPage/>', () => {
   });
 
   test('should render <Header/>', () => {
-    expect(wrapper.contains(<Header />)).toBe(true);
+    expect(wrapper.find(Header)).toHaveLength(1);
   });
 
   test('should render <Footer/>', () => {
-    expect(wrapper.contains(<Footer />)).toBe(true);
+    expect(wrapper.find(Footer)).toHaveLength(1);
   });
 
   test('should render <Link/> to signup page', () => {
