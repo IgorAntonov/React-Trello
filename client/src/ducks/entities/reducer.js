@@ -12,23 +12,23 @@ export const initialState = {
   cards: {}
 };
 
-const errorReducer = createReducer({
+export const errorReducer = createReducer({
   [actions.requestBoards]: () => '',
   [actions.failureBoards]: (state, payload) => payload,
 }, initialState.error);
 
-const isLoadingReducer = createReducer({
+export const isLoadingReducer = createReducer({
   [actions.requestBoards]: () => true,
   [actions.successBoards]: () => false,
   [actions.failureBoards]: () => false
 }, initialState.isLoading);
 
-const showListSpinnerReducer = createReducer({
+export const showListSpinnerReducer = createReducer({
   [actions.showListSpinner]: () => true,
   [actions.hideListSpinner]: () => false
 }, initialState.showListSpinner);
 
-const boardsReducer = createReducer({
+export const boardsReducer = createReducer({
   [actions.successBoards]: (state, { boards }) => ({
     ...state,
     ...boards
@@ -43,7 +43,7 @@ const boardsReducer = createReducer({
   })
 }, initialState.boards);
 
-const listsReducer = createReducer({
+export const listsReducer = createReducer({
   [actions.successBoards]: (state, { lists }) => ({
     ...state,
     ...lists
@@ -83,7 +83,7 @@ const listsReducer = createReducer({
   })
 }, initialState.lists);
 
-const cardsReducer = createReducer({
+export const cardsReducer = createReducer({
   [actions.successBoards]: (state, { cards }) => ({
     ...state,
     ...cards
