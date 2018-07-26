@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { shallow } from 'enzyme';
 
 import { Footer, Header, StyledLink } from 'Src/ui';
@@ -10,7 +11,7 @@ describe('<GreetingPage/>', () => {
   let wrapper;
   const props = {
     isAuth: false,
-    logoutUser: jest.fn()
+    loginUser: jest.fn()
   };
 
   beforeEach(() => {
@@ -39,11 +40,10 @@ describe('<GreetingPage/>', () => {
     expect(link.prop('to')).toEqual('/signup');
   });
 
-  test('should render <Link/> to boards page, when user is authenticated', () => {
+  test('should redirect, if user is authenticated', () => {
     wrapper.setProps({ isAuth: true });
-    const link = wrapper.find(StyledLink);
-    expect(link).toHaveLength(1);
-    expect(link.prop('to')).toEqual('/boards');
+    expect(wrapper.find(Redirect)).toHaveLength(1);
+    expect(wrapper.find(Redirect).props().to).toBe('/boards');
   });
 
   test('should render <Logo/> with link', () => {
