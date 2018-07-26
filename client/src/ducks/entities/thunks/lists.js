@@ -5,11 +5,11 @@ import { listAPI } from './api';
 export const renameList = (newTitle, listId) => async dispatch => {
   try {
     await listAPI.putName(newTitle, listId);
+    await dispatch(refreshUserBoards());
   } catch (err) {
     const { error } = err.response.data;
     dispatch(actions.failureBoards(error));
   }
-  dispatch(refreshUserBoards());
 };
 
 export const createList = (boardId, title) => async dispatch => {
@@ -28,18 +28,18 @@ export const deleteList = (boardId, listId) => async (dispatch, getState) => {
   const { lists } = getState().entities.boards[boardId];
   const filtered = lists.filter(id => id !== listId);
   const payload = { filtered, boardId };
-  dispatch(actions.deleteList(payload));
 
+  dispatch(actions.deleteList(payload));
   try {
     await listAPI.delete(boardId, listId);
+    await dispatch(refreshUserBoards());
   } catch (err) {
     const { error } = err.response.data;
     dispatch(actions.failureBoards(error));
   }
-  dispatch(refreshUserBoards());
 };
 
-export const reorderList = (listId, cardId, sourseIndex, destinationIndex) => async (
+export const reorderList = (listId, cardId, sourceIndex, destinationIndex) => async (
   dispatch,
   getState
 ) => {

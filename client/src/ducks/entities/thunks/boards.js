@@ -5,11 +5,11 @@ import { boardAPI } from './api';
 export const renameBoard = (newName, boardId) => async dispatch => {
   try {
     await boardAPI.putName(newName, boardId);
+    await dispatch(refreshUserBoards());
   } catch (err) {
     const { error } = err.response.data;
     dispatch(actions.failureBoards(error));
   }
-  dispatch(refreshUserBoards());
 };
 
 export const createBoard = (name, cb) => async dispatch => {
@@ -31,9 +31,9 @@ export const deleteBoard = id => async (dispatch, getState) => {
 
   try {
     await boardAPI.delete(id);
+    await dispatch(refreshUserBoards());
   } catch (err) {
     const { error } = err.response.data;
     dispatch(actions.failureBoards(error));
   }
-  dispatch(refreshUserBoards());
 };
