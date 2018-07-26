@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { logoutUser, getIsAuth } from 'Src/ducks/auth';
+import { loginUser, getIsAuth } from 'Src/ducks/auth';
 import { GreetingPage } from './GreetingPage';
 
 const mapStateToProps = state => ({
@@ -9,5 +9,5 @@ const mapStateToProps = state => ({
 
 export const GreetingPageContainer = connect(
   mapStateToProps,
-  { logoutUser }
+  { loginUser }
 )(GreetingPage);
