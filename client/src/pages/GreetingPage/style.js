@@ -12,6 +12,7 @@ export const Logo = styled(Link)`
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
+  user-select: none;
   transition: 0.2s color;
   
   ${media.mobile`

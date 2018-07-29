@@ -13,6 +13,7 @@ export const H2 = styled.h2`
   cursor: default;
   font-size: 1.2rem;
   font-weight: 400;
+  user-select: none;
 
   ${media.mobile`
     font-size: 1.3rem;
