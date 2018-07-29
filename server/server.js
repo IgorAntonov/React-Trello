@@ -13,7 +13,7 @@ const cardRoutes = require('./routes/card');
 
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(`mongodb://IgorAntonov:${process.env.MONGO_PW}@ds016128.mlab.com:16128/trello-dev`)
+  .connect(process.env.MONGO_URI)
   .catch(err => console.log(`Unable to connect to the mongodb instance. Error: ${err}`));
 
 

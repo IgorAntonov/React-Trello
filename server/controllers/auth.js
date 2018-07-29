@@ -4,7 +4,7 @@ exports.localSignup = async (req, res, next) => {
   const { name, email, password } = req.body;
   if (!name || !email || !password) {
     return res.status(400).json({
-      message: 'You must provide name, email and password for successful auth'
+      error: 'You must provide name, email and password for successful auth'
     });
   }
   try {

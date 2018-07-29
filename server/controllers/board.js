@@ -157,7 +157,18 @@ exports.getUserBoards = async (req, res) => {
       });
     }
     if (user.googleId) {
-      const { boards } = await GoogleUser.findById(user.id).exec();
+      const { boards } = await GoogleUser
+        .findById(user.id)
+        .populate({
+          path: 'boards',
+          populate: {
+            path: 'lists',
+            populate: {
+              path: 'cards',
+              populate: { path: 'comments' }
+            }
+          }
+        });
 
       return res.status(200).json({
         status: 'ok',
