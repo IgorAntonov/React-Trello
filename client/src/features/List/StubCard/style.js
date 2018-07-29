@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
 
 export const CardButton = styled.div`
   position: relative;
+  ${p => p.firstCard && 'top: -0.5rem;'}
 
   width: 100%;
   padding: 0.5rem;
