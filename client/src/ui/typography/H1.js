@@ -13,6 +13,7 @@ export const H1 = styled.h1`
   cursor: default;
   font-size: 1.4rem;
   font-weight: 400;
+  user-select: none;
 
   ${media.mobile`
     font-size: 1.6rem;

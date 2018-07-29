@@ -13,6 +13,7 @@ export const P = styled.p`
   cursor: default;
   font-size: 0.8rem;
   font-weight: 400;
+  user-select: none;
 
   ${media.mobile`
     font-size: 0.8rem;
