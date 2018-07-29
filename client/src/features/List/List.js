@@ -70,7 +70,7 @@ export class List extends Component {
               <div
                 ref={provided.innerRef}
                 {...provided.droppableProps}
-                style={{ minHeight: '10px' }}
+                style={{ minHeight: '0.5rem' }}
               >
                 {list.cards.map((card, index) => (
                   <DraggableCard
@@ -84,7 +84,8 @@ export class List extends Component {
               </div>
             )}
           </Droppable>
-          {isStubCardShow && <StubCard name={stubCardName} />}
+          {isStubCardShow &&
+            <StubCard name={stubCardName} firstCard={list.cards.length === 0} />}
           <AddCard
             listId={list._id}
             showStubCard={this.showStubCard}
