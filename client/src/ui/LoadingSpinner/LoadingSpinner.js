@@ -6,7 +6,7 @@ export const LoadingSpinner = () => (
     <Circle fill="none" strokeWidth="6" strokeLinecap="round" cx="33" cy="33" r="30" />
   </Svg>
 );
-
+// test snapshot
 export const PageSpinner = () => (
   <Wrapper>
     <LoadingSpinner />
@@ -18,6 +18,8 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+
+  background-color: #0079bf;
 `;
 
 const rotator = keyframes`

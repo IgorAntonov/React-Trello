@@ -2,6 +2,6 @@
 
 exports[`<H2/> should match snapshot 1`] = `
 <h2
-  className="H2-eUbBFj ctUOWQ"
+  className="H2-eUbBFj jzrrlj"
 />
 `;
