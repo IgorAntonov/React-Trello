@@ -6,7 +6,7 @@ import { Button, media } from 'Src/ui';
 
 export const Wrapper = styled(ClickOutside)`
   display: none;
-
+  user-select: none;
   ${media.tablet`
     display: flex;
     align-items: center;

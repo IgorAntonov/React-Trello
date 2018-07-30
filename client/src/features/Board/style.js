@@ -18,6 +18,7 @@ export const FlexBoard = styled.div`
     background-color: ${p => p.theme.darker};
     border-radius: 14px;
   }
+  user-select: none;
 `;
 
 export const SpinnerWrapper = styled.div`
