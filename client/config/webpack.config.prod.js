@@ -14,7 +14,12 @@ module.exports = {
   },
   mode: 'production',
   resolve: {
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json'],
+    alias: {
+      Config: path.resolve(ROOT_DIR, 'config/'),
+      Components: path.resolve(ROOT_DIR, 'src/components'),
+      Src: path.resolve(ROOT_DIR, 'src')
+    }
   },
   devtool: 'source-map',
   module: {
