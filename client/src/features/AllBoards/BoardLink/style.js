@@ -50,6 +50,7 @@ export const StyledLink = styled(Link)`
   border-radius: 4px;
   background-color: transparent;
   color: #4c4e50;
+  user-select: none;
 `;
 
 export const DeleteBtn = styled.button`

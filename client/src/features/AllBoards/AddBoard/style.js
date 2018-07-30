@@ -42,6 +42,7 @@ export const AddButton = styled.button`
   outline: none;
   overflow: hidden;
   
+  user-select: none;
   white-space: nowrap;
   text-overflow: ellipsis;
   background-color: transparent;

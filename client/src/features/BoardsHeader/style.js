@@ -27,6 +27,7 @@ export const Title = styled(Link)`
   font-style: italic;
   font-weight: 500;
   font-size: 1.2rem;
+  user-select: none;
   ${media.mobile`
     font-size: 1.3rem;
   `}
@@ -37,6 +38,11 @@ export const Title = styled(Link)`
   ${media.desktop`
     font-size: 1.5rem;
   `}
+  
+  transition: 0.2s all;
+  :hover {
+    color: ${p => p.theme.button};
+  }
 `;
 
 export const MenuButton = styled(Button)`
