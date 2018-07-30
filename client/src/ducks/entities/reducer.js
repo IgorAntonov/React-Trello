@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { createReducer } from 'redux-act';
 
+import { actions as authActions } from 'Src/ducks/auth';
 import { actions } from './actions';
 
 export const initialState = {
@@ -40,7 +41,8 @@ export const boardsReducer = createReducer({
       ...state[boardId],
       lists: filtered
     }
-  })
+  }),
+  [authActions.successLogout]: () => ({})
 }, initialState.boards);
 
 export const listsReducer = createReducer({
@@ -80,7 +82,8 @@ export const listsReducer = createReducer({
       ...state[listId],
       cards
     }
-  })
+  }),
+  [authActions.successLogout]: () => ({})
 }, initialState.lists);
 
 export const cardsReducer = createReducer({
@@ -108,7 +111,8 @@ export const cardsReducer = createReducer({
       ...state[cardId],
       comments
     }
-  })
+  }),
+  [authActions.successLogout]: () => ({})
 }, initialState.cards);
 
 export const reducer = combineReducers({
