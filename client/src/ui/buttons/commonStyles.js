@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { media } from 'Src/helpers';
+import { media } from '../media-template';
 
 export const styles = css`
   display: flex;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { media } from 'Src/helpers';
+import { media } from 'Src/ui';
 import bg from './assets/bg.jpg';
 
 export const Logo = styled(Link)`

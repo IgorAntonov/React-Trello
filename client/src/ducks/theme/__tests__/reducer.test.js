@@ -1,4 +1,4 @@
-import { themes } from 'Src/helpers';
+import { themes } from 'Src/ui';
 import { reducer, initialState } from '../reducer';
 import { actions } from '../actions';
 

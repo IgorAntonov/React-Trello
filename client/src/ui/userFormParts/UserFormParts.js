@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Form, Field } from 'formik';
-import { media } from 'Src/helpers';
-import { Button, StyledLink, P } from 'Src/ui';
+import { Button, StyledLink, P, media } from 'Src/ui';
 
 export const StyledForm = styled(Form)`
   display: flex;

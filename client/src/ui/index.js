@@ -1,3 +1,5 @@
+export { media } from './media-template';
+export { themes, themesKeys } from './themes';
 export { A, Button, StyledLink } from './buttons';
 export { Footer } from './Footer';
 export { Header } from './Header';

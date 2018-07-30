@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
 
-import { Row, Icon } from 'Src/ui';
-import { themes, themesKeys } from 'Src/helpers';
+import { Row, Icon, themes, themesKeys } from 'Src/ui';
 import {
   Posed,
   Container,

@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import posed from 'react-pose';
 import { Link } from 'react-router-dom';
 
-import { media } from 'Src/helpers';
-import { Row, Button } from 'Src/ui';
+import { Row, Button, media } from 'Src/ui';
 
 const Flex = styled(Row)`
   position: relative;

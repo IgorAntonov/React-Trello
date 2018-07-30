@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import posed from 'react-pose';
 import ClickOutside from 'react-click-outside';
 
-import { media } from 'Src/helpers';
-import { Button } from 'Src/ui';
+import { Button, media } from 'Src/ui';
 
 export const Wrapper = styled(ClickOutside)`
   display: none;

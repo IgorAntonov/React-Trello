@@ -1,6 +1,6 @@
 import { createReducer } from 'redux-act';
 
-import { themes } from 'Src/helpers';
+import { themes } from 'Src/ui';
 import { actions } from './actions';
 
 export const initialState = {

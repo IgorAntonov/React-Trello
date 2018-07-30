@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { media } from 'Src/helpers';
+import { media } from '../media-template';
 
 export const P = styled.p`
   margin-top: 0;
