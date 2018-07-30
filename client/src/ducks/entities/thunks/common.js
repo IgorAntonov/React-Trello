@@ -1,6 +1,6 @@
 import { normalize } from 'normalizr';
 
-import { boardSchema } from 'Src/helpers';
+import { boardSchema } from '../board-schema';
 import { actions } from '../actions';
 import { boardAPI } from './api';
 

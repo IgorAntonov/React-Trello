@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import ClickOutside from 'react-click-outside';
 
-import { media } from 'Src/helpers';
+import { media } from 'Src/ui';
 
 export const Wrapper = styled.div`
   position: relative;

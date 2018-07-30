@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ClickOutside from 'react-click-outside';
 
-import { media } from 'Src/helpers';
+import { media } from 'Src/ui';
 
 export const Wrapper = styled(ClickOutside)`
   flex-basis: 98%;
