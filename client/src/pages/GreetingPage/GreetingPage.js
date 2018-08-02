@@ -15,8 +15,8 @@ import {
 import { Main, Logo } from './style';
 
 const PosedPage = posed(FlexPage)({
-  init: { scaleY: 0.1 },
-  mount: { scaleY: 1, transition: { type: 'tween', duration: 200 } }
+  init: { opacity: 0.7 },
+  mount: { opacity: 1 }
 });
 
 export const GreetingPage = ({ isAuth, loginUser }) => (
