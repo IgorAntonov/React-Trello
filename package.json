@@ -1,7 +1,7 @@
 {
   "name": "reactive-trello",
   "version": "1.0.0",
-  "description": "Boilerplate project for building apps with MERN stack",
+  "description": "Trello-like application for managing tasks",
   "private": true,
   "scripts": {
     "start": "node index.js",
@@ -19,15 +19,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IgorAntonov/MERN-Boilerplate.git"
+    "url": "git+https://github.com/IgorAntonov/React-trello.git"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "redux",
+    "node-js",
+    "mongodb",
+    "express",
+    "styled-components"
+  ],
   "author": "Igor Antonov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/IgorAntonov/MERN-Boilerplate/issues"
+    "url": "https://github.com/IgorAntonov/React-trello/issues"
   },
-  "homepage": "https://github.com/IgorAntonov/MERN-Boilerplate#readme",
+  "homepage": "https://github.com/IgorAntonov/React-trello#readme",
   "devDependencies": {
     "autoprefixer": "^8.3.0",
     "babel-core": "^6.26.0",
