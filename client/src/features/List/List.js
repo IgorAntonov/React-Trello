@@ -50,6 +50,14 @@ export class List extends Component {
     }
   }
 
+  accessDnDToEmptyList = () => {
+    const { list } = this.props;
+    if (list.cards.length === 0) {
+      return { minHeight: '0.5rem' };
+    }
+    return null;
+  }
+
   render() {
     const { list, boardId } = this.props;
     const { isStubCardShow, stubCardName, isConfirmShow } = this.state;
@@ -70,7 +78,7 @@ export class List extends Component {
               <div
                 ref={provided.innerRef}
                 {...provided.droppableProps}
-                style={{ minHeight: '0.5rem' }}
+                style={this.accessDnDToEmptyList()}
               >
                 {list.cards.map((card, index) => (
                   <DraggableCard

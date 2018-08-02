@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
-  min-height: 34px;
+  min-height: 47px;
   
   cursor: default;
 `;
