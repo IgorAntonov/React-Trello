@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const compression = require('compression');
 
 const authRoutes = require('./routes/auth');
 const themeRoutes = require('./routes/theme');
@@ -19,6 +20,7 @@ mongoose
 
 const app = express();
 
+app.use(compression());
 app.use(bodyParser.json());
 
 app.use(cookieSession({
