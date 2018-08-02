@@ -35,10 +35,11 @@ app.use('/api/list', listRoutes);
 app.use('/api/card', cardRoutes);
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+  const staticPath = path.resolve(__dirname, '../client/build');
+  app.use(express.static(staticPath));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    res.sendFile(path.resolve(staticPath, 'index.html'));
   });
 }
 
